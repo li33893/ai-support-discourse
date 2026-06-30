@@ -1,0 +1,962 @@
+{
+  "mentalhealth": {
+    "202301": {
+      "raw_count": 10080,
+      "kw_filtered_count": 23,
+      "keyword_hit_rate": 0.002
+    },
+    "202302": {
+      "raw_count": 5582,
+      "kw_filtered_count": 17,
+      "keyword_hit_rate": 0.003
+    },
+    "202303": {
+      "raw_count": 3392,
+      "kw_filtered_count": 13,
+      "keyword_hit_rate": 0.004
+    },
+    "202304": {
+      "raw_count": 7084,
+      "kw_filtered_count": 25,
+      "keyword_hit_rate": 0.004
+    },
+    "202305": {
+      "raw_count": 7254,
+      "kw_filtered_count": 28,
+      "keyword_hit_rate": 0.004
+    },
+    "202306": {
+      "raw_count": 6800,
+      "kw_filtered_count": 15,
+      "keyword_hit_rate": 0.002
+    },
+    "202307": {
+      "raw_count": 7540,
+      "kw_filtered_count": 54,
+      "keyword_hit_rate": 0.007
+    },
+    "202308": {
+      "raw_count": 8764,
+      "kw_filtered_count": 45,
+      "keyword_hit_rate": 0.005
+    },
+    "202309": {
+      "raw_count": 8402,
+      "kw_filtered_count": 32,
+      "keyword_hit_rate": 0.004
+    },
+    "202310": {
+      "raw_count": 9331,
+      "kw_filtered_count": 36,
+      "keyword_hit_rate": 0.004
+    },
+    "202311": {
+      "raw_count": 9645,
+      "kw_filtered_count": 58,
+      "keyword_hit_rate": 0.006
+    },
+    "202312": {
+      "raw_count": 9945,
+      "kw_filtered_count": 49,
+      "keyword_hit_rate": 0.005
+    },
+    "202401": {
+      "raw_count": 10815,
+      "kw_filtered_count": 61,
+      "keyword_hit_rate": 0.006
+    },
+    "202402": {
+      "raw_count": 10503,
+      "kw_filtered_count": 57,
+      "keyword_hit_rate": 0.005
+    },
+    "202403": {
+      "raw_count": 10538,
+      "kw_filtered_count": 62,
+      "keyword_hit_rate": 0.006
+    },
+    "202404": {
+      "raw_count": 10845,
+      "kw_filtered_count": 56,
+      "keyword_hit_rate": 0.005
+    },
+    "202405": {
+      "raw_count": 11027,
+      "kw_filtered_count": 57,
+      "keyword_hit_rate": 0.005
+    },
+    "202406": {
+      "raw_count": 9585,
+      "kw_filtered_count": 59,
+      "keyword_hit_rate": 0.006
+    },
+    "202407": {
+      "raw_count": 9910,
+      "kw_filtered_count": 43,
+      "keyword_hit_rate": 0.004
+    },
+    "202408": {
+      "raw_count": 10667,
+      "kw_filtered_count": 57,
+      "keyword_hit_rate": 0.005
+    },
+    "202409": {
+      "raw_count": 7549,
+      "kw_filtered_count": 37,
+      "keyword_hit_rate": 0.005
+    },
+    "202410": {
+      "raw_count": 11111,
+      "kw_filtered_count": 62,
+      "keyword_hit_rate": 0.006
+    },
+    "202411": {
+      "raw_count": 10493,
+      "kw_filtered_count": 86,
+      "keyword_hit_rate": 0.008
+    },
+    "202412": {
+      "raw_count": 10684,
+      "kw_filtered_count": 77,
+      "keyword_hit_rate": 0.007
+    },
+    "202501": {
+      "raw_count": 10840,
+      "kw_filtered_count": 89,
+      "keyword_hit_rate": 0.008
+    },
+    "202502": {
+      "raw_count": 10014,
+      "kw_filtered_count": 109,
+      "keyword_hit_rate": 0.011
+    },
+    "202503": {
+      "raw_count": 10959,
+      "kw_filtered_count": 140,
+      "keyword_hit_rate": 0.013
+    },
+    "202504": {
+      "raw_count": 10938,
+      "kw_filtered_count": 154,
+      "keyword_hit_rate": 0.014
+    },
+    "202505": {
+      "raw_count": 11977,
+      "kw_filtered_count": 87,
+      "keyword_hit_rate": 0.007
+    },
+    "202506": {
+      "raw_count": 11986,
+      "kw_filtered_count": 44,
+      "keyword_hit_rate": 0.004
+    },
+    "202507": {
+      "raw_count": 12508,
+      "kw_filtered_count": 37,
+      "keyword_hit_rate": 0.003
+    },
+    "202508": {
+      "raw_count": 11830,
+      "kw_filtered_count": 26,
+      "keyword_hit_rate": 0.002
+    },
+    "202509": {
+      "raw_count": 11082,
+      "kw_filtered_count": 25,
+      "keyword_hit_rate": 0.002
+    },
+    "202510": {
+      "raw_count": 11795,
+      "kw_filtered_count": 19,
+      "keyword_hit_rate": 0.002
+    },
+    "202511": {
+      "raw_count": 11710,
+      "kw_filtered_count": 25,
+      "keyword_hit_rate": 0.002
+    },
+    "202512": {
+      "raw_count": 11805,
+      "kw_filtered_count": 16,
+      "keyword_hit_rate": 0.001
+    },
+    "202601": {
+      "raw_count": 12297,
+      "kw_filtered_count": 23,
+      "keyword_hit_rate": 0.002
+    },
+    "202602": {
+      "raw_count": 11814,
+      "kw_filtered_count": 17,
+      "keyword_hit_rate": 0.001
+    }
+  },
+  "depression": {
+    "202301": {
+      "raw_count": 12167,
+      "kw_filtered_count": 15,
+      "keyword_hit_rate": 0.001
+    },
+    "202302": {
+      "raw_count": 10555,
+      "kw_filtered_count": 27,
+      "keyword_hit_rate": 0.003
+    },
+    "202303": {
+      "raw_count": 10971,
+      "kw_filtered_count": 18,
+      "keyword_hit_rate": 0.002
+    },
+    "202304": {
+      "raw_count": 10784,
+      "kw_filtered_count": 16,
+      "keyword_hit_rate": 0.001
+    },
+    "202305": {
+      "raw_count": 10915,
+      "kw_filtered_count": 18,
+      "keyword_hit_rate": 0.002
+    },
+    "202306": {
+      "raw_count": 9822,
+      "kw_filtered_count": 13,
+      "keyword_hit_rate": 0.001
+    },
+    "202307": {
+      "raw_count": 10794,
+      "kw_filtered_count": 30,
+      "keyword_hit_rate": 0.003
+    },
+    "202308": {
+      "raw_count": 10916,
+      "kw_filtered_count": 41,
+      "keyword_hit_rate": 0.004
+    },
+    "202309": {
+      "raw_count": 10505,
+      "kw_filtered_count": 27,
+      "keyword_hit_rate": 0.003
+    },
+    "202310": {
+      "raw_count": 10527,
+      "kw_filtered_count": 36,
+      "keyword_hit_rate": 0.003
+    },
+    "202311": {
+      "raw_count": 10961,
+      "kw_filtered_count": 36,
+      "keyword_hit_rate": 0.003
+    },
+    "202312": {
+      "raw_count": 11525,
+      "kw_filtered_count": 39,
+      "keyword_hit_rate": 0.003
+    },
+    "202401": {
+      "raw_count": 12756,
+      "kw_filtered_count": 50,
+      "keyword_hit_rate": 0.004
+    },
+    "202402": {
+      "raw_count": 11966,
+      "kw_filtered_count": 38,
+      "keyword_hit_rate": 0.003
+    },
+    "202403": {
+      "raw_count": 11964,
+      "kw_filtered_count": 48,
+      "keyword_hit_rate": 0.004
+    },
+    "202404": {
+      "raw_count": 12132,
+      "kw_filtered_count": 55,
+      "keyword_hit_rate": 0.005
+    },
+    "202405": {
+      "raw_count": 11860,
+      "kw_filtered_count": 56,
+      "keyword_hit_rate": 0.005
+    },
+    "202406": {
+      "raw_count": 12447,
+      "kw_filtered_count": 45,
+      "keyword_hit_rate": 0.004
+    },
+    "202407": {
+      "raw_count": 12487,
+      "kw_filtered_count": 47,
+      "keyword_hit_rate": 0.004
+    },
+    "202408": {
+      "raw_count": 12704,
+      "kw_filtered_count": 52,
+      "keyword_hit_rate": 0.004
+    },
+    "202409": {
+      "raw_count": 12883,
+      "kw_filtered_count": 44,
+      "keyword_hit_rate": 0.003
+    },
+    "202410": {
+      "raw_count": 13575,
+      "kw_filtered_count": 49,
+      "keyword_hit_rate": 0.004
+    },
+    "202411": {
+      "raw_count": 13213,
+      "kw_filtered_count": 47,
+      "keyword_hit_rate": 0.004
+    },
+    "202412": {
+      "raw_count": 12628,
+      "kw_filtered_count": 65,
+      "keyword_hit_rate": 0.005
+    },
+    "202501": {
+      "raw_count": 12235,
+      "kw_filtered_count": 66,
+      "keyword_hit_rate": 0.005
+    },
+    "202502": {
+      "raw_count": 11114,
+      "kw_filtered_count": 56,
+      "keyword_hit_rate": 0.005
+    },
+    "202503": {
+      "raw_count": 11375,
+      "kw_filtered_count": 92,
+      "keyword_hit_rate": 0.008
+    },
+    "202504": {
+      "raw_count": 10931,
+      "kw_filtered_count": 63,
+      "keyword_hit_rate": 0.006
+    },
+    "202505": {
+      "raw_count": 11770,
+      "kw_filtered_count": 69,
+      "keyword_hit_rate": 0.006
+    },
+    "202506": {
+      "raw_count": 10178,
+      "kw_filtered_count": 88,
+      "keyword_hit_rate": 0.009
+    },
+    "202507": {
+      "raw_count": 12451,
+      "kw_filtered_count": 88,
+      "keyword_hit_rate": 0.007
+    },
+    "202508": {
+      "raw_count": 11950,
+      "kw_filtered_count": 74,
+      "keyword_hit_rate": 0.006
+    },
+    "202509": {
+      "raw_count": 11486,
+      "kw_filtered_count": 76,
+      "keyword_hit_rate": 0.007
+    },
+    "202510": {
+      "raw_count": 11520,
+      "kw_filtered_count": 76,
+      "keyword_hit_rate": 0.007
+    },
+    "202511": {
+      "raw_count": 11222,
+      "kw_filtered_count": 97,
+      "keyword_hit_rate": 0.009
+    },
+    "202512": {
+      "raw_count": 10416,
+      "kw_filtered_count": 120,
+      "keyword_hit_rate": 0.012
+    },
+    "202601": {
+      "raw_count": 10803,
+      "kw_filtered_count": 96,
+      "keyword_hit_rate": 0.009
+    },
+    "202602": {
+      "raw_count": 9058,
+      "kw_filtered_count": 107,
+      "keyword_hit_rate": 0.012
+    }
+  },
+  "Anxiety": {
+    "202301": {
+      "raw_count": 8245,
+      "kw_filtered_count": 10,
+      "keyword_hit_rate": 0.001
+    },
+    "202302": {
+      "raw_count": 7019,
+      "kw_filtered_count": 11,
+      "keyword_hit_rate": 0.002
+    },
+    "202303": {
+      "raw_count": 7486,
+      "kw_filtered_count": 9,
+      "keyword_hit_rate": 0.001
+    },
+    "202304": {
+      "raw_count": 6610,
+      "kw_filtered_count": 15,
+      "keyword_hit_rate": 0.002
+    },
+    "202305": {
+      "raw_count": 6708,
+      "kw_filtered_count": 15,
+      "keyword_hit_rate": 0.002
+    },
+    "202306": {
+      "raw_count": 6436,
+      "kw_filtered_count": 6,
+      "keyword_hit_rate": 0.001
+    },
+    "202307": {
+      "raw_count": 6598,
+      "kw_filtered_count": 13,
+      "keyword_hit_rate": 0.002
+    },
+    "202308": {
+      "raw_count": 7151,
+      "kw_filtered_count": 21,
+      "keyword_hit_rate": 0.003
+    },
+    "202309": {
+      "raw_count": 6470,
+      "kw_filtered_count": 14,
+      "keyword_hit_rate": 0.002
+    },
+    "202310": {
+      "raw_count": 6724,
+      "kw_filtered_count": 9,
+      "keyword_hit_rate": 0.001
+    },
+    "202311": {
+      "raw_count": 3245,
+      "kw_filtered_count": 10,
+      "keyword_hit_rate": 0.003
+    },
+    "202312": {
+      "raw_count": 6831,
+      "kw_filtered_count": 16,
+      "keyword_hit_rate": 0.002
+    },
+    "202401": {
+      "raw_count": 7601,
+      "kw_filtered_count": 19,
+      "keyword_hit_rate": 0.002
+    },
+    "202402": {
+      "raw_count": 6954,
+      "kw_filtered_count": 14,
+      "keyword_hit_rate": 0.002
+    },
+    "202403": {
+      "raw_count": 7722,
+      "kw_filtered_count": 18,
+      "keyword_hit_rate": 0.002
+    },
+    "202404": {
+      "raw_count": 6475,
+      "kw_filtered_count": 24,
+      "keyword_hit_rate": 0.004
+    },
+    "202405": {
+      "raw_count": 8755,
+      "kw_filtered_count": 32,
+      "keyword_hit_rate": 0.004
+    },
+    "202406": {
+      "raw_count": 8810,
+      "kw_filtered_count": 21,
+      "keyword_hit_rate": 0.002
+    },
+    "202407": {
+      "raw_count": 9833,
+      "kw_filtered_count": 24,
+      "keyword_hit_rate": 0.002
+    },
+    "202408": {
+      "raw_count": 10301,
+      "kw_filtered_count": 34,
+      "keyword_hit_rate": 0.003
+    },
+    "202409": {
+      "raw_count": 9545,
+      "kw_filtered_count": 38,
+      "keyword_hit_rate": 0.004
+    },
+    "202410": {
+      "raw_count": 7769,
+      "kw_filtered_count": 36,
+      "keyword_hit_rate": 0.005
+    },
+    "202411": {
+      "raw_count": 8294,
+      "kw_filtered_count": 38,
+      "keyword_hit_rate": 0.005
+    },
+    "202412": {
+      "raw_count": 7926,
+      "kw_filtered_count": 38,
+      "keyword_hit_rate": 0.005
+    },
+    "202501": {
+      "raw_count": 8399,
+      "kw_filtered_count": 54,
+      "keyword_hit_rate": 0.006
+    },
+    "202502": {
+      "raw_count": 7167,
+      "kw_filtered_count": 56,
+      "keyword_hit_rate": 0.008
+    },
+    "202503": {
+      "raw_count": 8132,
+      "kw_filtered_count": 53,
+      "keyword_hit_rate": 0.007
+    },
+    "202504": {
+      "raw_count": 7645,
+      "kw_filtered_count": 68,
+      "keyword_hit_rate": 0.009
+    },
+    "202505": {
+      "raw_count": 7498,
+      "kw_filtered_count": 74,
+      "keyword_hit_rate": 0.01
+    },
+    "202506": {
+      "raw_count": 7371,
+      "kw_filtered_count": 73,
+      "keyword_hit_rate": 0.01
+    },
+    "202507": {
+      "raw_count": 7709,
+      "kw_filtered_count": 99,
+      "keyword_hit_rate": 0.013
+    },
+    "202508": {
+      "raw_count": 7777,
+      "kw_filtered_count": 96,
+      "keyword_hit_rate": 0.012
+    },
+    "202509": {
+      "raw_count": 7315,
+      "kw_filtered_count": 65,
+      "keyword_hit_rate": 0.009
+    },
+    "202510": {
+      "raw_count": 7101,
+      "kw_filtered_count": 53,
+      "keyword_hit_rate": 0.007
+    },
+    "202511": {
+      "raw_count": 5992,
+      "kw_filtered_count": 54,
+      "keyword_hit_rate": 0.009
+    },
+    "202512": {
+      "raw_count": 6140,
+      "kw_filtered_count": 55,
+      "keyword_hit_rate": 0.009
+    },
+    "202601": {
+      "raw_count": 6818,
+      "kw_filtered_count": 53,
+      "keyword_hit_rate": 0.008
+    },
+    "202602": {
+      "raw_count": 5565,
+      "kw_filtered_count": 50,
+      "keyword_hit_rate": 0.009
+    }
+  },
+  "therapy": {
+    "202301": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202302": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202303": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202304": {
+      "raw_count": 3,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0.0
+    },
+    "202305": {
+      "raw_count": 417,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0.0
+    },
+    "202306": {
+      "raw_count": 1197,
+      "kw_filtered_count": 3,
+      "keyword_hit_rate": 0.003
+    },
+    "202307": {
+      "raw_count": 1481,
+      "kw_filtered_count": 9,
+      "keyword_hit_rate": 0.006
+    },
+    "202308": {
+      "raw_count": 1481,
+      "kw_filtered_count": 8,
+      "keyword_hit_rate": 0.005
+    },
+    "202309": {
+      "raw_count": 1493,
+      "kw_filtered_count": 8,
+      "keyword_hit_rate": 0.005
+    },
+    "202310": {
+      "raw_count": 1560,
+      "kw_filtered_count": 9,
+      "keyword_hit_rate": 0.006
+    },
+    "202311": {
+      "raw_count": 1527,
+      "kw_filtered_count": 7,
+      "keyword_hit_rate": 0.005
+    },
+    "202312": {
+      "raw_count": 1566,
+      "kw_filtered_count": 6,
+      "keyword_hit_rate": 0.004
+    },
+    "202401": {
+      "raw_count": 1870,
+      "kw_filtered_count": 6,
+      "keyword_hit_rate": 0.003
+    },
+    "202402": {
+      "raw_count": 1810,
+      "kw_filtered_count": 3,
+      "keyword_hit_rate": 0.002
+    },
+    "202403": {
+      "raw_count": 2039,
+      "kw_filtered_count": 16,
+      "keyword_hit_rate": 0.008
+    },
+    "202404": {
+      "raw_count": 1845,
+      "kw_filtered_count": 8,
+      "keyword_hit_rate": 0.004
+    },
+    "202405": {
+      "raw_count": 1982,
+      "kw_filtered_count": 14,
+      "keyword_hit_rate": 0.007
+    },
+    "202406": {
+      "raw_count": 2071,
+      "kw_filtered_count": 8,
+      "keyword_hit_rate": 0.004
+    },
+    "202407": {
+      "raw_count": 2285,
+      "kw_filtered_count": 8,
+      "keyword_hit_rate": 0.004
+    },
+    "202408": {
+      "raw_count": 2264,
+      "kw_filtered_count": 21,
+      "keyword_hit_rate": 0.009
+    },
+    "202409": {
+      "raw_count": 993,
+      "kw_filtered_count": 10,
+      "keyword_hit_rate": 0.01
+    },
+    "202410": {
+      "raw_count": 2111,
+      "kw_filtered_count": 21,
+      "keyword_hit_rate": 0.01
+    },
+    "202411": {
+      "raw_count": 1910,
+      "kw_filtered_count": 33,
+      "keyword_hit_rate": 0.017
+    },
+    "202412": {
+      "raw_count": 1634,
+      "kw_filtered_count": 28,
+      "keyword_hit_rate": 0.017
+    },
+    "202501": {
+      "raw_count": 1818,
+      "kw_filtered_count": 29,
+      "keyword_hit_rate": 0.016
+    },
+    "202502": {
+      "raw_count": 1796,
+      "kw_filtered_count": 22,
+      "keyword_hit_rate": 0.012
+    },
+    "202503": {
+      "raw_count": 944,
+      "kw_filtered_count": 13,
+      "keyword_hit_rate": 0.014
+    },
+    "202504": {
+      "raw_count": 1827,
+      "kw_filtered_count": 49,
+      "keyword_hit_rate": 0.027
+    },
+    "202505": {
+      "raw_count": 1831,
+      "kw_filtered_count": 50,
+      "keyword_hit_rate": 0.027
+    },
+    "202506": {
+      "raw_count": 1846,
+      "kw_filtered_count": 57,
+      "keyword_hit_rate": 0.031
+    },
+    "202507": {
+      "raw_count": 2042,
+      "kw_filtered_count": 66,
+      "keyword_hit_rate": 0.032
+    },
+    "202508": {
+      "raw_count": 2019,
+      "kw_filtered_count": 54,
+      "keyword_hit_rate": 0.027
+    },
+    "202509": {
+      "raw_count": 1835,
+      "kw_filtered_count": 58,
+      "keyword_hit_rate": 0.032
+    },
+    "202510": {
+      "raw_count": 1788,
+      "kw_filtered_count": 49,
+      "keyword_hit_rate": 0.027
+    },
+    "202511": {
+      "raw_count": 1729,
+      "kw_filtered_count": 36,
+      "keyword_hit_rate": 0.021
+    },
+    "202512": {
+      "raw_count": 1756,
+      "kw_filtered_count": 62,
+      "keyword_hit_rate": 0.035
+    },
+    "202601": {
+      "raw_count": 1776,
+      "kw_filtered_count": 46,
+      "keyword_hit_rate": 0.026
+    },
+    "202602": {
+      "raw_count": 1509,
+      "kw_filtered_count": 47,
+      "keyword_hit_rate": 0.031
+    }
+  },
+  "therapyGPT": {
+    "202301": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202302": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202303": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202304": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202305": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202306": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202307": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202308": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202309": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202310": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202311": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202312": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202401": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202402": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202403": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202404": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202405": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202406": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202407": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202408": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202409": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202410": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202411": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202412": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202501": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202502": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202503": {
+      "raw_count": 0,
+      "kw_filtered_count": 0,
+      "keyword_hit_rate": 0
+    },
+    "202504": {
+      "raw_count": 50,
+      "kw_filtered_count": 25,
+      "keyword_hit_rate": 0.5
+    },
+    "202505": {
+      "raw_count": 77,
+      "kw_filtered_count": 51,
+      "keyword_hit_rate": 0.662
+    },
+    "202506": {
+      "raw_count": 87,
+      "kw_filtered_count": 56,
+      "keyword_hit_rate": 0.644
+    },
+    "202507": {
+      "raw_count": 121,
+      "kw_filtered_count": 74,
+      "keyword_hit_rate": 0.612
+    },
+    "202508": {
+      "raw_count": 126,
+      "kw_filtered_count": 80,
+      "keyword_hit_rate": 0.635
+    },
+    "202509": {
+      "raw_count": 154,
+      "kw_filtered_count": 92,
+      "keyword_hit_rate": 0.597
+    },
+    "202510": {
+      "raw_count": 96,
+      "kw_filtered_count": 62,
+      "keyword_hit_rate": 0.646
+    },
+    "202511": {
+      "raw_count": 97,
+      "kw_filtered_count": 53,
+      "keyword_hit_rate": 0.546
+    },
+    "202512": {
+      "raw_count": 105,
+      "kw_filtered_count": 74,
+      "keyword_hit_rate": 0.705
+    },
+    "202601": {
+      "raw_count": 228,
+      "kw_filtered_count": 143,
+      "keyword_hit_rate": 0.627
+    },
+    "202602": {
+      "raw_count": 212,
+      "kw_filtered_count": 134,
+      "keyword_hit_rate": 0.632
+    }
+  }
+}
