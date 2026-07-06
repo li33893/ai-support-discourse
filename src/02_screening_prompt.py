@@ -131,8 +131,7 @@ LEVEL 1 — No acute risk (DEFAULT for most posts)
 Assign this level to:
 - General expressions of sadness, hopelessness, loneliness, or despair
 - Passive existential questioning ("what's the point", "I don't know why I'm still here")
-- Past tense references to resolved crises
-- Content warnings about sensitive topics (e.g., "TW: suicide" as a warning label)
+- Past tense references to resolved crises (desperate, but without actual self-harm activities)
 - Vague or indirect references to not wanting to continue
 - Expressions like "I want to get better" even alongside deep pain
 - Any post where the primary content is about AI use and emotional distress is contextual
@@ -151,6 +150,7 @@ Assign this level ONLY when the post contains:
 - Explicit farewell statements indicating imminent action ("this is my last post")
 DO NOT assign Level 3 for ideation alone — that is Level 2.
 DO NOT assign Level 3 for past self-harm — that is Level 2.
+DO NOT make the judgment based on content warnings about sensitive topics, such as “TW: suicide” used as a warning label. The judgment should be based solely on the content in the body of the post.
 
 ─────────────────────────────────────
 TASK 3: PSYCHOSIS FLAG
@@ -200,10 +200,10 @@ def screen_post(title, body):
         post = post[:3000] + "...[truncated]"
 
     payload = {
-        "model" : "claude-sonnet-4-20250514",
+        "model" :      "claude-sonnet-4-20250514",
         "max_tokens" : 400,
-        "system" : SYSTEM_PROMPT,
-        "messages" : [
+        "system" :     SYSTEM_PROMPT,
+        "messages" :   [
             {"role" : "user", "content" : post}
         ]
     }
@@ -231,12 +231,12 @@ def screen_post(title, body):
         return json.loads(text)
     except Exception as e:
         return {
-                "relevant": None,
-                "confidence": 0.0,
-                "reason": f"error: {e}",
-                "risk_level": None,
-                "risk_reason": f"error: {e}",
-                "psychosis": None,
+                "relevant":         None,
+                "confidence":       0.0,
+                "reason":           f"error: {e}",
+                "risk_level":       None,
+                "risk_reason":      f"error: {e}",
+                "psychosis":        None,
                 "psychosis_reason": f"error: {e}"
         }
 
