@@ -1,3 +1,6 @@
 # Data files
 data/
 literature/
+
+# Secrets
+config_local.py

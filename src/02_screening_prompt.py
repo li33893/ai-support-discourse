@@ -84,6 +84,8 @@ import requests
 import pandas as pd
 import os
 
+from config_local import API_KEY
+
 # ________________________________________________________________________________
 
 # GLOBAL CONSTANTS AREA
@@ -182,8 +184,6 @@ Respond ONLY with a JSON object in this exact format:
   "psychosis_reason": "one sentence if true, null if false"
 }"""
 
-# paste api key here
-API_KEY = ""
 
 # ________________________________________________________________________________
 
