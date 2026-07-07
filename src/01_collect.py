@@ -140,8 +140,8 @@ POSTS_LIST_KW_HIT_LOG = "posts_list_kw_hit_log.json"
 # time periods generator
 def gen_time_periods(lower_year, lower_month, upper_year, upper_month):
 
-    year    = lower_year
-    month   = lower_month
+    year         = lower_year
+    month        = lower_month
     time_periods = []
 
     while (year, month) <= (upper_year, upper_month):
