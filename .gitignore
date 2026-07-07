@@ -4,3 +4,5 @@ literature/
 
 # Secrets
 config_local.py
+
+__pycahce__
