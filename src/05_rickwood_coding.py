@@ -455,6 +455,40 @@ def main():
 
         time.sleep(RATE_LIMIT_DELAY)
 
+    # 06_MERGE + SAVE
+    result_df = pd.DataFrame(results)
+
+    result_df = result_df.rename(columns={
+        "excluded":             "llm_excluded",
+        "reason_for_exclusion": "llm_reason_for_exclusion",
+        "timeframe":            "llm_timeframe",
+        "source":               "llm_source",
+        "usage_intent":         "llm_usage_intent",
+        "confidence":           "llm_coding_confidence",
+        "reasoning":            "llm_reasoning",
+    })
+
+    out_df = input_df.merge(result_df, on="post_id", how="left")
+    out_df.to_csv(output_file, index=False, encoding="utf-8-sig")
+    print(f"Saved to {output_file}")
+
+    # 07_SUMMARY
+    n_excluded = (out_df["llm_excluded"] == True).sum()
+    n_coded    = (out_df["llm_excluded"] == False).sum()
+    n_errors   = out_df["llm_excluded"].isna().sum()
+
+    print("-" * 25)
+    print(f"Total:    {len(out_df)}")
+    print(f"Excluded: {n_excluded}")
+    print(f"Coded:    {n_coded}")
+    print(f"Errors:   {n_errors}")
+
+    if n_coded > 0:
+        coded = out_df[out_df["llm_excluded"] == False]
+        print(f"Timeframe: {coded['llm_timeframe'].value_counts().to_dict()}")
+        print(f"Source:    {coded['llm_source'].value_counts().to_dict()}")
+        print(f"Type:      {coded['llm_usage_intent'].value_counts().to_dict()}")
+
 
 if __name__ == "__main__":
     main()
