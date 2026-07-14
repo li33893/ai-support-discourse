@@ -180,7 +180,7 @@ def main():
     print(f"Disagreements:      {len(exclusion_dis)} cases")
 
 
-    # 02_PRINT THE CONFUSION MATRIX AND PUT IT INTO OUTPUTFILE
+    # 04_PRINT THE CONFUSION MATRIX AND PUT IT INTO OUTPUTFILE
     with open(cm_path, "w", encoding="utf-8") as output_file:
         # a list to save disagreement cases
         all_disagreements = []
@@ -239,13 +239,13 @@ def main():
                 print(conf_text)
                 output_file.write(conf_text + "\n\n")
     
-    # PART 3: export disagreements to CSV
+    # 05_export disagreements to CSV
     dis_path = os.path.join(outputs, RICKWOOD_DISAGREEMENTS)
     dis_df   = pd.concat(all_disagreements, ignore_index=True)
     dis_df.to_csv(dis_path, index=False, encoding="utf-8-sig")
     print(f"\nDisagreements saved to {dis_path} ({len(dis_df)} rows)")
 
-    # PART 4: summary
+    # 06_summary
     print("\n" + "=" * 50)
     print("SUMMARY")
     all_pass = True
