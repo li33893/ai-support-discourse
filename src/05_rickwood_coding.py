@@ -22,12 +22,11 @@ FLOW:
        -> {input_stem}_llm_coded.csv
 
 INPUT FILES:
-    pilot_sample.csv          Pilot validation sample (default)
-    posts_list_cleaned.csv    Full corpus
+    pilot_sample.csv          Pilot validation sample 
 
 OUTPUT FILES:
-    {input_stem}_llm_coded.csv         Original rows + LLM codes
-    {input_stem}_llm_checkpoint.jsonl  Per-post checkpoint (deletable after success)
+    pilot_sample_llm_coded.csv         Original rows + LLM codes
+    pilot_sample_llm_checkpoint.jsonl  Per-post checkpoint (deletable after success)
 
 NEXT STEP: 06_rickwood_validation.py
 
@@ -70,7 +69,7 @@ import json
 import requests
 import argparse
 import time
-import sys
+from config_local import API_KEY
 
 # ________________________________________________________________________________
 
@@ -78,7 +77,6 @@ import sys
 
 # ________________________________________________________________________________
 
-from config_local import API_KEY
 MODEL            = "claude-sonnet-4-20250514"
 TEMPERATURE      = 0
 MAX_TOKENS       = 1000
@@ -88,7 +86,6 @@ API_VERSION      = "2023-06-01"
 
 # input files
 PILOT_SAMPLE  = "pilot_sample.csv"
-POSTS_CLEANED = "posts_list_cleaned.csv"
 
 # system prompt (Rickwood coding rules)
 SYSTEM_PROMPT = r"""You are a research coding assistant for a study examining how Reddit users discuss using AI tools for mental health support.
@@ -390,15 +387,15 @@ def code_post (title, body):
   
 # output errors as dict
 def _error_result(msg):
-    return {
-        "excluded":             None,
-        "reason_for_exclusion": None,
-        "timeframe":            None,
-        "source":               None,
-        "usage_intent":         None,
-        "confidence":           None,
-        "reasoning":            f"ERROR: {msg}"
-    }
+  return {
+      "excluded":             None,
+      "reason_for_exclusion": None,
+      "timeframe":            None,
+      "source":               None,
+      "usage_intent":         None,
+      "confidence":           None,
+      "reasoning":            f"ERROR: {msg}"
+  }
 
 # ________________________________________________________________________________
 
@@ -408,87 +405,84 @@ def _error_result(msg):
 
 def main():
 
-    # 01_ARGUMENT PARSERS
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--input", default=PILOT_SAMPLE)
-    parser.add_argument("--resume", action="store_true")
-    args = parser.parse_args()
+  # 01_ARGUMENT PARSERS
+  parser = argparse.ArgumentParser()
+  parser.add_argument("--resume", action="store_true")
+  args = parser.parse_args()
 
-    # 02_DIRECTORIES
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    data_dir   = os.path.join(script_dir, "..", "data")
+  # 02_DIRECTORIES
+  script_dir      = os.path.dirname(os.path.abspath(__file__))
+  data_dir        = os.path.join(script_dir, "..", "data")
+  stem            = os.path.splitext(PILOT_SAMPLE)[0]
+  input_file      = os.path.join(data_dir, PILOT_SAMPLE)
+  output_file     = os.path.join(data_dir, f"{stem}_llm_coded.csv")
+  checkpoint_file = os.path.join(data_dir, f"{stem}_llm_checkpoint.jsonl")
 
-    stem = os.path.splitext(args.input)[0]
+  # 03_READ INPUT
+  input_df = pd.read_csv(input_file, encoding="utf-8-sig")
+  print(f"Read {len(input_df)} posts.")
 
-    input_file      = os.path.join(data_dir, args.input)
-    output_file     = os.path.join(data_dir, f"{stem}_llm_coded.csv")
-    checkpoint_file = os.path.join(data_dir, f"{stem}_llm_checkpoint.jsonl")
+  # 04_RESUME FROM CHECKPOINT
+  completed = {}
+  if args.resume and os.path.exists(checkpoint_file):
+      with open(checkpoint_file, "r", encoding="utf-8") as f:
+          for line in f:
+              rec = json.loads(line)
+              completed[rec["post_id"]] = rec
+      print(f"{len(completed)} posts already done, resuming.")
 
-    # 03_READ INPUT
-    input_df = pd.read_csv(input_file, encoding="utf-8-sig")
-    print(f"Read {len(input_df)} posts.")
+  # 05_CODE LOOP
+  results = []
+  for i, row in input_df.iterrows():
+      post_id = row["post_id"]
 
-    # 04_RESUME FROM CHECKPOINT
-    completed = {}
-    if args.resume and os.path.exists(checkpoint_file):
-        with open(checkpoint_file, "r", encoding="utf-8") as f:
-            for line in f:
-                rec = json.loads(line)
-                completed[rec["post_id"]] = rec
-        print(f"{len(completed)} posts already done, resuming.")
+      if post_id in completed:
+          results.append(completed[post_id])
+          continue
 
-    # 05_CODE LOOP
-    results = []
-    for i, row in input_df.iterrows():
-        post_id = row["post_id"]
+      result = code_post(row["title"], row["body"])
+      result["post_id"] = post_id
+      results.append(result)
 
-        if post_id in completed:
-            results.append(completed[post_id])
-            continue
+      with open(checkpoint_file, "a", encoding="utf-8") as f:
+          f.write(json.dumps(result, ensure_ascii=False) + "\n")
 
-        result = code_post(row["title"], row["body"])
-        result["post_id"] = post_id
-        results.append(result)
+      time.sleep(RATE_LIMIT_DELAY)
 
-        with open(checkpoint_file, "a", encoding="utf-8") as f:
-            f.write(json.dumps(result, ensure_ascii=False) + "\n")
+  # 06_MERGE + SAVE
+  result_df = pd.DataFrame(results)
 
-        time.sleep(RATE_LIMIT_DELAY)
+  result_df = result_df.rename(columns={
+      "excluded":             "llm_excluded",
+      "reason_for_exclusion": "llm_reason_for_exclusion",
+      "timeframe":            "llm_timeframe",
+      "source":               "llm_source",
+      "usage_intent":         "llm_usage_intent",
+      "confidence":           "llm_coding_confidence",
+      "reasoning":            "llm_reasoning",
+  })
 
-    # 06_MERGE + SAVE
-    result_df = pd.DataFrame(results)
+  out_df = input_df.merge(result_df, on="post_id", how="left")
+  out_df.to_csv(output_file, index=False, encoding="utf-8-sig")
+  print(f"Saved to {output_file}")
 
-    result_df = result_df.rename(columns={
-        "excluded":             "llm_excluded",
-        "reason_for_exclusion": "llm_reason_for_exclusion",
-        "timeframe":            "llm_timeframe",
-        "source":               "llm_source",
-        "usage_intent":         "llm_usage_intent",
-        "confidence":           "llm_coding_confidence",
-        "reasoning":            "llm_reasoning",
-    })
+  # 07_SUMMARY
+  n_excluded = (out_df["llm_excluded"] == True).sum()
+  n_coded    = (out_df["llm_excluded"] == False).sum()
+  n_errors   = out_df["llm_excluded"].isna().sum()
 
-    out_df = input_df.merge(result_df, on="post_id", how="left")
-    out_df.to_csv(output_file, index=False, encoding="utf-8-sig")
-    print(f"Saved to {output_file}")
+  print("-" * 25)
+  print(f"Total:    {len(out_df)}")
+  print(f"Excluded: {n_excluded}")
+  print(f"Coded:    {n_coded}")
+  print(f"Errors:   {n_errors}")
 
-    # 07_SUMMARY
-    n_excluded = (out_df["llm_excluded"] == True).sum()
-    n_coded    = (out_df["llm_excluded"] == False).sum()
-    n_errors   = out_df["llm_excluded"].isna().sum()
-
-    print("-" * 25)
-    print(f"Total:    {len(out_df)}")
-    print(f"Excluded: {n_excluded}")
-    print(f"Coded:    {n_coded}")
-    print(f"Errors:   {n_errors}")
-
-    if n_coded > 0:
-        coded = out_df[out_df["llm_excluded"] == False]
-        print(f"Timeframe: {coded['llm_timeframe'].value_counts().to_dict()}")
-        print(f"Source:    {coded['llm_source'].value_counts().to_dict()}")
-        print(f"Type:      {coded['llm_usage_intent'].value_counts().to_dict()}")
+  if n_coded > 0:
+      coded = out_df[out_df["llm_excluded"] == False]
+      print(f"Timeframe: {coded['llm_timeframe'].value_counts().to_dict()}")
+      print(f"Source:    {coded['llm_source'].value_counts().to_dict()}")
+      print(f"Type:      {coded['llm_usage_intent'].value_counts().to_dict()}")
 
 
 if __name__ == "__main__":
-    main()
+  main()

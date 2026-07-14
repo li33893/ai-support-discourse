@@ -1,0 +1,61 @@
+--- Timeframe (kappa=0.765, n=65) PASS ---
+--------------------------------------------------
+        |Habitual|Episodic|      NM|
+--------------------------------------------------
+Habitual|      46|       3|       0|
+Episodic|       1|      12|       0|
+      NM|       1|       1|       1|
+--------------------------------------------------
+
+Top confusion pairs:
+    human=Habitual -> llm=Episodic: 3
+    human=Episodic -> llm=Habitual: 1
+    human=NM -> llm=Habitual: 1
+    human=NM -> llm=Episodic: 1
+
+--- Source (kappa=0.684, n=65) PASS ---
+--------------------------------------------------
+           |    Primary|   Parallel| Supplement|       Solo|Exploration|         NM|
+--------------------------------------------------
+    Primary|         30|          0|          1|          0|          0|          3|
+   Parallel|          1|          2|          0|          0|          0|          0|
+ Supplement|          1|          0|          4|          0|          0|          1|
+       Solo|          0|          0|          0|          0|          0|          0|
+Exploration|          0|          0|          0|          0|          0|          0|
+         NM|          5|          0|          0|          0|          0|         17|
+--------------------------------------------------
+
+Top confusion pairs:
+    human=NM -> llm=Primary: 5
+    human=Primary -> llm=NM: 3
+    human=Primary -> llm=Supplement: 1
+    human=Parallel -> llm=Primary: 1
+    human=Supplement -> llm=Primary: 1
+
+--- Type (kappa=0.682, n=65) PASS ---
+--------------------------------------------------
+     |   ES|   VE|   CO|   RE|   CR|   PE|   SA|   SE|   FS|   RS|   TA|   SR|    N|   OT|
+--------------------------------------------------
+   ES|    6|    0|    1|    1|    0|    0|    0|    0|    0|    0|    1|    0|    0|    0|
+   VE|    0|    8|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|
+   CO|    0|    0|   10|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|
+   RE|    0|    1|    0|    2|    0|    0|    1|    0|    0|    0|    0|    0|    0|    0|
+   CR|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|
+   PE|    1|    0|    0|    0|    0|    0|    0|    0|    0|    0|    1|    0|    0|    0|
+   SA|    0|    0|    0|    0|    0|    0|    2|    0|    0|    0|    0|    0|    0|    0|
+   SE|    0|    2|    0|    0|    0|    1|    0|    7|    0|    0|    3|    0|    0|    0|
+   FS|    0|    0|    0|    0|    0|    1|    0|    0|    1|    0|    0|    0|    0|    0|
+   RS|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|
+   TA|    1|    0|    0|    0|    0|    0|    0|    0|    0|    0|    9|    0|    0|    0|
+   SR|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    2|    0|    0|
+    N|    0|    0|    1|    0|    0|    0|    1|    0|    0|    0|    0|    0|    0|    0|
+   OT|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    0|    1|    0|    0|
+--------------------------------------------------
+
+Top confusion pairs:
+    human=SE -> llm=TA: 3
+    human=SE -> llm=VE: 2
+    human=ES -> llm=CO: 1
+    human=ES -> llm=RE: 1
+    human=ES -> llm=TA: 1
+
