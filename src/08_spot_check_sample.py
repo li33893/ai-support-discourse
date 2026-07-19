@@ -53,9 +53,6 @@ NEXT STEP: 09_spot_check_validate.py (compare human vs LLM codes, compute kappa)
 # ________________________________________________________________________________
 
 import pandas as pd
-import json
-import time
-import requests
 import os
 import sys
 
