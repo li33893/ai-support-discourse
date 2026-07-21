@@ -104,7 +104,7 @@ def main():
     # 03_FILTERING
     # exclude the posts invloved in pilot coding
     pilot_ids     = pilot_df["post_id"]
-    no_pilot_mask = ~input_df["post_id"].isin(pilot_ids)
+    no_pilot_mask = ~input_df["post_id"].astype(str).isin(pilot_ids)
     e_pilot_df    = input_df[no_pilot_mask]
 
     # exclude the posts are coded as "excluded"
