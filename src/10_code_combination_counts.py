@@ -40,7 +40,6 @@ NOTES:
     writes only to outputs/. spot_check_blind.csv carries a small number of
     stray non-UTF-8 bytes, hence encoding_errors="replace" on that read only.
 
-PREVIOUS STEP: 08_spot_check_sample.py
 NEXT STEP: 10_descriptive_stats.py
 ================================================================================
 """
