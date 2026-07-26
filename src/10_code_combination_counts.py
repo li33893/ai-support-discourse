@@ -11,7 +11,7 @@ WHAT THIS SCRIPT DOES:
     3. Computes percent agreement, Cohen's kappa and Gwet's AC1 per Rickwood
        dimension (Timeframe, Source, Type)
     4. Counts and prints the disagreement pairs per dimension, so directional
-       bias can be inspected rather than only the disagreement total
+       bias can be inspected
     5. For human categories involved in disagreements, prints correct_n,
        precision and recall, and exports these category-level results
     6. Reports PASS/FAIL against KAPPA_THRESHOLD and exports the summary table
