@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<title>post reader</title>
+</head>
+<style>
+    table, tr, td, th{
+        border : 1px solid black;
+        border-collapse: collapse;
+        padding : 5px 10px;
+        text-align: center;
+    }
+</style>
+<body>
+	<div id="app">
+		
+	</div>
+</body>
+</html>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                list : []
+            };
+        },
+        methods: {
+            fnGetList(){
+                let self = this;
+				fetch("http://localhost:3000/test")
+                    .then( res => res.json() )
+                    .then( data => {
+                        self.list = data.list;
+                        console.log(self.list);
+                    } )
+            }
+        },
+        mounted() {
+            var self = this;
+            self.fnGetList();
+        }
+    });
+    app.mount('#app');
+</script>

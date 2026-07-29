@@ -11,3 +11,6 @@ __pycahce__/
 
 # Checkpoints
 *_llm_checkpoint.jsonl
+
+# sampling record json
+*sampling_first_round.json
