@@ -193,14 +193,6 @@ SLOTS = [
      "n": 4, "timeframe": ["Habitual"], "type": ["ES"],
      "source": None, "subreddit": None},
  
-    # --- 2.2.5 leftover combinations ---
-    {"name": "therapy leftover",
-     "n": 1, "timeframe": None, "type": None,
-     "source": None, "subreddit": ["therapy"]},
- 
-    {"name": "Anxiety leftover",
-     "n": 1, "timeframe": None, "type": None,
-     "source": None, "subreddit": ["Anxiety"]},
 ]
  
  

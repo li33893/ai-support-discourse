@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>post reader</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+        body {
+            background-color: #F0EEE6;
+            color: #222222;
+            font-family: sans-serif;
+            font-size: 14px;
+            margin: 15px;
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+
+        td {
+            border: 1px solid #CCCCCC;
+            background-color: #FAF9F5;
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        td.side { width: 200px; }
+
+        .item { cursor: pointer; padding: 3px 0; }
+
+        .on { color: #C96442; font-weight: bold; }
+
+        .gray { color: #888888; }
+
+        .postBody {
+            white-space: pre-wrap;
+            font-family: Georgia, serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .paging { text-align: center; padding: 15px 0; }
+
+        .paging a {
+            padding: 3px 7px;
+            border: 1px solid #CCCCCC;
+            background-color: #FFFFFF;
+            color: #666666;
+            text-decoration: none;
+        }
+
+        .paging a.active {
+            background-color: #C96442;
+            border-color: #C96442;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <p>
+            <b>post reader</b>
+            | {{ currentCombo === "" ? "全部" : currentCombo }}
+            | {{ page }} / {{ pageNum }}
+            | <span class="gray">{{ saved ? "已保存" : "保存中" }}</span>
+        </p>
+
+        <table>
+            <tr>
+                <!-- 左：combination 列表 -->
+                <td class="side">
+                    <p class="gray">combinations</p>
+
+                    <div class="item" :class="{on: currentCombo === ''}" @click="fnFilter('')">
+                        全部 ({{ postList.length }})
+                    </div>
+
+                    <div class="item" v-for="c in comboList" :key="c.slot" :class="{on: currentCombo === c.slot}"
+                        @click="fnFilter(c.slot)">
+                        {{ c.slot }} ({{ c.count }})
+                    </div>
+                </td>
+
+                <!-- 中：正文 + tag 输入 -->
+                <td>
+                    <div v-if="!post" class="gray">左边选一个 combination。</div>
+
+                    <div v-else>
+                        <p class="gray">
+                            {{ post.post_id }} &nbsp; {{ post.subreddit }} &nbsp; {{ post.word_count }} words &nbsp;
+                            <a v-if="post.url" :href="post.url" target="_blank">原帖</a>
+                        </p>
+
+                        <h3>{{ post.title }}</h3>
+                        <div class="postBody">{{ post.body }}</div>
+
+                        <hr>
+
+                        <p>
+                            <input v-model="newTag" placeholder="输入 tag 后回车" @keyup.enter="fnAddTag()">
+                            <button @click="fnAddTag()">加</button>
+                        </p>
+
+                        <p>
+                            <span v-for="(t, i) in post.tags" :key="t">
+                                {{ t }} <a href="javascript:;" @click="fnDelTag(i)">x</a> &nbsp;
+                            </span>
+                        </p>
+                    </div>
+                </td>
+
+                <!-- 右：tag 导航，数字是页码 -->
+                <td class="side">
+                    <p class="gray">tags</p>
+
+                    <div v-if="tagList.length === 0" class="gray">还没有 tag。</div>
+
+                    <p v-for="t in tagList" :key="t.name">
+                        {{ t.name }}<br>
+                        <a href="javascript:;" v-for="num in t.pages" :key="num" @click="fnChange(num)">{{ num }}</a>
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <!-- 页码 -->
+        <div class="paging" v-if="pageNum > 0">
+            <button @click="fnPre()" :disabled="page <= 1">◀</button>
+            <a href="javascript:;" v-for="num in pageRangeList" :key="num" @click="fnChange(num)"
+                :class="{active: page == num}">{{ num }}</a>
+            <button @click="fnNext()" :disabled="page >= pageNum">▶</button>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    /*
+     * 数据流：
+     *   开页  -> fnGetData  取 data.json，顺手数出各 combination 的篇数
+     *   点左栏 -> fnFilter   把 viewList 换成该组合的帖子，跳到第 1 篇
+     *   点页码 -> fnChange   page 变，post = viewList[page-1]
+     *   加tag  -> fnAddTag   改 post.tags，然后 fnSave 把整份 postList 发回服务器
+     */
+    const app = Vue.createApp({
+        data() {
+            return {
+                postList: [],      // data.json 全部 71 篇
+                comboList: [],     // 左栏：[{slot, count}]
+                currentCombo: "",  // "" = 全部
+                viewList: [],      // 当前组合下的帖子
+                post: null,        // 中间显示的这一篇
+                tagList: [],       // 右栏：[{name, pages}]
+                newTag: "",
+                saved: true,
+
+                // 页码：一页 = 一篇
+                page: 1,
+                pageNum: 0,
+                pageRange: 10,     // 一次显示 10 个页码
+                pageRangeList: []
+            };
+        },
+        methods: {
+            // 取数据（只在开页时跑一次）
+            fnGetData: function () {
+                let self = this;
+                $.ajax({
+                    url: "/api/data",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        self.postList = data;
+
+                        // 数各 combination 的篇数
+                        let map = {};
+                        data.forEach(function (p) {
+                            if (!p.tags) { p.tags = []; }
+                            if (!map[p.slot]) { map[p.slot] = { slot: p.slot, count: 0 }; }
+                            map[p.slot].count++;
+                        });
+                        self.comboList = Object.values(map);
+
+                        self.fnFilter("");
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("load failed:", status, error);
+                    }
+                });
+            },
+
+            // 把整份 postList 写回 data.json
+            fnSave: function () {
+                let self = this;
+                self.saved = false;
+                $.ajax({
+                    url: "/api/data",
+                    type: "POST",
+                    contentType: "application/json",   // 发数组，必须声明
+                    data: JSON.stringify(self.postList),
+                    dataType: "json",
+                    success: function () { self.saved = true; },
+                    error: function (xhr, status, error) {
+                        console.error("save failed:", status, error);
+                    }
+                });
+            },
+
+            // 选组合
+            fnFilter: function (combo) {
+                let self = this;
+                self.currentCombo = combo;
+
+                if (combo === "") {
+                    self.viewList = self.postList;
+                } else {
+                    self.viewList = self.postList.filter(function (p) {
+                        return p.slot === combo;
+                    });
+                }
+
+                self.pageNum = self.viewList.length;
+                self.fnTagList();
+                self.fnChange(1);
+            },
+
+            // 翻到第 num 篇
+            fnChange: function (num) {
+                let self = this;
+                self.page = num;
+                self.post = self.viewList[num - 1];
+                self.newTag = "";
+                self.fnpageRange();
+            },
+
+            fnPre: function () {
+                if (this.page > 1) { this.fnChange(this.page - 1); }
+            },
+
+            fnNext: function () {
+                if (this.page < this.pageNum) { this.fnChange(this.page + 1); }
+            },
+
+            // 算出底部要显示哪 10 个页码
+            fnpageRange: function () {
+                let self = this;
+                self.pageRangeList = [];
+                let startPage = Math.floor((self.page - 1) / self.pageRange) * self.pageRange + 1;
+                let endPage = Math.min(startPage + self.pageRange - 1, self.pageNum);
+
+                for (let i = startPage; i <= endPage; i++) {
+                    self.pageRangeList.push(i);
+                }
+            },
+
+            fnAddTag: function () {
+                let self = this;
+                let t = self.newTag.trim();
+                if (!self.post || t === "") { return; }
+
+                if (self.post.tags.indexOf(t) === -1) { self.post.tags.push(t); }
+                self.newTag = "";
+                self.fnTagList();
+                self.fnSave();
+            },
+
+            fnDelTag: function (i) {
+                let self = this;
+                self.post.tags.splice(i, 1);
+                self.fnTagList();
+                self.fnSave();
+            },
+
+            // 右栏：收集当前组合里出现过的 tag，记下各自在第几页
+            fnTagList: function () {
+                let self = this;
+                let map = {};
+                self.viewList.forEach(function (p, i) {
+                    p.tags.forEach(function (t) {
+                        if (!map[t]) { map[t] = { name: t, pages: [] }; }
+                        map[t].pages.push(i + 1);
+                    });
+                });
+                self.tagList = Object.values(map);
+            }
+        },
+        mounted() {
+            this.fnGetData();
+        }
+    });
+
+    app.mount('#app');
+</script>

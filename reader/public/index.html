@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 24px;
+        background-color: #EFEDE8;
+        font-family: system-ui, sans-serif;
+        font-size: 14px;
+        color: #1A1A1A;
+        overflow: hidden;
+    }
+
+    p{
+        margin-left: 30px;
+    }
+
+    .mainContainer {
+        max-width: 1250px;
+        margin: 0 auto;
+    }
+
+    .topBar {
+        padding-bottom: 14px;
+        color: #5A5A5A;
+        font-size: 13px;
+    }
+
+    .topBar .savedFlag {
+        float: right;
+        margin-right: 8px;
+    }
+
+    .threePillar {
+        display: flex;
+        gap: 14px;
+        height: calc(100vh - 130px);
+    }
+
+    .combi,
+    .tagNav {
+        width: 250px;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        background-color: #F7F5F0;
+        border: 1px solid #D8D4CC;
+        padding: 24px 28px;
+        word-break: break-word;
+        font-family: "Palatino Linotype", Palatino, Georgia, serif;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .content {
+        flex: 1;
+        min-width: 400px;
+        box-sizing: border-box;
+        background-color: #FFFFFF;
+        border: 1px solid #D8D4CC;
+        padding: 30px 34px;
+        overflow-y: auto;
+    }
+
+    .title {
+        font-family: Charter, "Iowan Old Style", Palatino, serif;
+        font-size: 23px;
+        font-weight: 700;
+        line-height: 1.35;
+        margin-bottom: 18px;
+        color: #111111;
+    }
+
+    .body {
+        white-space: pre-wrap;
+        font-family: Charter, "Iowan Old Style", Palatino, serif;
+        font-size: 17.5px;
+        font-weight: 500;
+        line-height: 1.75;
+        max-width: 680px;
+        color: #141414;
+    }
+
+    .combi a {
+        display: block;
+        padding: 3px 0;
+        color: #5C4033;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .tagNav a {
+        display: block;
+        padding: 3px 0;
+        color: #7A6A5A;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .combi a.on {
+        color: #A8442A;
+        font-weight: 700;
+    }
+
+    .combi a:hover,
+    .tagNav a:hover,
+    .paging a:hover {
+        color: #A8442A;
+    }
+
+    .tag {
+        margin-top: 30px;
+        padding-top: 18px;
+        border-top: 1px solid #E5E1D8;
+    }
+
+    .tag>div {
+        display: inline-block;
+        background-color: #F2EFE8;
+        border: 1px solid #DDD8CE;
+        padding: 4px 10px;
+        margin: 0 6px 6px 0;
+        font-family: "Palatino Linotype", Palatino, Georgia, serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: #5C4033;
+    }
+
+    .tag a {
+        color: #999999;
+        text-decoration: none;
+        padding-left: 6px;
+    }
+
+    .tagInput {
+        margin-top: 16px;
+    }
+
+    .tagInput input {
+        width: 260px;
+        padding: 7px 9px;
+        border: 1px solid #CCC7BC;
+        font-family: inherit;
+        font-size: 14px;
+    }
+
+    .tagInput button {
+        padding: 7px 13px;
+        border: 1px solid #CCC7BC;
+        background-color: #FFFFFF;
+        font-family: inherit;
+        font-size: 13px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    .paging {
+        padding-top: 16px;
+        text-align: center;
+    }
+
+    .paging a {
+        display: inline-block;
+        min-width: 22px;
+        margin: 0 5px;
+        color: #6A6A6A;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .paging a.on {
+        color: #A8442A;
+        font-weight: 700;
+    }
+
+    .paging button {
+        margin: 0 8px;
+        padding: 0 4px;
+        border: none;
+        background: none;
+        color: #6A6A6A;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .paging button:disabled {
+        color: #C5C0B6;
+        cursor: default;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div class="mainContainer">
+            <p>{{ postList.length }} posts | {{ saved ? "已保存" : "保存中" }}</p>
+            <div class="threePillar">
+                <div class="combi" :key="combi">
+                    <div v-for="combi in combiList">
+                        <a href="javascript:;" @click=" fnFilter(combi)" :class="{ on: currentCombi === combi }">{{combi}}</a>
+                    </div>
+                </div>
+
+                <div class="content" :key="post.post_id" v-if="post">
+                    <div class="title">{{post.title}}</div>
+                    <div class="body">{{post.body}}</div>
+                    <div class="tag">
+                        <div v-for="(t, i) in post.tags" :key="t">
+                            {{t}} <a href="javascript:;" @click="fnDelTag(i)">x</a>
+                        </div>
+                    </div>
+
+                    <div class="tagInput">
+                        <input type="text" v-model="newTag" placeholder="enter a tag for this post"
+                            @keyup.enter="fnAddTag()">
+                        <button @click="fnAddTag(post)">Add tag</button>
+                    </div>
+                </div>
+
+                <div class="tagNav">
+                    <div v-for="t in tagList" :key="t.name + t.page">
+                        <a href="javascript:;" @click="fnChange(t.page)">{{ t.name }}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="paging" v-if="pageNum > 0">
+                <button @click="fnPre()" :disabled="page <= 1">◀</button>
+                <a href="javascript:;" v-for="num in pageRangeList" :key="num" @click="fnChange(num)" :class="{ on: page === num }">{{ num }}</a>
+                <button @click="fnNext()" :disabled="page >= pageNum">▶</button>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    postList: [],
+                    combiList: [],
+
+                    currentCombi: "",
+                    viewList: [],
+                    tagList: [],
+
+                    newTag: "",
+
+                    saved: true,
+
+                    //paging
+                    page: 1,
+                    pageNum: 0,
+                    pageRange: 10,
+                    pageRangeList: [],
+                };
+            },
+            computed: {
+                post() {
+                    return this.viewList[this.page - 1] || null;
+                },
+            },
+            methods: {
+                fnGetList: function () {
+                    let self = this;
+                    fetch("/api/data")
+                        .then(res => res.json())
+                        .then(data => {
+                            self.postList = data;
+                            //给每个没有tags的都加上tags
+                            data.forEach(function (p) {
+                                if (!p.tags) { p.tags = []; }
+                            });
+                            self.fnGetCombiList();
+                            self.fnFilter("");
+                            self.fnChange(1);
+
+                        });
+
+                },
+
+                fnChange(num) {
+                    let self = this;
+                    self.page = num;
+                    let startPage = Math.floor((self.page - 1) / self.pageRange) * self.pageRange + 1;
+                    let endPage = Math.min(startPage + self.pageRange - 1, self.pageNum);
+                    self.fnpageRange(startPage, endPage);
+                },
+
+                fnNext() {
+                    let self = this;
+                    self.page += 1;
+                    self.fnChange(self.page)
+                },
+
+                fnPre() {
+                    let self = this;
+                    self.page -= 1;
+                    self.fnChange(self.page)
+                },
+
+                fnpageRange(start, end) {
+                    let self = this;
+
+                    self.pageRangeList = [];//不清空的话，会往里面加
+
+                    for (let i = start; i <= end; i++) {
+                        self.pageRangeList.push(i);
+                    }
+                },
+
+                fnGetCombiList() {
+                    let self = this;
+                    for (let i = 0; i <= self.postList.length - 1; i++) {
+                        let slot = self.postList[i].slot
+
+                        if (!self.combiList.includes(slot)) {
+                            self.combiList.push(slot)
+                        }
+                    }
+                },
+
+                fnFilter(combi) {
+                    let self = this;
+                    self.currentCombi = combi;
+                    if (combi == "") {
+                        self.viewList = self.postList
+                    } else {
+                        self.viewList = self.postList.filter(function (p) {
+                            return p.slot == combi;
+                        });
+                    }
+                    // 不加的话页数总是不变，也不会跳回第一篇
+                    self.pageNum = self.viewList.length;
+                    self.fnChange(1);
+                    self.fntagList();
+                },
+
+                fnAddTag(post) {
+                    let self = this;
+                    let tag = self.newTag.trim();
+                    if (tag == null || tag == "") {
+                        return;
+                    }
+                    if (!self.post.tags.includes(tag)) {
+                        self.post.tags.push(tag);
+                    }
+                    self.newTag = "";
+                    self.fnSave();
+                    self.fntagList();
+                },
+
+                fnDelTag(i) {
+                    let self = this;
+                    self.post.tags.splice(i, 1);//从第i个开始删1个
+                    self.fnSave();
+                    self.fntagList();
+                },
+
+                fnSave() {
+                    let self = this;
+                    self.saved = false;
+
+                    fetch("/api/data", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(self.postList)
+                    })
+                        .then(res => {
+                            if (!res.ok) { throw new Error("save failed: " + res.status); }
+                            self.saved = true;
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                },
+
+                fntagList() {
+                    let self = this;
+                    self.tagList = [];
+                    for (let i = 0; i <= self.viewList.length - 1; i++) {
+                        let tags = self.viewList[i].tags;
+                        for (let j = 0; j <= tags.length - 1; j++) {
+                            self.tagList.push({ name: tags[j], page: i + 1 });
+                        }
+                    }
+
+                }
+            },
+
+
+            mounted() {
+                this.fnGetList();
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>
