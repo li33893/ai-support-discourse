@@ -17,7 +17,7 @@
         overflow: hidden;
     }
 
-    p{
+    p {
         margin-left: 30px;
     }
 
@@ -96,7 +96,7 @@
 
     .tagNav a {
         display: block;
-        padding: 3px 0;
+        padding: 6px 0;
         color: #7A6A5A;
         font-weight: 600;
         text-decoration: none;
@@ -192,6 +192,21 @@
         color: #C5C0B6;
         cursor: default;
     }
+
+    .detail {
+        font-size: 8pt;
+        color: #6A6A6A;
+        margin-bottom: 35px;
+    }
+
+    .detail a{
+        text-decoration: none;
+    }
+
+    .tagNav {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 </style>
 
 <body>
@@ -201,12 +216,16 @@
             <div class="threePillar">
                 <div class="combi" :key="combi">
                     <div v-for="combi in combiList">
-                        <a href="javascript:;" @click=" fnFilter(combi)" :class="{ on: currentCombi === combi }">{{combi}}</a>
+                        <a href="javascript:;" @click=" fnFilter(combi)"
+                            :class="{ on: currentCombi === combi }">{{combi}}</a>
                     </div>
                 </div>
 
                 <div class="content" :key="post.post_id" v-if="post">
                     <div class="title">{{post.title}}</div>
+                    <div class="detail">r/{{post.subreddit}} | {{post.llm_source}} x {{post.llm_timeframe}} x
+                        {{post.llm_usage_intent}} <a v-if="post.url" :href="post.url" target="_blank" style="color: #A8442A;">原帖</a></div>
+                    
                     <div class="body">{{post.body}}</div>
                     <div class="tag">
                         <div v-for="(t, i) in post.tags" :key="t">
@@ -230,7 +249,8 @@
 
             <div class="paging" v-if="pageNum > 0">
                 <button @click="fnPre()" :disabled="page <= 1">◀</button>
-                <a href="javascript:;" v-for="num in pageRangeList" :key="num" @click="fnChange(num)" :class="{ on: page === num }">{{ num }}</a>
+                <a href="javascript:;" v-for="num in pageRangeList" :key="num" @click="fnChange(num)"
+                    :class="{ on: page === num }">{{ num }}</a>
                 <button @click="fnNext()" :disabled="page >= pageNum">▶</button>
             </div>
 

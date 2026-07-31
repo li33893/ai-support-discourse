@@ -14,3 +14,6 @@ __pycahce__/
 
 # sampling record json
 *sampling_first_round.json
+
+# analysis_log
+*analysis_log*
