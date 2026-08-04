@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> <!--渲染mark down-->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script> <!--渲染mark down-->
 </head>
 
 <style>
@@ -199,7 +201,7 @@
         margin-bottom: 35px;
     }
 
-    .detail a{
+    .detail a {
         text-decoration: none;
     }
 
@@ -222,11 +224,12 @@
                 </div>
 
                 <div class="content" :key="post.post_id" v-if="post">
-                    <div class="title">{{post.title}}</div>
+                    <div class="title" v-html="renderedTitle">{{post.title}}</div>
                     <div class="detail">r/{{post.subreddit}} | {{post.llm_source}} x {{post.llm_timeframe}} x
-                        {{post.llm_usage_intent}} <a v-if="post.url" :href="post.url" target="_blank" style="color: #A8442A;">原帖</a></div>
-                    
-                    <div class="body">{{post.body}}</div>
+                        {{post.llm_usage_intent}} <a v-if="post.url" :href="post.url" target="_blank"
+                            style="color: #A8442A;">原帖</a></div>
+
+                    <div class="body" v-html="renderedBody">{{post.body}}</div>
                     <div class="tag">
                         <div v-for="(t, i) in post.tags" :key="t">
                             {{t}} <a href="javascript:;" @click="fnDelTag(i)">x</a>
@@ -283,6 +286,24 @@
             computed: {
                 post() {
                     return this.viewList[this.page - 1] || null;
+                },
+                renderedBody() {
+
+                    const html = marked.parse(this.post.body, {
+                        gfm: true,
+                        breaks: false
+                    });
+
+                    return DOMPurify.sanitize(html);
+                },
+                renderedTitle() {
+
+                    const html = marked.parse(this.post.title, {
+                        gfm: true,
+                        breaks: false
+                    });
+
+                    return DOMPurify.sanitize(html);
                 },
             },
             methods: {

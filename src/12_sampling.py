@@ -3,12 +3,12 @@
 SCRIPT: 12_sampling.py
 PURPOSE: Descriptive figures of the three codes by subreddit 
 ================================================================================
-WHAT   Draw the first-round close-reading sample (71 posts)
+WHAT   Draw the first-round close-reading sample (63 posts)
        from the coded corpus, following the sampling claim.
 
 FLOW   Load coded corpus -> clean code columns -> check for NA
        and typos -> build each slot -> draw posts at random
-       -> collect leftovers -> save
+       -> draw uncovered residuals -> save
 
 INPUT  ../data/posts_list_cleaned_llm_coded.csv
 
@@ -22,6 +22,7 @@ NEXT STEP
 
 import os
 import pandas as pd
+import sys
  
 # ---------------------------------------------------------------
 # Paths
@@ -189,10 +190,6 @@ SLOTS = [
      "n": 1, "timeframe": None, "type": ["N"],
      "source": None, "subreddit": None},
  
-    {"name": "Habitual x ES",
-     "n": 4, "timeframe": ["Habitual"], "type": ["ES"],
-     "source": None, "subreddit": None},
- 
 ]
  
  
@@ -245,12 +242,19 @@ def draw_sample(df):
  
  
 # ---------------------------------------------------------------
-# Residual pool: everything no slot picked up, drawn at random
+# Residual pool: posts not covered by any slot, drawn at random
 # ---------------------------------------------------------------
-def draw_residual(df, used_ids):
-    pool = df[~df["post_id"].isin(used_ids)]
+def draw_residual(df):
+    covered_ids = set()
+
+    for slot in SLOTS:
+        covered = filter_slot(df, slot)
+        covered_ids.update(covered["post_id"])
+
+    pool = df[~df["post_id"].isin(covered_ids)]
     picked = pool.sample(n=RESIDUAL_N, random_state=SEED).copy()
     picked["slot"] = "residual pool"
+
     print("residual pool - taken", len(picked), "from", len(pool))
     return picked
  
@@ -259,6 +263,11 @@ def draw_residual(df, used_ids):
 # Main
 # ---------------------------------------------------------------
 if __name__ == "__main__":
+    if os.path.exists(OUTPUT_FILE):
+        print("Sample already exists at", OUTPUT_FILE)
+        print("Delete it first if you really want to redraw.")
+        sys.exit(1)
+        
     df = load_corpus()
     check_codes(df)
     df = drop_development_posts(df)
@@ -266,7 +275,7 @@ if __name__ == "__main__":
     print("\n--- Drawing sample ---")
     sample, counts, used_ids = draw_sample(df)
  
-    residual = draw_residual(df, used_ids)
+    residual = draw_residual(df)
     sample = pd.concat([sample, residual])
  
     keep = ["post_id", "slot", "subreddit", "llm_timeframe", "llm_source",
