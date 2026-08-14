@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: #333;
+
+            font-family: "Pretendard", "Malgun Gothic", sans-serif;
+
+        }
+
+        button {
+            height: 40px;
+            width: 80px;
+        }
+
+        body {
+            padding-left: 220px;
+        }
+
+
+        .navbar {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 8px;
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 100vh;
+            background: white;
+            z-index: 1000;
+            padding: 35px 25px;
+            box-sizing: border-box;
+            box-shadow: none;
+            border-right: 1px solid #dad9d9;
+        }
+
+        .navbar>div {
+            width: 100%;
+        }
+
+        .navbar a {
+            position: relative;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            font-size: 20px;
+            letter-spacing: 1px;
+            padding: 30px 0;
+        }
+
+        .navbar a:hover {
+            color: #999;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: rgba(194, 132, 179);
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        .navbar a.active {
+            color: rgb(157, 101, 144);
+        }
+
+        .navbar a.active::after {
+            width: 100%;
+        }
+
+        #aboutContainer {
+            margin: 0 auto;
+            font-family: 'Franklin Gothic Demi Cond', 'Franklin Gothic Medium', 'Roboto Condensed', 'Arial Narrow', 'Oswald', sans-serif;
+
+        }
+
+        .aboutResearchContainer {
+            margin: 60px auto;
+            width: 1000px;
+
+        }
+
+        .simpleAndAcademic {
+            display: flex;
+            align-items: stretch;
+            gap: 28px;
+        }
+
+        .explanationCard {
+            flex: 1;
+            min-height: 300px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: white;
+            border: 1px solid #e4dfe2;
+            border-top: 4px solid rgb(194, 132, 179);
+            box-shadow: 0 6px 18px rgba(70, 50, 65, 0.08);
+        }
+
+        .explanationCard.academic {
+            background-color: #faf8fa;
+        }
+
+        .explanationCard .cardLabel {
+            margin-bottom: 8px;
+            color: rgb(170, 108, 154);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+
+        .explanationCard h3 {
+            margin: 0 0 20px;
+            padding: 0;
+            color: #222;
+            font-size: 27px;
+            font-weight: 600;
+        }
+
+        .explanationCard p {
+            margin: 0;
+            color: #555;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.9;
+        }
+
+        .explanationCard strong {
+            color: #222;
+            font-weight: 650;
+        }
+
+        h2 {
+            font-size: 42px;
+            font-weight: 300;
+            color: black;
+            text-align: center;
+            padding: 50px 0;
+            margin: 0 auto;
+        }
+
+        h3 {
+            font-size: 30px;
+            font-weight: 300;
+            color: #333;
+            display: block;
+            padding: 30px 0 40px 30px;
+            font-weight: 200;
+
+        }
+
+        .titleUnderLine {
+            background-color: rgb(224, 221, 221);
+            height: 0.5px;
+
+        }
+
+
+
+        table,
+        th {
+            border-right: 2px solid rgba(194, 132, 179);
+            border-collapse: separate;
+            text-align: left;
+            padding: 5px 20px;
+            width: 150px;
+            border-spacing: 0px 10px;
+        }
+
+        table,
+        td {
+            border: 1px solid white;
+            border-collapse: separate;
+            text-align: left;
+            padding: 5px 20px;
+            width: 800px;
+            height: auto;
+            line-height: 30px;
+            border-spacing: 0px 10px;
+        }
+
+        td li {
+            list-style-type: none;
+        }
+
+
+        .whatIGotContainer {
+            margin: 60px auto;
+            display: flex;
+            width: fit-content;
+            gap: 40px;
+        }
+
+        .projContainer {
+
+            width: 500px;
+            height: 250px;
+
+            border-left: 10px solid black;
+            background-color: rgba(194, 132, 179, 0.4);
+            box-shadow: 3px 3px 3px #8a8989;
+
+        }
+
+        sig span {
+            display: inline-block;
+            line-height: 40px;
+            width: 180px;
+            height: 40px;
+
+        }
+
+        sig>div>div {
+            display: inline-block;
+            position: relative;
+            width: 500px;
+            height: 40px;
+            background-color: #f3f0f0;
+        }
+
+        sig>div>div>div {
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 40px;
+            background-color: rgba(194, 132, 179);
+        }
+
+        .developmentPlan {
+            height: fit-content;
+        }
+
+        .skillRow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        #portfolio {
+            padding-bottom: 120px;
+
+        }
+
+        .portfolioBox {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+
+        }
+
+        .portfolioBox img {
+            height: 300px;
+            width: 300px;
+            object-fit: contain;
+        }
+
+
+
+        .footContainer {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            font-family: 'Franklin Gothic Demi Cond', 'Franklin Gothic Medium', 'Roboto Condensed', 'Arial Narrow', 'Oswald', sans-serif;
+        }
+
+
+
+        .foot {
+            height: 150px;
+            width: 100%;
+            border-top: 1px solid #333;
+            background-color: white;
+            gap: 30px;
+            padding-top: 50px;
+
+        }
+
+        .contactContainer {
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .contactContainer th {
+            height: 24px;
+            width: 100px;
+            border-right: 2px solid white;
+        }
+
+
+        .contactContainer td {
+            height: 24px;
+            width: 100px;
+            border-right: 2px solid white;
+
+        }
+
+        .contactMeGuideContainer {
+            margin: 0 auto;
+            width: fit-content;
+
+        }
+
+
+        #portfolio button {
+            display: block;
+            margin: 0 auto;
+            background-color: black;
+            color: white;
+            padding: 5px;
+            cursor: pointer;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            border-radius: 0;
+
+
+        }
+
+
+        .recAllContainer {
+            margin: 60px auto;
+            display: flex;
+            justify-content: center;
+            gap: 40px 60px;
+        }
+
+
+
+        .recContainer {
+            margin-left: 40px;
+            width: 600px;
+            height: 800px;
+            position: relative;
+            border-right: 10px double #e2e1e1;
+
+        }
+
+        .playlistContainer {
+            width: 300px;
+            height: 800px;
+            background-color: rgba(194, 132, 179, 0.2);
+            padding-top: 50px;
+            padding-left: 50px;
+            line-height: 40px;
+            font-size: 15px;
+        }
+
+
+        .tableContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .recContainer h2 {
+            font-weight: 900;
+            color: rgb(167, 164, 164);
+            transform: rotate(-90deg);
+            position: absolute;
+            left: -90px;
+            bottom: 140px;
+            padding: 0;
+        }
+
+        .reclineVer {
+            width: 1px;
+            height: 750px;
+            position: absolute;
+            bottom: 20px;
+            left: 120px;
+            background-color: #e2e1e1;
+
+        }
+
+        .reclineHor {
+            width: 550px;
+            height: 1px;
+            position: absolute;
+            bottom: 370px;
+            left: 20px;
+            background-color: #e2e1e1;
+
+        }
+
+        .deliTable {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            right: 40px;
+            bottom: 370px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 10px;
+
+        }
+
+        .deliTable img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+
+        .deliListContainer {
+            width: 400px;
+            height: 330px;
+            position: absolute;
+            right: 40px;
+            bottom: 20px;
+            display: grid;
+            font-size: 20px;
+
+        }
+
+        .deliListContainer div {
+
+            font-size: 30px;
+            color: rgba(194, 132, 179, 0.4);
+            font-weight: bold;
+            font-size: 20px;
+
+        }
+
+        .delItem {
+            position: relative;
+        }
+
+        .delItem div {
+            font-size: 30px;
+            color: rgba(131, 129, 129, 0.69);
+            font-weight: bold;
+            position: absolute;
+            bottom: 1px;
+            right: 1px;
+
+
+        }
+
+        .absIsWorse {
+            font-size: 10px;
+            transform: rotate(-90deg);
+            position: absolute;
+            bottom: 500px;
+            left: -50px;
+            color: rgb(36, 92, 145);
+            font-weight: bold;
+
+
+        }
+
+
+        /* ===== 第二段：现实意义（留白 + 重点强调 + 轻微瀑布） ===== */
+        #sig {
+            width: 100%;
+            margin: 0 auto 120px;
+        }
+
+        #sig > h2 {
+            margin-bottom: 0;
+        }
+
+        #sig > .titleUnderLine {
+            margin-bottom: 68px;
+        }
+
+        .sigFlow {
+            display: flex;
+            flex-direction: column;
+            gap: 54px;
+            padding: 0 0 10px;
+            width: min(1080px, 88%);
+            margin: 0 auto;
+        }
+
+        .sigBlock {
+            width: 72%;
+            font-size: 18px;
+            line-height: 2;
+            letter-spacing: 0.01em;
+            color: #505050;
+        }
+
+        .sigBlock p {
+            margin: 0;
+        }
+
+        /* 轻微错落，不做机械对称 */
+        .sigBlock:nth-child(1) {
+            width: 70%;
+            margin-left: 5%;
+        }
+
+        .sigBlock:nth-child(2) {
+            width: 65%;
+            margin-left: 25%;
+        }
+
+        .sigBlock:nth-child(3) {
+            width: 72%;
+            margin-left: 10%;
+        }
+
+        .sigBlock:nth-child(4) {
+            width: 68%;
+            margin-left: 20%;
+        }
+
+        .sigBlock:nth-child(5) {
+            width: 74%;
+            margin-left: 5%;
+        }
+
+        .sigKey {
+            display: block;
+            margin: 18px 0 2px;
+            color: #292929;
+            font-size: 23px;
+            line-height: 1.65;
+            font-weight: 500;
+        }
+
+        .sigKey.pink {
+            color: rgb(157, 101, 144);
+        }
+
+        .sigExample {
+            padding: 28px 32px;
+            border-left: 2px solid rgba(194, 132, 179, 0.75);
+            background: rgba(194, 132, 179, 0.045);
+        }
+
+        .sigExample .exampleLead {
+            display: block;
+            margin-bottom: 18px;
+            color: rgb(157, 101, 144);
+            font-size: 14px;
+            font-weight: 650;
+            letter-spacing: 0.12em;
+        }
+
+        .sigExample .exampleSentence {
+            display: block;
+            margin: 0 0 20px;
+            color: #333;
+            font-size: 21px;
+            line-height: 1.75;
+            font-weight: 500;
+        }
+
+        .sigDivider {
+            width: 80px;
+            height: 1px;
+            margin: 2px 0 0 20%;
+            background: rgba(194, 132, 179, 0.6);
+        }
+
+        .sigClosing {
+            width: 78% !important;
+            margin-left: 12% !important;
+            padding-top: 30px;
+            border-top: 1px solid #ded8dc;
+        }
+
+        .sigClosing .sigKey {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        @media (max-width: 900px) {
+            #sig > .titleUnderLine {
+                margin-bottom: 45px;
+            }
+
+            .sigFlow {
+                gap: 36px;
+                width: 86%;
+            }
+
+            .sigBlock,
+            .sigBlock:nth-child(n),
+            .sigClosing {
+                width: 100% !important;
+                margin-left: 0 !important;
+            }
+
+            .sigKey {
+                font-size: 21px;
+            }
+
+            .sigDivider {
+                margin-left: 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 네이버바 -->
+    <div class="navbar">
+        <div><a href="#aboutResearchContainer">이 연구는 무엇을 연구하는가?</a></div>
+        <div><a href="#sig">이 연구의 현실적 의미는 무엇인가?</a></div>
+        <div><a href="#comparison"></a></div>
+    </div>
+
+
+    <div id="aboutContainer">
+        <h2 style="padding-top:100px" id="aboutResearchContainer">이 연구는 무엇을 연구하는가?</h2>
+        <div class="titleUnderLine"></div>
+        <div class="aboutResearchContainer">
+            <div class="simpleAndAcademic">
+                <section class="explanationCard simple">
+                    <div class="cardLabel">PLAIN LANGUAGE</div>
+                    <h3>쉬운 설명</h3>
+                    <p>
+                        사람들이 AI를 이용해 정신건강 지원을 받았다고 말할 때,
+                        자신의 <strong>행동</strong>을 어떻게 설명하고,
+                        인간·AI·증상·돌봄 환경 사이의 <strong>책임</strong>을 어떻게 배분하며,
+                        자신이 여전히 <strong>합리적인 판단력을 가진 사람임</strong>을
+                        어떻게 보여주는지를 분석합니다.
+                    </p>
+                </section>
+
+                <section class="explanationCard academic">
+                    <div class="cardLabel">ACADEMIC LANGUAGE</div>
+                    <h3>학술적 설명</h3>
+                    <p>
+                        CDP(Critical Discursive Psychology)는 언어를 단순한 의견 표현이 아니라
+                        <strong>사회적 행위</strong>로 봅니다. 본 연구는 이용자들이 AI, 자기 자신,
+                        인간 돌봄에 관한 표현을 활용하여 도움 요청, 의존, 자율성, 돌봄 사이의
+                        긴장을 어떻게 다루는지 분석합니다.
+                    </p>
+                </section>
+            </div>
+        </div>
+
+
+
+        <div id="sig">
+            <h2>이 연구의 현실적 의미는 무엇인가?</h2>
+            <div class="titleUnderLine"></div>
+
+            <div class="sigFlow">
+
+                <div class="sigBlock">
+                    <span class="sigKey">
+                        이 연구가 묻는 것은 단순히 “왜 AI를 사용하는가”, “AI가 도움이 되는가”가 아닙니다.
+                    </span>
+                    <p>
+                        더 근본적인 문제는 <strong>이용자가 말한 내용을 우리가 어떻게 이해해야 하는가</strong>입니다.
+                    </p>
+                </div>
+
+                <div class="sigBlock">
+                    <p>
+                        정신건강 도움을 구하는 사람들은 이미 큰 심리적 어려움을 겪고 있으며,
+                        동시에 이성성, 자기통제, 책임에 관한 평가에 더 쉽게 노출될 수 있습니다.
+                        여기에 AI처럼 아직 논쟁적인 도움 방식을 선택하면
+                        “AI에 너무 의존하는 것은 아닌가”, “왜 사람에게 도움을 구하지 않았는가”,
+                        “기계를 사람처럼 믿는 것은 아닌가”와 같은 질문까지 따라붙습니다.
+                    </p>
+
+                    <span class="sigKey pink">
+                        그래서 게시물은 경험을 말하는 동시에,
+                        그 경험을 둘러싼 논쟁도 함께 처리합니다.
+                    </span>
+                </div>
+
+                <div class="sigBlock sigExample">
+                    <span class="exampleLead">중요한 점</span>
+                    <p>
+                        같은 AI 사용도 상황에 따라 전혀 다르게 말해질 수 있습니다.
+                        반대로, 겉으로는 서로 반대되는 AI 평가가
+                        비슷한 책임이나 정당성 문제를 다루는 경우도 있었습니다.
+                    </p>
+                </div>
+
+                <div class="sigBlock">
+                    <p>
+                        따라서 “AI가 도움이 되었다”, “멈출 수 없다”,
+                        “AI는 인간을 대신할 수 없다”와 같은 표현을
+                        그대로 태도, 선호, 의존 정도로 읽는다면
+                        단순히 배경정보 몇 가지를 놓치는 데 그치지 않을 수 있습니다.
+                    </p>
+
+                    <span class="sigKey">
+                        원래는 설명·방어·논쟁 처리를 위해 사용된 말을
+                        그 사람의 심리 상태 자체로 읽게 되면,
+                        전체 해석의 방향이 어긋날 수 있습니다.
+                    </span>
+                </div>
+
+                <div class="sigBlock sigClosing">
+                    <span class="sigKey pink">
+                        그래서 이 연구에서는 CDP가 필요합니다.
+                    </span>
+                    <p>
+                        CDP는 이용자가 “실제로 무엇을 생각하는가”를 추측하기보다,
+                        왜 그 상황에서 그런 말을 해야 했는지,
+                        그리고 그 말이 어떤 문제를 처리하고 있는지를 봅니다.
+                        특히 낙인과 논쟁에 더 쉽게 노출되는 집단에서는
+                        이 층위를 놓치지 않는 것이 중요합니다.
+                    </p>
+                </div>
+
+                <div class="sigDivider"></div>
+
+                <div class="sigBlock">
+                    <span class="sigKey">
+                        또 하나의 문제는 sampling입니다. 이게 교수님께 제기했던 "이런 게시물의 통계적 수치" 와 관계될 수 있습니다.
+                    </span>
+                    <p>
+                        이런 분석은 close reading이 필요하지만,
+                        2,000개가 넘는 게시물을 모두 같은 깊이로 읽을 수는 없습니다.
+                        무작위로 일부만 뽑으면 중요한 차이를 놓칠 수 있고,
+                        연구자가 흥미롭다고 느끼는 사례만 고르면
+                        전체 자료를 충분히 반영하지 못할 수 있습니다.
+                    </p>
+                </div>
+
+                <div class="sigBlock sigExample">
+                    <span class="exampleLead">LLM 관련 메모: 왜 굳이 help-seeking context로 먼저 AI로 전체 코딩했는가?</span>
+                    <p>
+                        초기 coding 단계에서부터 최종 분석에서 찾고 싶은 내용을 기준으로
+                        manual을 만들고, 그 기준을 LLM batch coding에 그대로 적용하면
+                        연구자가 처음부터 기대한 패턴만 다시 크게 만들어 볼 위험이 큽니다.
+                    </p>
+                    <p style="margin-top:14px; font-size:15px; color:#777;">
+                        ※ 이 부분은 지금 완전히 이해되지 않아도 괜찮습니다.
+                        뒤의 sampling 및 LLM coding 절에서 왜 이런 절차를 사용했는지
+                        별도로 충분히 설명하겠습니다.
+                    </p>
+                </div>
+
+                <div class="sigBlock sigClosing">
+                    <span class="sigKey pink">
+                        Sampling은 단순히 큰 데이터를 작은 데이터로 줄이는 과정이 아닙니다.
+                    </span>
+                    <p>
+                        먼저 전체 자료에서 어떤 사용 상황과 차이가 존재하는지 살펴본 뒤,
+                        자주 나타나는 패턴뿐 아니라 내부 변화, 대조 사례,
+                        판단하기 어려운 사례까지 의도적으로 close reading에 포함합니다.
+                        즉, <strong>전체를 먼저 보고 어디를 깊게 읽어야 하는지 결정하는 과정</strong>입니다.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    <div>
+        <h2 id="comparison"></h2>
+        
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
+
+<script>
+    // navbar: 클릭한 항목의 연한 핑크 상태 유지
+    const navLinks = document.querySelectorAll(".navbar a");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.forEach(item => item.classList.remove("active"));
+            link.classList.add("active");
+        });
+    });
+
+    // 새로고침 후에도 URL의 #위치와 같은 메뉴가 있으면 표시
+    if (window.location.hash) {
+        const currentLink = document.querySelector(`.navbar a[href="${window.location.hash}"]`);
+        if (currentLink) currentLink.classList.add("active");
+    }
+
+    
+
+
+
+
+
+
+</script>
