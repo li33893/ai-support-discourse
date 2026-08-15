@@ -72,8 +72,8 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 1px;
-            background: rgba(194, 132, 179);
+            height: 0.5px;
+            background: rgba(194, 132, 179, 0.65);
             transition: width 0.3s ease;
         }
 
@@ -487,11 +487,11 @@
             margin: 0 auto 120px;
         }
 
-        #sig > h2 {
+        #sig>h2 {
             margin-bottom: 0;
         }
 
-        #sig > .titleUnderLine {
+        #sig>.titleUnderLine {
             margin-bottom: 68px;
         }
 
@@ -540,6 +540,23 @@
         .sigBlock:nth-child(5) {
             width: 74%;
             margin-left: 5%;
+        }
+
+
+        /* 后半继续保持瀑布式阅读节奏 */
+        .sigBlock.sigShiftRight {
+            width: 66%;
+            margin-left: 24%;
+        }
+
+        .sigBlock.sigShiftLeft {
+            width: 74%;
+            margin-left: 7%;
+        }
+
+        .sigBlock.sigShiftMid {
+            width: 70%;
+            margin-left: 15%;
         }
 
         .sigKey {
@@ -599,8 +616,104 @@
             font-size: 24px;
         }
 
+
+        /* ===== 第二节末尾：研究方式与现实用途小模块 ===== */
+        .sigOutcomeModule {
+            width: min(980px, 84%);
+            margin: 26px auto 10px;
+            padding: 34px 38px 38px;
+            box-sizing: border-box;
+            background: #faf8fa;
+            border: 1px solid #e5dfe3;
+            border-top: 0.5px solid rgba(194, 132, 179, 0.35);
+        }
+
+        .sigOutcomeEyebrow {
+            display: block;
+            margin-bottom: 8px;
+            color: rgb(157, 101, 144);
+            font-size: 13px;
+            font-weight: 650;
+            letter-spacing: 0.12em;
+        }
+
+        .sigOutcomeTitle {
+            margin: 0 0 10px;
+            padding: 0;
+            color: #292929;
+            font-size: 25px;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .sigOutcomeIntro {
+            margin: 0 0 26px;
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .sigOutcomeList {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 24px;
+            list-style: none;
+        }
+
+        .sigOutcomeList li {
+            position: relative;
+            padding: 18px 18px 18px 22px;
+            background: white;
+            border-left: 2px solid rgba(194, 132, 179, 0.65);
+        }
+
+        .sigOutcomeList strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 17px;
+            line-height: 1.65;
+            font-weight: 650;
+        }
+
+        .sigOutcomeList p {
+            margin: 0;
+            color: #5d5d5d;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+
+        .sigProfessorNote {
+            width: 68%;
+            margin-left: 18%;
+            padding: 22px 26px;
+            background: rgba(194, 132, 179, 0.055);
+            border-left: 2px solid rgba(194, 132, 179, 0.75);
+            box-sizing: border-box;
+            font-size: 17px;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .sigProfessorNote strong {
+            color: rgb(157, 101, 144);
+            font-weight: 650;
+        }
+
         @media (max-width: 900px) {
-            #sig > .titleUnderLine {
+            .sigOutcomeModule {
+                width: 86%;
+                padding: 28px 24px 30px;
+            }
+
+            .sigOutcomeList {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            #sig>.titleUnderLine {
                 margin-bottom: 45px;
             }
 
@@ -611,7 +724,8 @@
 
             .sigBlock,
             .sigBlock:nth-child(n),
-            .sigClosing {
+            .sigClosing,
+            .sigProfessorNote {
                 width: 100% !important;
                 margin-left: 0 !important;
             }
@@ -625,6 +739,478 @@
             }
         }
 
+
+
+        /* ===== 第三段：CDP란? ===== */
+        #comparison {
+            width: 100%;
+            margin: 0 auto 140px;
+            scroll-margin-top: 30px;
+        }
+
+        #comparison>.titleUnderLine {
+            margin-bottom: 62px;
+        }
+
+        .cdpWrap {
+            width: min(1040px, 88%);
+            margin: 0 auto;
+        }
+
+        .cdpProfessorNote {
+            width: 78%;
+            margin: 0 auto 46px;
+            padding: 26px 30px;
+            box-sizing: border-box;
+            background: rgba(194, 132, 179, 0.055);
+            border-left: 3px solid rgba(194, 132, 179, 0.8);
+            color: #555;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .cdpProfessorNote strong {
+            color: rgb(157, 101, 144);
+            font-weight: 650;
+        }
+
+        .cdpLead {
+            width: 76%;
+            margin: 0 0 58px 8%;
+            font-size: 19px;
+            line-height: 2;
+            color: #4f4f4f;
+        }
+
+        .cdpLead .cdpMainLine {
+            display: block;
+            margin-bottom: 18px;
+            color: #292929;
+            font-size: 25px;
+            line-height: 1.65;
+            font-weight: 550;
+        }
+
+        .cdpDualRead {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 34px 0 0;
+        }
+
+        .cdpDualRead>div {
+            padding: 20px 22px;
+            background: #faf8fa;
+            border-top: 2px solid rgba(194, 132, 179, 0.65);
+        }
+
+        .cdpDualRead strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .cdpDualRead p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.75;
+            color: #666;
+        }
+
+        .cdpExample {
+            margin: 0 auto 62px;
+            padding: 36px 40px 38px;
+            box-sizing: border-box;
+            background: white;
+            border: 1px solid #e5dfe3;
+            border-top: 0.5px solid rgba(194, 132, 179, 0.35);
+        }
+
+        .cdpEyebrow {
+            display: block;
+            margin-bottom: 8px;
+            color: rgb(157, 101, 144);
+            font-size: 13px;
+            font-weight: 650;
+            letter-spacing: 0.12em;
+        }
+
+        .cdpExample h3,
+        .cdpThemeCompare h3,
+        .cdpRoleBox h3 {
+            margin: 0 0 18px;
+            padding: 0;
+            color: #292929;
+            font-size: 26px;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .cdpExampleIntro {
+            margin: 0 0 28px;
+            color: #555;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .cdpExampleFigure {
+            width: min(1240px, calc(100vw - 420px));
+            margin: 12px 0 48px 50%;
+            transform: translateX(-50%);
+            padding: 0;
+            background: transparent;
+            border: 0;
+            box-sizing: border-box;
+        }
+
+        .cdpExampleFigure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .cdpExampleFigure figcaption {
+            margin-top: 12px;
+            color: #858085;
+            font-size: 12px;
+            line-height: 1.6;
+            text-align: right;
+        }
+
+        .cdpLogic {
+            margin: 8px 0 10px;
+        }
+
+        .cdpLogicRow {
+            display: grid;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .cdpLogicRow.top {
+            grid-template-columns: 1fr auto 1fr auto 1.08fr;
+        }
+
+        .cdpLogicRow.middle {
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            margin: 24px 0;
+        }
+
+        .cdpLogicRow.bottom {
+            grid-template-columns: 1fr auto 1fr auto 1fr auto 1.08fr;
+        }
+
+        .cdpLogicCard {
+            min-height: 94px;
+            padding: 17px 18px;
+            box-sizing: border-box;
+            background: #faf8fa;
+            border: 1px solid #e8e2e6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cdpLogicCard.emphasis {
+            background: rgba(194, 132, 179, 0.07);
+            border-color: rgba(194, 132, 179, 0.38);
+        }
+
+        .cdpLogicCard.micro {
+            min-height: 112px;
+            background: white;
+            border-top: 0.5px solid rgba(194, 132, 179, 0.35);
+        }
+
+        .cdpLogicLabel {
+            display: block;
+            margin-bottom: 6px;
+            color: rgb(157, 101, 144);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+        .cdpLogicCard strong {
+            display: block;
+            color: #303030;
+            font-size: 16px;
+            line-height: 1.55;
+            font-weight: 650;
+        }
+
+        .cdpLogicCard span.note {
+            display: block;
+            margin-top: 5px;
+            color: #6c686b;
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .cdpLogicArrow {
+            color: rgb(170, 108, 154);
+            font-size: 20px;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .cdpLogicBridge {
+            width: 1px;
+            height: 34px;
+            margin: 4px auto 10px;
+            background: rgba(194, 132, 179, 0.46);
+        }
+
+        .cdpLogicCaption {
+            margin: 0 0 14px;
+            color: #6b676a;
+            font-size: 14px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .cdpFlowTakeaway {
+            width: 86%;
+            margin: 32px auto 0;
+            padding: 18px 22px;
+            box-sizing: border-box;
+            background: rgba(194, 132, 179, 0.05);
+            border-left: 3px solid rgba(194, 132, 179, 0.72);
+            color: #444;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .cdpExampleFlow {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            align-items: center;
+            gap: 12px;
+            margin: 26px 0 34px;
+        }
+
+        .cdpFlowStep {
+            min-height: 112px;
+            padding: 18px;
+            box-sizing: border-box;
+            background: #faf8fa;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cdpFlowStep strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .cdpFlowStep span {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .cdpArrow {
+            color: rgb(170, 108, 154);
+            font-size: 22px;
+        }
+
+        .cdpTerms {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 22px;
+        }
+
+        .cdpTerm {
+            padding: 22px 24px;
+            background: #fafafa;
+            border-left: 2px solid rgba(194, 132, 179, 0.62);
+        }
+
+        .cdpTerm strong {
+            display: block;
+            margin-bottom: 9px;
+            color: #333;
+            font-size: 17px;
+            line-height: 1.55;
+        }
+
+        .cdpTerm small {
+            display: block;
+            margin-bottom: 8px;
+            color: rgb(157, 101, 144);
+            font-size: 12px;
+            letter-spacing: 0.06em;
+        }
+
+        .cdpTerm p {
+            margin: 0;
+            color: #606060;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .cdpRoleBox {
+            width: 78%;
+            margin: 0 0 64px 14%;
+            padding: 30px 34px;
+            box-sizing: border-box;
+            background: rgba(194, 132, 179, 0.045);
+            border-top: 1px solid #ded8dc;
+            border-bottom: 1px solid #ded8dc;
+        }
+
+        .cdpRoleBox p {
+            margin: 0;
+            color: #555;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .cdpRoleBox .roleKey {
+            display: block;
+            margin-top: 16px;
+            color: rgb(157, 101, 144);
+            font-size: 20px;
+            line-height: 1.7;
+            font-weight: 600;
+        }
+
+        .cdpThemeCompare {
+            margin: 0 auto;
+            padding-top: 36px;
+            border-top: 1px solid #ded8dc;
+        }
+
+        .cdpThemeIntro {
+            margin: 0 0 26px;
+            color: #555;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .cdpCompareGrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .cdpCompareCard {
+            padding: 28px 30px;
+            background: white;
+            border: 1px solid #e4dfe2;
+        }
+
+        .cdpCompareCard.cdpSide {
+            border-top: 0.5px solid rgba(194, 132, 179, 0.35);
+            background: #faf8fa;
+        }
+
+        .cdpCompareLabel {
+            display: block;
+            margin-bottom: 12px;
+            color: rgb(157, 101, 144);
+            font-size: 13px;
+            font-weight: 650;
+            letter-spacing: 0.1em;
+        }
+
+        .cdpCompareCard strong {
+            display: block;
+            margin-bottom: 14px;
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .cdpCompareCard ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .cdpCompareCard li {
+            margin-bottom: 9px;
+            color: #5f5f5f;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .cdpThemeBottom {
+            margin: 26px 0 0;
+            padding: 22px 26px;
+            background: rgba(194, 132, 179, 0.055);
+            border-left: 2px solid rgba(194, 132, 179, 0.75);
+            color: #4f4f4f;
+            font-size: 18px;
+            line-height: 1.85;
+        }
+
+        .cdpThemeBottom strong {
+            color: rgb(157, 101, 144);
+        }
+
+        .cdpSources {
+            margin-top: 34px;
+            color: #888;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 900px) {
+            #comparison>.titleUnderLine {
+                margin-bottom: 42px;
+            }
+
+            .cdpWrap {
+                width: 86%;
+            }
+
+            .cdpProfessorNote,
+            .cdpLead,
+            .cdpRoleBox {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .cdpDualRead,
+            .cdpTerms,
+            .cdpCompareGrid {
+                grid-template-columns: 1fr;
+            }
+
+            .cdpExample {
+                padding: 28px 24px 30px;
+            }
+
+            .cdpExampleFlow {
+                grid-template-columns: 1fr;
+            }
+
+            .cdpArrow {
+                transform: rotate(90deg);
+                text-align: center;
+            }
+
+            .cdpThreePart {
+                grid-template-columns: 1fr;
+            }
+
+            .cdpThreePart .arrow {
+                justify-content: center;
+                transform: rotate(90deg);
+            }
+
+            .cdpPaperFlow {
+                padding-left: 52px;
+            }
+        }
     </style>
 </head>
 
@@ -633,7 +1219,7 @@
     <div class="navbar">
         <div><a href="#aboutResearchContainer">이 연구는 무엇을 연구하는가?</a></div>
         <div><a href="#sig">이 연구의 현실적 의미는 무엇인가?</a></div>
-        <div><a href="#comparison"></a></div>
+        <div><a href="#comparison">CDP란?</a></div>
     </div>
 
 
@@ -677,145 +1263,359 @@
 
                 <div class="sigBlock">
                     <span class="sigKey">
-                        이 연구가 묻는 것은 단순히 “왜 AI를 사용하는가”, “AI가 도움이 되는가”가 아닙니다.
+                        정신건강 도움을 구하는 사람들은 이미 사회적으로 더 취약한 위치에 놓이기 쉽습니다.
                     </span>
                     <p>
-                        더 근본적인 문제는 <strong>이용자가 말한 내용을 우리가 어떻게 이해해야 하는가</strong>입니다.
+                        자신의 상태나 행동이 사회가 기대하는 모습에서 벗어날수록, 단순히 힘든 경험을 말하는 것만으로 끝나지 않고
+                        <strong>자신이 얼마나 합리적인지, 스스로를 통제하고 있는지, 자신의 상태와 선택에 얼마나 책임이 있는지</strong>까지 설명해야 할 수 있습니다.
                     </p>
                 </div>
 
-                <div class="sigBlock">
+                <div class="sigBlock sigShiftRight">
                     <p>
-                        정신건강 도움을 구하는 사람들은 이미 큰 심리적 어려움을 겪고 있으며,
-                        동시에 이성성, 자기통제, 책임에 관한 평가에 더 쉽게 노출될 수 있습니다.
-                        여기에 AI처럼 아직 논쟁적인 도움 방식을 선택하면
-                        “AI에 너무 의존하는 것은 아닌가”, “왜 사람에게 도움을 구하지 않았는가”,
-                        “기계를 사람처럼 믿는 것은 아닌가”와 같은 질문까지 따라붙습니다.
+                        AI를 이용해 도움을 구하는 경우에는 여기에 또 하나의 논쟁이 더해집니다.
+                        “왜 사람에게 도움을 구하지 않았는가”, “AI에 너무 의존하는 것은 아닌가”,
+                        “기계를 사람처럼 믿는 것은 아닌가”와 같은 질문입니다.
                     </p>
-
                     <span class="sigKey pink">
-                        그래서 게시물은 경험을 말하는 동시에,
-                        그 경험을 둘러싼 논쟁도 함께 처리합니다.
+                        그래서 게시물은 경험을 말하는 동시에, 그 경험을 둘러싼 평가와 논쟁도 함께 처리합니다.
                     </span>
                 </div>
 
                 <div class="sigBlock sigExample">
                     <span class="exampleLead">중요한 점</span>
                     <p>
-                        같은 AI 사용도 상황에 따라 전혀 다르게 말해질 수 있습니다.
-                        반대로, 겉으로는 서로 반대되는 AI 평가가
-                        비슷한 책임이나 정당성 문제를 다루는 경우도 있었습니다.
+                        이것은 몇몇 특수한 사례에서만 나타난 현상이 아닙니다.
+                        본 연구가 살펴본 여러 정신건강 커뮤니티에서 <strong>AI를 언급한 거의 모든 게시물에서</strong>,
+                        정도와 방식은 달라도 자신의 AI 사용을 설명하거나 그 사용을 둘러싼 논쟁에 대응하는 모습이 나타났습니다.
                     </p>
                 </div>
 
-                <div class="sigBlock">
-                    <p>
-                        따라서 “AI가 도움이 되었다”, “멈출 수 없다”,
-                        “AI는 인간을 대신할 수 없다”와 같은 표현을
-                        그대로 태도, 선호, 의존 정도로 읽는다면
-                        단순히 배경정보 몇 가지를 놓치는 데 그치지 않을 수 있습니다.
-                    </p>
-
+                <div class="sigBlock sigShiftMid">
                     <span class="sigKey">
-                        원래는 설명·방어·논쟁 처리를 위해 사용된 말을
-                        그 사람의 심리 상태 자체로 읽게 되면,
-                        전체 해석의 방향이 어긋날 수 있습니다.
-                    </span>
-                </div>
-
-                <div class="sigBlock sigClosing">
-                    <span class="sigKey pink">
-                        그래서 이 연구에서는 CDP가 필요합니다.
+                        따라서 사람이 자신의 경험을 말한다고 해서, 그 말이 곧바로 그 사람의 생각이나 마음을 그대로 보여준다고 볼 수는 없습니다.
                     </span>
                     <p>
-                        CDP는 이용자가 “실제로 무엇을 생각하는가”를 추측하기보다,
-                        왜 그 상황에서 그런 말을 해야 했는지,
-                        그리고 그 말이 어떤 문제를 처리하고 있는지를 봅니다.
-                        특히 낙인과 논쟁에 더 쉽게 노출되는 집단에서는
-                        이 층위를 놓치지 않는 것이 중요합니다.
+                        같은 표현도 상황에 따라 다른 일을 할 수 있고, 겉으로는 서로 반대되는 표현도 비슷한 문제를 처리하기 위해 사용될 수 있습니다.
+                        그래서 이 연구는 단순히 “무슨 말을 했는가”만 보는 것이 아니라,
+                        <strong>왜 이 상황에서 이런 말을 했고, 그 말로 무엇을 하고 있는가</strong>를 함께 봅니다.
+                        이것이 이 연구에서 CDP가 필요한 이유입니다.
                     </p>
                 </div>
 
                 <div class="sigDivider"></div>
 
-                <div class="sigBlock">
+                <div class="sigBlock sigShiftRight">
                     <span class="sigKey">
-                        또 하나의 문제는 sampling입니다. 이게 교수님께 제기했던 "이런 게시물의 통계적 수치" 와 관계될 수 있습니다.
+                        또 하나의 문제는 깊이 있게 분석하면서도, 전체 게시물에 대한 충분한 이해 위에서 무엇을 깊이 읽을지 결정하는 것입니다.
                     </span>
                     <p>
-                        이런 분석은 close reading이 필요하지만,
-                        2,000개가 넘는 게시물을 모두 같은 깊이로 읽을 수는 없습니다.
-                        무작위로 일부만 뽑으면 중요한 차이를 놓칠 수 있고,
-                        연구자가 흥미롭다고 느끼는 사례만 고르면
-                        전체 자료를 충분히 반영하지 못할 수 있습니다.
+                        2,000개가 넘는 게시물을 모두 같은 깊이로 읽을 수는 없습니다. 하지만 전체 자료를 충분히 알지 못한 상태에서 몇몇 게시물을 먼저 고르면,
+                        처음부터 눈에 잘 띄거나 연구자가 중요하다고 생각한 사례만 보게 될 수 있습니다.
                     </p>
                 </div>
 
-                <div class="sigBlock sigExample">
-                    <span class="exampleLead">LLM 관련 메모: 왜 굳이 help-seeking context로 먼저 AI로 전체 코딩했는가?</span>
+                <aside class="sigProfessorNote">
+                    <strong>교수님께서 자주 질문하셨던 ‘이 수치와 비율을 어떻게 이해해야 하는가’라는 문제와도 연결됩니다.</strong><br>
+                    여기서 사용하는 LLM과 sampling의 원리는 어렵지 않습니다. 기술적인 지식이 없어도 이해할 수 있고,
+                    지금은 왜 이런 과정이 필요한지만 먼저 보시면 됩니다. 구체적인 방법은 뒤에서 다시 자세히 설명하겠습니다.
+                </aside>
+
+                <div class="sigBlock">
                     <p>
-                        초기 coding 단계에서부터 최종 분석에서 찾고 싶은 내용을 기준으로
-                        manual을 만들고, 그 기준을 LLM batch coding에 그대로 적용하면
-                        연구자가 처음부터 기대한 패턴만 다시 크게 만들어 볼 위험이 큽니다.
-                    </p>
-                    <p style="margin-top:14px; font-size:15px; color:#777;">
-                        ※ 이 부분은 지금 완전히 이해되지 않아도 괜찮습니다.
-                        뒤의 sampling 및 LLM coding 절에서 왜 이런 절차를 사용했는지
-                        별도로 충분히 설명하겠습니다.
+                        그래서 먼저 가능한 한 다양한 도움 요청 상황과, 같은 상황 안에서도 나타날 수 있는 여러 경우를 넓게 살펴봅니다.
+                        LLM은 어떤 게시물이 “중요하다”고 대신 판단하는 것이 아니라,
+                        <strong>한 사람이 한 번에 보기 어려운 전체 게시물의 도움 요청 상황과 분포를 연구자의 인식 범위 안으로 넓혀 주는 역할</strong>을 합니다.
+                        여기서 중요한 것은, 왜 처음부터 최종적으로 분석하려는 현상을 기준으로 나누지 않고 <strong>도움 요청 상황</strong>의 분포를 먼저 확인했는가입니다.
+                        이유는 두 가지입니다. 하나는 LLM에도 이런 해석을 직접 맡기는 데에는 한계가 있기 때문입니다. 다른 하나는 처음부터 분석하려는 현상을 기준으로 자료를 나누고
+                        sampling하면, 결국 처음에 정해 둔 틀에 맞는 사례만 다시 선택될 가능성이 크기 때문입니다. 그렇게 되면 우리가 무엇을 놓치고 있는지 확인하기 어렵습니다. 이 부분의
+                        구체적인 이유와 과정은 뒤에서 다시 설명하겠습니다.
                     </p>
                 </div>
 
-                <div class="sigBlock sigClosing">
+                <div class="sigBlock sigClosing sigShiftMid">
                     <span class="sigKey pink">
-                        Sampling은 단순히 큰 데이터를 작은 데이터로 줄이는 과정이 아닙니다.
+                        전체를 충분히 이해한 뒤에 선택해야, 깊이 읽을 게시물의 선택에도 의미가 생깁니다.
                     </span>
                     <p>
-                        먼저 전체 자료에서 어떤 사용 상황과 차이가 존재하는지 살펴본 뒤,
-                        자주 나타나는 패턴뿐 아니라 내부 변화, 대조 사례,
-                        판단하기 어려운 사례까지 의도적으로 close reading에 포함합니다.
-                        즉, <strong>전체를 먼저 보고 어디를 깊게 읽어야 하는지 결정하는 과정</strong>입니다.
+                        전체 자료에 대한 이해를 바탕으로 sampling을 하고, 선택된 게시물을 close reading합니다.
+                        깊이 읽는 과정에서 처음에는 보이지 않았던 경우나 다시 확인할 필요가 있는 부분이 나타나면 다시 전체 자료로 돌아갑니다.
+                        즉, <strong>전체를 넓게 이해하고 → 그 이해를 바탕으로 선택하고 → 깊이 읽으면서 다시 전체에 대한 이해를 넓히는 과정</strong>이 이어집니다.
                     </p>
                 </div>
+
+                <section class="sigOutcomeModule" aria-labelledby="sigOutcomeTitle">
+                    <span class="sigOutcomeEyebrow">WHAT THIS MAKES POSSIBLE</span>
+                    <h3 class="sigOutcomeTitle" id="sigOutcomeTitle">이 연구가 현실적으로 무엇을 가능하게 하는가?</h3>
+                    <p class="sigOutcomeIntro">
+                        앞의 해석과 방법 선택은 결국 더 다양한 상황을 놓치지 않고 보고,
+                        다음 연구가 어디를 더 살펴봐야 하는지 찾기 위한 것입니다.
+                    </p>
+
+                    <ul class="sigOutcomeList">
+                        <li>
+                            <strong>다양한 도움 요청 상황을 가능한 한 깊게 분석하는 동시에 넓게 포착할 수 있습니다.</strong>
+                            <p>
+                                AI를 이용한 정신건강 지원을 하나의 전형적인 사용 방식으로 가정하지 않고,
+                                서로 다른 도움 요청 상황과 그 안의 다양한 변이를 함께 살펴봄으로써
+                                특정 사례를 전체 현상으로 일반화하는 위험을 줄일 수 있습니다.
+                            </p>
+                        </li>
+                        <li>
+                            <strong>많은 자료를 다루면서도 중요한 차이를 놓치지 않는 분석이 가능합니다.</strong>
+                            <p>
+                                전체 자료의 구조를 살피는 과정, sampling, close reading, LLM을 활용한 탐색을
+                                서로 분리된 단계가 아니라 상호 보완적인 과정으로 사용합니다.
+                                이를 통해 자료의 규모를 확보하면서도 개별 사례의 맥락과 차이를 계속 확인할 수 있습니다.
+                            </p>
+                        </li>
+                        <li>
+                            <strong>후속 연구가 어디를 더 깊게 살펴봐야 하는지 구체화할 수 있습니다.</strong>
+                            <p>
+                                다양한 상황과 변이를 체계적으로 확인하는 것은 하나의 결론을 만드는 데서 끝나는 것이 아니라,
+                                어떤 상황을 따로 연구할 필요가 있는지, 어떤 차이를 이후 연구에서 더 정교하게 검증해야 하는지를
+                                보여주는 기초가 될 수 있습니다.
+                            </p>
+                        </li>
+                        <li>
+                            <strong>AI 정신건강 연구를 보다 세분화된 질문으로 발전시키는 데 기여할 수 있습니다.</strong>
+                            <p>
+                                AI 사용을 하나의 통합된 현상으로 다루기보다 서로 다른 상황과 조건을 구분해 볼 수 있는 기반을 마련함으로써,
+                                이후 연구가 보다 구체적인 이용 상황·집단·문제에 초점을 맞출 수 있도록 합니다.
+                            </p>
+                        </li>
+                    </ul>
+                </section>
 
             </div>
         </div>
 
-    <div>
-        <h2 id="comparison"></h2>
-        
-    </div>
+        <section id="comparison">
+            <h2>CDP란?</h2>
+            <div class="titleUnderLine"></div>
+
+            <div class="cdpWrap">
+                <aside class="cdpProfessorNote">
+                    <strong>먼저 말씀드리면, CDP 자체는 생각보다 어렵지 않습니다.</strong><br>
+                    논문에서는 interpretative repertoire, subject position, ideological dilemma 같은 낯선 용어가 많이 나와서 복잡해 보이지만,
+                    각각이 가리키는 것은 실제 예시를 한 번 보면 바로 이해할 수 있는 것들입니다.
+                    제가 논문 샘플과 1차 결과지에서 너무 학술적인 표현으로 써서 더 어렵게 보인 부분도 있습니다.
+                </aside>
+
+                <div class="cdpLead">
+                    <span class="cdpMainLine">CDP는 ‘사람이 진짜로 무슨 생각을 하는가’를 맞히는 방법이 아닙니다.</span>
+                    <p>
+                        CDP가 보는 것은 <strong>왜 이 상황에서 굳이 이런 식으로 말해야 했는가</strong>입니다.
+                        사람은 특히 비판받거나 평가받을 가능성이 있는 상황에서 단순히 경험만 보고하지 않습니다.
+                        자신의 말을 어떤 순서로 놓고, 무엇을 먼저 인정하고, 무엇을 부정하며, 어떤 설명을 덧붙일지 선택하면서
+                        <strong>비판을 막고, 책임을 설명하고, 자신이 어떤 사람인지 보여 주는 일</strong>도 함께 합니다.
+                        CDP는 바로 그 과정을 문장 수준에서 따라간 뒤, 왜 그런 설명이 필요했는지를 더 큰 사회적 규범과 연결해서 봅니다.
+                    </p>
+
+                    <div class="cdpDualRead">
+                        <div>
+                            <strong>가까이 보기 — micro</strong>
+                            <p>문장의 순서, “하지만”, “나는 알고 있다” 같은 표현이 지금 이 자리에서 어떤 일을 하는지 봅니다.
+                                <br>
+                                <span style="font-size: x-small; color: gray;">참고: DISCURSIVE PSYCHOLOGY: THEORY, METHOD
+                                    AND APPLICATIONS, Chapter 7</span>
+                            </p>
+                        </div>
+                        <div>
+                            <strong>넓게 보기 — macro</strong>
+                            <p>왜 그런 설명이 필요했는지, 그 뒤에 어떤 사회적 기대·규범·책임의 기준이 있는지 봅니다.
+                                <br>
+                                <span style="font-size: x-small; color: gray;">참고: Applying critical discursive
+                                    psychology to health
+                                    psychology research: a practical guide</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <section class="cdpExample" aria-labelledby="horwoodExampleTitle">
+                    <span class="cdpEyebrow" style="font-size: large;">HORWOOD ET AL. (2023) — 실제 CDP 연구로 보면</span>
+                    <h3 id="horwoodExampleTitle">같은 게시물을 ‘내용’이 아니라 ‘말이 하는 일’로 읽으면 CDP가 무엇인지 보입니다.</h3>
+                    <p class="cdpExampleIntro">
+                        예를 들어 한 사람이 “나는 운동, 수면, 규칙적인 생활이 중요하다는 것을 알고 있고 실제로 노력하고 있다. <strong>그런데도</strong> 여전히 너무 힘들다”고 썼다고 해 보겠습니다.
+                        이 글의 주제를 뽑는다면 self-care, 정신건강, 코로나 스트레스라고 정리할 수 있습니다. 하지만 CDP는 여기서 멈추지 않습니다.<br><br>
+                        먼저 <strong>왜 굳이 ‘나는 알고 있다’, ‘나는 하고 있다’를 먼저 말했는가</strong>를 묻습니다.
+                        사회에는 “정신건강은 올바른 self-care를 통해 스스로 관리해야 한다”는 익숙한 상식이 있습니다. 이 상식은 자연스럽게
+                        <strong>알고 있고 제대로 관리한다면 어느 정도 좋아져야 한다</strong>는 기대를 만듭니다.
+                        동시에 코로나, 고립, 실직처럼 개인이 통제할 수 없는 외부 상황도 실제로 사람을 힘들게 합니다.<br><br>
+                        그래서 두 설명은 단순히 서로 다른 의견이 아니라, 한 사람에게 동시에 적용될 때 <strong>책임 문제</strong>를 만듭니다.
+                        “내가 관리해야 한다”가 맞고 “외부 상황은 내 힘으로 통제할 수 없다”도 맞다면,
+                        <strong>나는 이미 알고 노력했는데 왜 아직도 힘든가? 혹시 내가 제대로 관리하지 못한 사람으로 보이지 않을까?</strong>라는 문제가 생깁니다.
+                        바로 이 지점이 논문에서 말하는 ideological dilemma입니다.
+                    </p>
+
+                    <figure class="cdpExampleFigure">
+                        <img src="for_kim_cdp.png" alt="Horwood et al. 논문의 CDP 분석 예시를 시각화한 그림">
+                    </figure>
+
+                    <div class="cdpLogic" aria-label="Horwood et al. 논문의 CDP 분석 논리">
+                        <div class="cdpLogicRow top">
+                            <div class="cdpLogicCard">
+                                <span class="cdpLogicLabel">REPERTOIRE 1</span>
+                                <strong>정신건강은 self-care로 관리해야 한다</strong>
+                            </div>
+                            <div class="cdpLogicArrow">＋</div>
+                            <div class="cdpLogicCard">
+                                <span class="cdpLogicLabel">REPERTOIRE 2</span>
+                                <strong>외부 상황은 개인이 통제하기 어렵다</strong>
+                            </div>
+                            <div class="cdpLogicArrow">→</div>
+                            <div class="cdpLogicCard emphasis">
+                                <span class="cdpLogicLabel">IDEOLOGICAL DILEMMA</span>
+                                <strong>“내가 관리해야 한다”와 “내 힘으로는 안 된다”가 동시에 존재</strong>
+                            </div>
+                        </div>
+
+                        <div class="cdpLogicBridge"></div>
+                        <p class="cdpLogicCaption">이 충돌은 실제 게시물에서 반복되는 문장 구조로 나타납니다.</p>
+
+                        <div class="cdpLogicRow middle">
+                            <div class="cdpLogicCard micro">
+                                <span class="cdpLogicLabel">① EXTERNAL PRESSURE</span>
+                                <strong>“상황 때문에 너무 힘들다”</strong>
+                            </div>
+                            <div class="cdpLogicArrow">→</div>
+                            <div class="cdpLogicCard micro">
+                                <span class="cdpLogicLabel">② CONCESSION / DISCLAIMER</span>
+                                <strong>“I know … / 나도 해야 할 건 안다”</strong>
+                            </div>
+                            <div class="cdpLogicArrow">→</div>
+                            <div class="cdpLogicCard micro">
+                                <span class="cdpLogicLabel">③ “BUT …”</span>
+                                <strong>“그런데도 여전히 힘들다”</strong>
+                            </div>
+                        </div>
+
+                        <p class="cdpLogicCaption">그래서 “I know … / I try … / but …”는 단순한 정보 전달이 아닙니다. 앞의 두 표현은 “나는 무지하거나 무책임한 사람이 아니다”라는 위치를 만들고, 뒤의 “but”은 그 상태에서도 계속되는 고통을 정당하게 말할 수 있게 합니다.</p>
+                        <div class="cdpLogicBridge"></div>
+
+                        <div class="cdpLogicRow bottom">
+                            <div class="cdpLogicCard">
+                                <span class="cdpLogicLabel">DEVICE</span>
+                                <strong>concession · disclaimer · contrast</strong>
+                            </div>
+                            <div class="cdpLogicArrow">→</div>
+                            <div class="cdpLogicCard">
+                                <span class="cdpLogicLabel">ACTION</span>
+                                <strong>예상되는 비판과 책임 문제를 처리</strong>
+                            </div>
+                            <div class="cdpLogicArrow">→</div>
+                            <div class="cdpLogicCard">
+                                <span class="cdpLogicLabel">SUBJECT POSITION</span>
+                                <strong>“알고 있고 노력하는 책임 있는 사람”</strong>
+                            </div>
+                            <div class="cdpLogicArrow">→</div>
+                            <div class="cdpLogicCard emphasis">
+                                <span class="cdpLogicLabel">BACK TO MACRO</span>
+                                <strong>왜 이런 자기설명이 반복해서 필요한가?</strong>
+                                <span class="note">정신건강을 개인 책임으로 보는 더 큰 사회적 담론과 연결</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="cdpFlowTakeaway">
+                        <strong>한 줄로 보면:</strong>
+                        CDP는 반복되는 말의 내용을 분류하는 데서 끝나지 않고 → 그 말들이 왜 지금 필요한지 → 어떤 비판과 책임 문제를 처리하는지 → 그 과정에서 글쓴이가 자신을 어떤 사람으로 만들고 있는지 → 왜 이런 자기설명이 반복해서 필요한 사회적 규범이 무엇인지까지 연결해서 읽습니다.
+                    </p>
+                </section>
+
+                <section class="cdpRoleBox" aria-labelledby="cdpRoleTitle">
+                    <h3 id="cdpRoleTitle">그래서 제 연구에서 무엇이 ‘본체’인가?</h3>
+                    <p>
+                        앞에서 설명한 LLM, 전체 자료의 분포 확인, sampling은 최종 분석 자체가 아닙니다.
+                        그것들은 <strong>어떤 게시물을 CDP로 깊게 읽을 것인지 더 잘 판단하기 위한 준비 과정</strong>입니다.
+                        실제로 논문이 답하려는 질문은 close reading에 들어간 뒤,
+                        사람들이 어떤 설명 방식을 사용하고, 어떤 긴장과 책임을 처리하며, 어떤 위치를 만들고 있는지를 CDP로 분석하는 데서 나옵니다.
+                    </p>
+                    <span class="roleKey">즉, LLM과 sampling은 CDP를 대신하는 것이 아니라 CDP가 더 제대로 작동하도록 앞에서 받쳐 주는 구조입니다.</span>
+                </section>
+
+                <section class="cdpThemeCompare" aria-labelledby="cdpThemeTitle">
+                    <span class="cdpEyebrow">CDP ≠ THEME EXTRACTION</span>
+                    <h3 id="cdpThemeTitle">그렇다면 교수님께서 말씀하신 ‘theme을 뽑는 것’과는 무엇이 다른가?</h3>
+
+
+                    <div class="cdpCompareGrid">
+                        <div class="cdpCompareCard">
+                            <span class="cdpCompareLabel">THEME 수준에서 묻는다면</span>
+                            <strong>“사람들이 주로 무엇에 대해 말하고 있는가?”</strong>
+                            <ul>
+                                <li>self-care</li>
+                                <li>불안과 우울</li>
+                                <li>실직·봉쇄 같은 외부 스트레스</li>
+                                <li>대처 방법과 도움 요청</li>
+                            </ul>
+                        </div>
+
+                        <div class="cdpCompareCard cdpSide">
+                            <span class="cdpCompareLabel">CDP가 더 묻는 것은</span>
+                            <strong>“왜 여기에서 이런 식으로 말했고, 그 말이 무엇을 하고 있는가?”</strong>
+                            <ul>
+                                <li>왜 굳이 “나는 이미 알고 있다”고 먼저 말했는가?</li>
+                                <li>그 말은 어떤 비판이나 다른 해석을 미리 막고 있는가?</li>
+                                <li>그 과정에서 자신을 어떤 사람으로 보여 주고 있는가?</li>
+                                <li>왜 이런 설명이 자연스럽게 필요한 사회적 환경이 만들어졌는가?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="cdpThemeBottom">
+                         “self-care”가 반복된다는 사실 자체보다,
+                        왜 힘들다고 말하는 사람이 동시에 “나는 self-care를 알고 있고 하고 있다”고 설명해야 했는지를 보는 것이 CDP의 핵심입니다.
+                    </p>
+
+                    <p class="cdpSources">
+                        예시 연구: Horwood, Augoustinos &amp; Due (2023) · 개념 및 방법 설명: Locke &amp; Budds (2020)
+                    </p>
+                </section>
+            </div>
+        </section>
 
 
 
+        <script>
+            const navLinks = Array.from(document.querySelectorAll(".navbar a[href^='#']"))
+                .filter(link => link.getAttribute("href") !== "#" && link.textContent.trim());
 
+            const navSections = navLinks
+                .map(link => ({
+                    link,
+                    section: document.querySelector(link.getAttribute("href"))
+                }))
+                .filter(item => item.section);
 
+            function updateActiveNav() {
+                const marker = window.scrollY + window.innerHeight * 0.35;
+                let current = navSections[0];
+
+                navSections.forEach(item => {
+                    if (item.section.offsetTop <= marker) current = item;
+                });
+
+                navLinks.forEach(link => link.classList.remove("active"));
+                if (current) current.link.classList.add("active");
+            }
+
+            let ticking = false;
+            window.addEventListener("scroll", () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        updateActiveNav();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            window.addEventListener("resize", updateActiveNav);
+            window.addEventListener("load", updateActiveNav);
+            updateActiveNav();
+        </script>
 
 </body>
 
 </html>
-
-<script>
-    // navbar: 클릭한 항목의 연한 핑크 상태 유지
-    const navLinks = document.querySelectorAll(".navbar a");
-
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            navLinks.forEach(item => item.classList.remove("active"));
-            link.classList.add("active");
-        });
-    });
-
-    // 새로고침 후에도 URL의 #위치와 같은 메뉴가 있으면 표시
-    if (window.location.hash) {
-        const currentLink = document.querySelector(`.navbar a[href="${window.location.hash}"]`);
-        if (currentLink) currentLink.classList.add("active");
-    }
-
-    
-
-
-
-
-
-
-</script>
