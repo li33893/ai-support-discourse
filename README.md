@@ -53,17 +53,14 @@
 | 파일 | 용도 |
 |---|---|
 | `first_sampling_decision_log.docx` | dominant combination부터 community별 잔여 조합까지 실제로 검토한 순서, 비율, 동질성 판단과 결정 과정을 기록합니다. |
-| `first_sampling_decision_evaluation.docx` | 위 기록을 바탕으로 각 주요 단위의 pass/fail 이유와 63개 sample 구성을 요약·평가합니다. |
-| `~$first_sampling_decision_log.docx` | Word가 문서를 열 때 만든 임시 잠금 파일입니다. 연구 자료가 아니며 삭제해도 됩니다. |
+| `first_sampling_decision_evaluation.docx` | 분석결과에 따른 sampling 틀에 대한 pass/fail 평가, 그 이유와 63개 sample 구성을 요약·평가합니다. |
 
 ### `analysis/` — 현재 진행 중인 close reading 기록
 
 | 파일 | 용도 |
 |---|---|
 | `result_first_round.docx` | 여러 도움 요청 상황에서 시도한 1차 CDP 분석을 한 문서에 모은 것입니다. 현재 분석 구조를 다시 검토 중이므로 최종 결과로 사용하지 않습니다. |
-| `Anxiety Episodic x SA/summary_anxiety_episodic_sa.docx` | r/Anxiety의 일회적 증상 평가·정보 검색 상황에서 책임 배치, 시간 구조, 정보 검색 chain과 subject position을 정리한 단위별 메모입니다. |
-| `Habitual x Primary x CO or VE/summary_habitual_primary_co_ve.docx` | AI를 반복적인 주요 companionship·venting 수단으로 사용하는 게시물에서 공통된 서사 기능과 내부 variation을 검토한 단위별 메모입니다. |
-| `~$*.docx` | Word 임시 잠금 파일입니다. 분석 내용이 들어 있는 본문 파일이 아닙니다. |
+
 
 `analysis/`의 문서는 분석 과정의 흔적을 남기기 위한 working document입니다. 현재 목표는 이 문장을 바로 확정하는 것이 아니라, 같은 상황 안의 variation, 상황·community 사이의 차이, 반례와 새 변이를 다시 확인하여 분석을 재구성하는 것입니다.
 
@@ -105,13 +102,6 @@
 | `12_sampling.py` | sampling claim에 따라 63개 1차 close-reading sample 추출 |
 | `rickwood_prompt.py` | exclusion과 Rickwood coding에 실제로 사용한 system prompt |
 
-### `docs/` — 내부 연구 메모
-
-| 파일 | 용도 |
-|---|---|
-| `rationale_memo.docx` | 연구 설계와 판단 근거를 누적해서 적어 둔 내부 rationale memo입니다. 방법을 추적할 때 참고하지만 교수님께서 먼저 읽을 파일은 아닙니다. |
-| `rationale_memo (자동 복구됨).docx` | Word가 자동 복구한 중복 사본입니다. 별도의 연구 자료로 보지 않습니다. |
-| `새 Wordprocessor Document.docx` | sampling 이후 확인할 가설, 반례와 community 비교 지점을 빠르게 적어 둔 미정리 working memo입니다. |
 
 ### 그 밖의 항목
 
