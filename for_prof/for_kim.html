@@ -565,22 +565,22 @@
 
         /* 轻微错落，不做机械对称 */
         /* 1번 마커가 첫 child가 되었으므로 기존 첫 네 블록의 위치를 그대로 유지 */
-        .sigFlow > .sigBlock:nth-child(2) {
+        .sigFlow>.sigBlock:nth-child(2) {
             width: 70%;
             margin-left: 5%;
         }
 
-        .sigFlow > .sigBlock:nth-child(3) {
+        .sigFlow>.sigBlock:nth-child(3) {
             width: 65%;
             margin-left: 25%;
         }
 
-        .sigFlow > .sigBlock:nth-child(4) {
+        .sigFlow>.sigBlock:nth-child(4) {
             width: 72%;
             margin-left: 10%;
         }
 
-        .sigFlow > .sigBlock:nth-child(5) {
+        .sigFlow>.sigBlock:nth-child(5) {
             width: 68%;
             margin-left: 20%;
         }
@@ -822,6 +822,45 @@
         .cdpProfessorNote strong {
             color: rgb(157, 101, 144);
             font-weight: 650;
+        }
+
+        .cdpAnalysisStatus {
+            width: 78%;
+            margin: 0 auto 24px;
+            padding: 28px 30px;
+            box-sizing: border-box;
+            background: #f7f6f6;
+            border: 1px solid #e1dddd;
+            border-left: 3px solid #777;
+        }
+
+        .cdpAnalysisStatus .statusLabel {
+            display: block;
+            margin-bottom: 10px;
+            color: #777;
+            font-size: 13px;
+            font-weight: 650;
+            letter-spacing: 1.2px;
+        }
+
+        .cdpAnalysisStatus h3 {
+            margin: 0 0 16px;
+            padding: 0;
+            color: #292929;
+            font-size: 23px;
+            font-weight: 600;
+            line-height: 1.55;
+        }
+
+        .cdpAnalysisStatus p {
+            margin: 0 0 12px;
+            color: #555;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .cdpAnalysisStatus p:last-child {
+            margin-bottom: 0;
         }
 
         .cdpLead {
@@ -1357,6 +1396,7 @@
                 width: 86%;
             }
 
+            .cdpAnalysisStatus,
             .cdpProfessorNote,
             .cdpLead,
             .cdpRoleBox {
@@ -1416,7 +1456,7 @@
             scroll-margin-top: 24px;
         }
 
-        #aiRole > .titleUnderLine {
+        #aiRole>.titleUnderLine {
             margin-bottom: 62px;
         }
 
@@ -1840,12 +1880,144 @@
             font-weight: 550;
         }
 
+        .aiApiFigure {
+            width: min(1120px, 100%);
+            margin: 30px auto 34px;
+            padding: 0;
+        }
+
+        .aiApiFigure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid #e5dfe3;
+            background: white;
+        }
+
+        .aiGithubProof {
+            width: 88%;
+            margin: 32px auto 0;
+            padding: 24px 28px;
+            box-sizing: border-box;
+            background: #faf8fa;
+            border-left: 3px solid rgba(194, 132, 179, 0.72);
+        }
+
+        .aiGithubProof strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .aiGithubProof p {
+            margin: 0;
+            color: #5d5d5d;
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        .aiGithubProof a {
+            color: rgb(157, 101, 144);
+            font-weight: 650;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(194, 132, 179, 0.45);
+        }
+
+        .aiGithubProof a:hover {
+            border-bottom-color: rgb(157, 101, 144);
+        }
+
+        .researchFooter {
+            width: 100%;
+            margin: 20px 0 0;
+            padding: 76px 0 86px;
+            background: #faf8fa;
+            border-top: 1px solid #e5dfe3;
+        }
+
+        .researchFooterInner {
+            width: min(980px, 86%);
+            margin: 0 auto;
+        }
+
+        .footerEyebrow {
+            display: block;
+            margin-bottom: 8px;
+            color: rgb(157, 101, 144);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+
+        .researchFooter h3 {
+            margin: 0 0 12px;
+            padding: 0;
+            color: #292929;
+            font-size: 28px;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .footerIntro {
+            max-width: 760px;
+            margin: 0 0 22px;
+            color: #5d5d5d;
+            font-size: 16px;
+            line-height: 1.85;
+        }
+
+        .footerGithubButton {
+            display: inline-block;
+            padding: 13px 18px;
+            color: rgb(157, 101, 144);
+            background: white;
+            border: 1px solid rgba(194, 132, 179, 0.52);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 650;
+        }
+
+        .footerGithubButton:hover {
+            background: rgba(194, 132, 179, 0.055);
+        }
+
+        .footerContactGrid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 28px;
+            margin-top: 34px;
+            padding-top: 26px;
+            border-top: 1px solid #ded8dc;
+        }
+
+        .footerContactGrid>div {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 14px;
+            align-items: baseline;
+            padding: 8px 0;
+        }
+
+        .footerContactGrid span {
+            color: #777;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+        }
+
+        .footerContactGrid strong {
+            color: #444;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
         /* 第四段 navbar 子项目 */
         .navbar .navGroup {
             width: 100%;
         }
 
-        .navbar .navGroup > .navMain {
+        .navbar .navGroup>.navMain {
             padding: 24px 0 12px;
         }
 
@@ -1872,7 +2044,7 @@
             font-weight: 600;
         }
 
-        .navbar .navGroup.group-active > .navMain {
+        .navbar .navGroup.group-active>.navMain {
             color: rgb(157, 101, 144);
         }
 
@@ -1885,6 +2057,7 @@
             .aiLeadBox,
             .aiSourceNote,
             .aiApiBox,
+            .aiGithubProof,
             .aiClosing {
                 width: 100%;
                 margin-left: 0;
@@ -1906,8 +2079,11 @@
             .aiNodeNumber {
                 font-size: 34px;
             }
-        }
 
+            .footerContactGrid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -1923,7 +2099,7 @@
                 <a href="#aiWhy">4-1. 왜 이런 과정이 필요한가?</a>
                 <a href="#aiUse">4-2. LLM을 어떻게 사용했는가?</a>
                 <a href="#aiMap">4-3. 왜 ‘도움 요청 상황’을 코딩했는가?</a>
-                <a href="#aiSampling">4-4. sampling을 어떻게 결정하고 검증했는가?</a>
+                <a href="#aiSampling">4-4. sampling을 어떻게 결정하고 점검했는가?</a>
                 <a href="#aiMeaning">4-5. 그래서 AI는 무엇을 하는가?</a>
             </div>
         </div>
@@ -2152,6 +2328,24 @@
             <div class="titleUnderLine"></div>
 
             <div class="cdpWrap">
+                <aside class="cdpAnalysisStatus" aria-labelledby="analysisStatusTitle">
+                    <span class="statusLabel">현재 분석에 대해 먼저 말씀드립니다</span>
+                    <h3 id="analysisStatusTitle">솔직히 말씀드리면, 저는 지금의 1차 분석이 충분히 좋지 않다고 생각해 다시 분석하고 있습니다.</h3>
+                    <p>
+                        현재 공유드린 1차 결과지는 완성된 분석 결과가 아닙니다. 지금까지 무엇을 보았는지 보여 드리고,
+                        제가 어디에서 논리를 놓치고 있는지와 무엇을 더 비교해야 하는지 교수님의 지도 의견을 받기 위한 작업 문서입니다.
+                    </p>
+                    <p>
+                        아직 읽지 않으셨다면 문장 하나하나에 시간을 많이 들여 꼼꼼히 보실 필요는 없습니다.
+                        전체 방향과 해석에서 문제가 되는 지점을 중심으로 봐 주시면 충분합니다.
+                        이미 읽으시면서 잘 연결되지 않거나 걸렸던 부분이 있다면, 그 지점 자체를 말씀해 주시는 것이 제게 가장 도움이 됩니다.
+                    </p>
+                    <p>
+                        읽는 과정이 너무 답답하시거나 분석이 잘 연결되지 않는다고 느껴지신다면 지금은 잠시 넘겨주셔도 괜찮습니다.
+                        게시물을 다시 읽고 분석 구조를 정리한 뒤 다시 공유드리겠습니다.
+                    </p>
+                </aside>
+
                 <aside class="cdpProfessorNote">
                     <strong>먼저 말씀드리면, CDP 자체는 생각보다 어렵지 않습니다.</strong><br>
                     논문에서는 interpretative repertoire, subject position, ideological dilemma 같은 낯선 용어가 많이 나와서 복잡해 보이지만,
@@ -2200,7 +2394,7 @@
                             <span class="cdpConceptLabel">1. INTERPRETATIVE REPERTOIRE</span>
                             <h4>반복해서 꺼내 쓸 수 있는 ‘익숙한 설명 방식’</h4>
                             <p>
-                               Repertoire는 어떤 문제를 <strong>설명하고, 틀 짓고, 말하는 알아볼 수 있는 방식</strong>입니다.
+                                Repertoire는 어떤 문제를 <strong>설명하고, 틀 짓고, 말하는 알아볼 수 있는 방식</strong>입니다.
                                 즉 ‘한 사람이 속으로 가진 고정된 신념’이라기보다, 여러 사람이 필요할 때 가져다 쓸 수 있는 <strong>말의 재료</strong>에 가깝습니다.
                             </p>
                             <p>
@@ -2215,14 +2409,16 @@
                             <h4>사회가 주는 ‘상식’끼리 서로 충돌하는 지점</h4>
                             <p>
                                 사회에는 한 가지 상식만 있는 것이 아닙니다. 서로 반대 방향을 가리키지만 둘 다 그럴듯하게 받아들여지는 상식이 함께 존재할 수 있습니다.
-                                예를 들어 <strong>“자기 건강은 스스로 관리해야 한다”</strong>도 익숙한 말이고, <strong>“사람에게는 통제할 수 없는 상황이 있다”</strong>도 익숙한 말입니다.
+                                예를 들어 <strong>“자기 건강은 스스로 관리해야 한다”</strong>도 익숙한 말이고, <strong>“사람에게는 통제할 수 없는 상황이
+                                    있다”</strong>도 익숙한 말입니다.
                             </p>
                             <p>
                                 이 두 설명이 한 사람의 같은 상황에 동시에 적용되면 문제가 생깁니다.
                                 “내가 책임져야 한다”와 “내 힘으로는 어쩔 수 없다”가 모두 말이 되기 때문입니다.
                                 <strong>그 모순을 실제 말 속에서 어떻게 조정하고 버티는가</strong>가 ideological dilemma입니다.
                             </p>
-                            <span class="cdpConceptPlain">한마디로: dilemma = 개인이 앞뒤가 안 맞아서가 아니라, 사회적으로 가능한 ‘상식’ 자체가 서로 당기는 방향이 다를 때 생기는 긴장</span>
+                            <span class="cdpConceptPlain">한마디로: dilemma = 개인이 앞뒤가 안 맞아서가 아니라, 사회적으로 가능한 ‘상식’ 자체가 서로 당기는
+                                방향이 다를 때 생기는 긴장</span>
                         </article>
 
                         <article class="cdpConceptCard">
@@ -2230,22 +2426,26 @@
                             <h4>그 설명을 쓰면 ‘나는 어떤 사람’이 되는가</h4>
                             <p>
                                 repertoire는 문제만 설명하는 것이 아니라, 그 설명 안에서 사람이 설 수 있는 자리도 만듭니다.
-                                이를 <strong>‘ways of being’</strong>, 즉 그 담론 안에서 가능해지는 ‘어떤 사람으로 존재하는 방식’이라고 이해하면 받아들이기가 쉬워집니다.
+                                이를 <strong>‘ways of being’</strong>, 즉 그 담론 안에서 가능해지는 ‘어떤 사람으로 존재하는 방식’이라고 이해하면 받아들이기가
+                                쉬워집니다.
                             </p>
                             <p>
                                 예를 들어 “나는 self-care가 중요하다는 것을 알고 실제로 노력했다”고 말하면,
                                 글쓴이는 자신을 <strong>무책임한 사람이 아니라 알고 있고 노력하는 책임 있는 사람</strong>으로 위치시킬 수 있습니다.
                                 사람은 이런 위치를 받아들일 수도 있고, 거부하거나 다른 방식으로 다시 만들 수도 있습니다.
                             </p>
-                            <span class="cdpConceptPlain">한마디로: subject position = 이 말을 했을 때 나와 다른 사람이 어떤 ‘종류의 사람’으로 놓이는가</span>
+                            <span class="cdpConceptPlain">한마디로: subject position = 이 말을 했을 때 나와 다른 사람이 어떤 ‘종류의 사람’으로
+                                놓이는가</span>
                         </article>
 
                         <article class="cdpConceptCard gray">
                             <span class="cdpConceptLabel">4. DISCURSIVE ACCOMPLISHMENT / ACTION</span>
                             <h4>그래서 그 문장이 실제로 무슨 일을 하는가</h4>
                             <p>
-                                CDP는 문장을 정보 전달로만 보지 않습니다. 사람은 말로 <strong>변명하고, 정당화하고, 책임을 줄이거나 떠맡고, 비판을 미리 막는 일</strong>도 합니다.
-                                그래서 “I know … but …” 같은 구조에서는 앞부분이 단순한 배경정보가 아니라, 뒤에 나올 말을 정당하게 말할 수 있도록 준비하는 장치가 될 수 있습니다.
+                                CDP는 문장을 정보 전달로만 보지 않습니다. 사람은 말로 <strong>변명하고, 정당화하고, 책임을 줄이거나 떠맡고, 비판을 미리 막는
+                                    일</strong>도 합니다.
+                                그래서 “I know … but …” 같은 구조에서는 앞부분이 단순한 배경정보가 아니라, 뒤에 나올 말을 정당하게 말할 수 있도록 준비하는 장치가 될 수
+                                있습니다.
                             </p>
                             <p>
                                 여기서 분석은 아주 구체적으로 내려갑니다. 왜 ‘나는 안다’를 먼저 말했는지, 왜 ‘but’이 필요한지,
@@ -2283,7 +2483,8 @@
                     <span class="cdpEyebrow" style="font-size: large;">HORWOOD ET AL. (2023) — 실제 CDP 연구로 보면</span>
                     <h3 id="horwoodExampleTitle">같은 게시물을 ‘내용’이 아니라 ‘말이 하는 일’로 읽으면 CDP가 무엇인지 보입니다.</h3>
                     <p class="cdpExampleIntro">
-                        예를 들어 한 사람이 “나는 운동, 수면, 규칙적인 생활이 중요하다는 것을 알고 있고 실제로 노력하고 있다. <strong>그런데도</strong> 여전히 너무 힘들다”고 썼다고 해 보겠습니다.
+                        예를 들어 한 사람이 “나는 운동, 수면, 규칙적인 생활이 중요하다는 것을 알고 있고 실제로 노력하고 있다. <strong>그런데도</strong> 여전히 너무 힘들다”고
+                        썼다고 해 보겠습니다.
                         이 글의 주제를 뽑는다면 self-care, 정신건강, 코로나 스트레스라고 정리할 수 있습니다. 하지만 CDP는 여기서 멈추지 않습니다.<br><br>
                         먼저 <strong>왜 굳이 ‘나는 알고 있다’, ‘나는 하고 있다’를 먼저 말했는가</strong>를 묻습니다.
                         사회에는 “정신건강은 올바른 self-care를 통해 스스로 관리해야 한다”는 익숙한 상식이 있습니다. 이 상식은 자연스럽게
@@ -2292,7 +2493,8 @@
                         그래서 두 설명은 단순히 서로 다른 의견이 아니라, 한 사람에게 동시에 적용될 때 <strong>책임 문제</strong>를 만듭니다.
                         “내가 관리해야 한다”가 맞고 “외부 상황은 내 힘으로 통제할 수 없다”도 맞다면,
                         <strong>나는 이미 알고 노력했는데 왜 아직도 힘든가? 혹시 내가 제대로 관리하지 못한 사람으로 보이지 않을까?</strong>라는 문제가 생깁니다.
-                        이것은 글쓴이 개인이 논리적으로 모순되어서 생긴 문제가 아니라, <strong>사회적으로 모두 익숙한 두 설명이 같은 상황에서 서로 다른 방향을 요구하기 때문에 생기는 긴장</strong>입니다.
+                        이것은 글쓴이 개인이 논리적으로 모순되어서 생긴 문제가 아니라, <strong>사회적으로 모두 익숙한 두 설명이 같은 상황에서 서로 다른 방향을 요구하기 때문에 생기는
+                            긴장</strong>입니다.
                         바로 이 지점이 ideological dilemma입니다.
                     </p>
 
@@ -2338,7 +2540,8 @@
                             </div>
                         </div>
 
-                        <p class="cdpLogicCaption">그래서 “I know … / I try … / but …”는 단순한 정보 전달이 아닙니다. 앞의 두 표현은 “나는 무지하거나 무책임한 사람이 아니다”라는 위치를 만들고, 뒤의 “but”은 그 상태에서도 계속되는 고통을 정당하게 말할 수 있게 합니다.</p>
+                        <p class="cdpLogicCaption">그래서 “I know … / I try … / but …”는 단순한 정보 전달이 아닙니다. 앞의 두 표현은 “나는 무지하거나
+                            무책임한 사람이 아니다”라는 위치를 만들고, 뒤의 “but”은 그 상태에서도 계속되는 고통을 정당하게 말할 수 있게 합니다.</p>
                         <div class="cdpLogicBridge"></div>
 
                         <div class="cdpLogicRow bottom">
@@ -2367,7 +2570,8 @@
 
                     <p class="cdpFlowTakeaway">
                         <strong>한 줄로 보면:</strong>
-                        CDP는 반복되는 말의 내용을 분류하는 데서 끝나지 않고 → 그 말들이 왜 지금 필요한지 → 어떤 비판과 책임 문제를 처리하는지 → 그 과정에서 글쓴이가 자신을 어떤 사람으로 만들고 있는지 → 왜 이런 자기설명이 반복해서 필요한 사회적 규범이 무엇인지까지 연결해서 읽습니다.
+                        CDP는 반복되는 말의 내용을 분류하는 데서 끝나지 않고 → 그 말들이 왜 지금 필요한지 → 어떤 비판과 책임 문제를 처리하는지 → 그 과정에서 글쓴이가 자신을 어떤
+                        사람으로 만들고 있는지 → 왜 이런 자기설명이 반복해서 필요한 사회적 규범이 무엇인지까지 연결해서 읽습니다.
                     </p>
                 </section>
 
@@ -2412,12 +2616,14 @@
                     </div>
 
                     <p class="cdpThemeBottom">
-                         “self-care”가 반복된다는 사실 자체보다,
+                        “self-care”가 반복된다는 사실 자체보다,
                         왜 힘들다고 말하는 사람이 동시에 “나는 self-care를 알고 있고 하고 있다”고 설명해야 했는지를 보는 것이 CDP의 핵심입니다.
                     </p>
 
                     <p class="cdpSources">
-                        예시 연구: Horwood, Augoustinos &amp; Due (2023) · CDP의 repertoire, subject position, action orientation 및 micro/macro 분석 설명: Locke &amp; Budds (2020) · ideological dilemma 개념의 이론적 배경: Billig et al. (1988), Edley (2001)
+                        예시 연구: Horwood, Augoustinos &amp; Due (2023) · CDP의 repertoire, subject position, action
+                        orientation 및 micro/macro 분석 설명: Locke &amp; Budds (2020) · ideological dilemma 개념의 이론적 배경:
+                        Billig et al. (1988), Edley (2001)
                     </p>
                 </section>
             </div>
@@ -2459,7 +2665,8 @@
                             <strong>어떤 판단은 기존 방법론과 맞고, 어떤 부분은 더 보완해야 하는지</strong>를 확인하기 시작했습니다.
                         </p>
 
-                        <span class="aiPlainQuestion">결국 제가 해결해야 했던 문제는 하나였습니다: <strong>breadth와 depth를 어떻게 동시에 확보할 것인가?</strong></span>
+                        <span class="aiPlainQuestion">결국 제가 해결해야 했던 문제는 하나였습니다: <strong>breadth와 depth를 어떻게 동시에 확보할
+                                것인가?</strong></span>
 
                         <p>
                             2,000개가 넘는 게시물을 모두 같은 깊이로 close reading하는 것은 현실적으로 불가능합니다.
@@ -2474,16 +2681,23 @@
                     </div>
 
                     <div class="aiBigFlow" aria-label="breadth and depth workflow">
-                        <div class="flowStep"><span>01</span><strong>전체 자료를 넓게 보기</strong><small>corpus landscape</small></div>
-                        <div class="flowStep"><span>02</span><strong>도움 요청 상황 지도 만들기</strong><small>surface map</small></div>
-                        <div class="flowStep"><span>03</span><strong>지도가 실제 차이를 잡는지 확인</strong><small>validation</small></div>
-                        <div class="flowStep"><span>04</span><strong>sampling</strong><small>어디를 깊게 볼지 선택</small></div>
-                        <div class="flowStep"><span>05</span><strong>CDP close reading</strong><small>depth</small></div>
-                        <div class="flowStep"><span>06</span><strong>필요하면 다시 전체로</strong><small>iteration</small></div>
+                        <div class="flowStep"><span>01</span><strong>80개 pilot로 framework 확인</strong><small>researcher
+                                familiarization</small></div>
+                        <div class="flowStep"><span>02</span><strong>manual과 coding 기준 정교화</strong><small>human +
+                                chatbot</small></div>
+                        <div class="flowStep"><span>03</span><strong>사람–AI coding 일치 검증</strong><small>agreement
+                                validation</small></div>
+                        <div class="flowStep"><span>04</span><strong>전체 corpus batch coding</strong><small>help-seeking
+                                map</small></div>
+                        <div class="flowStep"><span>05</span><strong>sampling</strong><small>breadth → cases</small>
+                        </div>
+                        <div class="flowStep"><span>06</span><strong>CDP close reading ↔ 전체 확인</strong><small>depth +
+                                iteration</small></div>
                     </div>
 
                     <div class="aiSourceNote">
-                        <strong>방법론적 기반:</strong> Weller et al. (2023), <em>Big Qual: A Guide to Breadth-and-Depth Analysis</em>.
+                        <strong>방법론적 기반:</strong> Weller et al. (2023), <em>Big Qual: A Guide to Breadth-and-Depth
+                            Analysis</em>.
                         이 연구는 computational mapping을 최종 해석이 아니라 깊은 질적 분석으로 들어가기 위한 surface map으로 봅니다.
                     </div>
                 </section>
@@ -2499,7 +2713,8 @@
 
                     <div class="aiLeadBox">
                         이 연구에서 LLM을 바로 전체 corpus에 적용하지 않았습니다.
-                        <strong>작은 자료에서 사람이 먼저 기준을 만들고 → AI와의 disagreement를 이용해 manual을 다듬고 → 일치도를 확인한 뒤 → 전체에 적용하고 → 다시 새 표본으로 재검증</strong>했습니다.
+                        <strong>작은 자료에서 사람이 먼저 기준을 만들고 → AI와의 disagreement를 이용해 manual을 다듬고 → 일치도를 확인한 뒤 → 전체에 적용하고 → 다시
+                            새 표본으로 재검증</strong>했습니다.
                     </div>
 
                     <div class="aiProcessGrid">
@@ -2521,7 +2736,8 @@
                         <article class="aiProcessCard">
                             <span class="miniStep">STEP 4</span>
                             <strong>pilot sample에서 agreement 확인</strong>
-                            <p>API가 반환한 coding을 Excel로 정리해 제 coding과 비교했습니다. 목표 수준에 도달하지 않으면 disagreement를 보고 manual을 다시 수정했습니다.</p>
+                            <p>API가 반환한 coding을 Excel로 정리해 제 coding과 비교했습니다. 목표 수준에 도달하지 않으면 disagreement를 보고 manual을 다시
+                                수정했습니다.</p>
                         </article>
                         <article class="aiProcessCard">
                             <span class="miniStep">STEP 5</span>
@@ -2531,23 +2747,29 @@
                         <article class="aiProcessCard">
                             <span class="miniStep">STEP 6</span>
                             <strong>새로운 50개 게시물로 재검증</strong>
-                            <p>pilot에서 우연히 잘 맞은 가능성을 줄이기 위해 다시 50개를 추출해 제가 coding하고, 일치도와 집중적으로 반복되는 disagreement를 다시 확인했습니다.</p>
+                            <p>pilot에서 우연히 잘 맞은 가능성을 줄이기 위해 다시 50개를 추출해 제가 coding하고, 일치도와 집중적으로 반복되는 disagreement를 다시
+                                확인했습니다.</p>
                         </article>
                     </div>
 
                     <div class="aiApiBox">
                         <strong>API가 무엇인가?</strong>
                         <p>
-                            여기서 API는 새로운 분석 방법이 아닙니다. 평소 chatbot에게 제가 직접 보내는
-                            <strong>“이 manual을 읽고 → 이 게시물을 coding하고 → 이 형식으로 결과를 돌려줘”</strong>라는 요청을
-                            코드로 여러 게시물에 반복해서 보내는 방법이라고 이해하면 충분합니다.
+                            아래 그림처럼 이해하면 충분합니다. <strong>같은 prompt를 여러 게시물에 반복해서 보내고, 같은 형식으로 coding 결과를 돌려받는
+                                방식</strong>입니다.
                         </p>
                     </div>
+
+                    <figure class="aiApiFigure" aria-label="API를 이용한 반복 coding 과정">
+                        <img src="for_kim_api.png"
+                            alt="연구자가 만든 coding manual의 같은 prompt를 API가 여러 게시물에 반복 전송하고 AI가 같은 기준으로 coding 결과를 반환하는 과정을 설명한 그림">
+                    </figure>
 
                     <div class="aiText">
                         <p>
                             중요한 것은 AI에게 최종 해석을 맡긴 것이 아니라는 점입니다.
-                            이 단계에서 제가 확인하려는 것은 <strong>“이 manual을 같은 조건에서 적용했을 때 AI가 연구자의 coding 기준을 안정적으로 재현하는가?”</strong>입니다.
+                            이 단계에서 제가 확인하려는 것은 <strong>“이 manual을 같은 조건에서 적용했을 때 AI가 연구자의 coding 기준을 안정적으로
+                                재현하는가?”</strong>입니다.
                         </p>
                     </div>
                 </section>
@@ -2594,7 +2816,8 @@
                             만약 처음부터 제가 최종적으로 찾고 싶은 담론적 현상을 전체 게시물에 표시하고,
                             그 표시를 근거로 sampling하면 문제가 생깁니다.
                         </p>
-                        <span class="aiPlainQuestion">제가 찾으려는 것을 먼저 표시해 놓고, 그 표시를 근거로 다시 제가 찾으려는 사례를 고르는 구조가 될 수 있습니다.</span>
+                        <span class="aiPlainQuestion">제가 찾으려는 것을 먼저 표시해 놓고, 그 표시를 근거로 다시 제가 찾으려는 사례를 고르는 구조가 될 수
+                            있습니다.</span>
                         <p>
                             그렇게 되면 제가 처음 예상하지 못했던 현상은 처음부터 sampling frame 밖으로 밀려날 수 있습니다.
                             그래서 저는 최종 해석과 <strong>인접하지만 동일하지 않은 기준</strong>을 먼저 사용했습니다.
@@ -2607,7 +2830,8 @@
                     </div>
 
                     <div class="aiClosing">
-                        따라서 여기서 LLM은 단순한 coding tool이 아니라, <strong>한 사람이 한 번에 보기 어려운 전체 게시물의 도움 요청 상황을 연구자의 인식 범위 안으로 가져오는 ‘인식의 확장’이자 ‘도움 요청 상황의 지도’</strong>입니다.
+                        따라서 여기서 LLM은 단순한 coding tool이 아니라, <strong>한 사람이 한 번에 보기 어려운 전체 게시물의 도움 요청 상황을 연구자의 인식 범위 안으로
+                            가져오는 ‘인식의 확장’이자 ‘도움 요청 상황의 지도’</strong>입니다.
                     </div>
                 </section>
 
@@ -2615,50 +2839,52 @@
                     <div class="aiNodeHeader">
                         <div class="aiNodeNumber">4</div>
                         <div>
-                            <span class="aiNodeKicker">SAMPLING &amp; VALIDATION</span>
-                            <h3 id="aiSamplingTitle">sampling을 어떻게 결정하고 검증했는가?</h3>
+                            <span class="aiNodeKicker">SAMPLING LOGIC &amp; CHECKS</span>
+                            <h3 id="aiSamplingTitle">sampling을 어떻게 결정하고 점검했는가?</h3>
                         </div>
                     </div>
 
                     <div class="aiLeadBox">
-                        coding이 끝났다고 해서 그 combination을 바로 sampling unit으로 믿지 않았습니다.
-                        <strong>지도를 만든 뒤, 그 지도가 실제 자료의 차이를 제대로 나누고 있는지 다시 원문으로 확인</strong>했습니다.
+                        coding으로 만든 help-seeking map은 <strong>sampling을 위한 좌표</strong>이지, 그 자체가 담론적 차이를 증명하는 분석 결과는
+                        아닙니다.
+                        이 단계에서는 분포·반복·contrast·잔여 사례를 점검해 <strong>어디를 충분히 읽어야 하는지</strong> 결정합니다.
+                        실제로 어떤 담론적 차이가 존재하는지는 이후 <strong>CDP close reading</strong>에서 판단합니다.
                     </div>
 
                     <div class="aiValidationFlow">
                         <div class="aiValidationStep">
                             <span>01 · DISTRIBUTION</span>
                             <strong>먼저 모든 combination을 셈</strong>
-                            <p>community 안에서 어떤 조합이 크게 나타나는지 전체 구조를 확인합니다.</p>
+                            <p>community 안에서 어떤 조합이 크게 나타나는지 보고, 어디를 우선 확인할지 정합니다.</p>
                         </div>
                         <div class="aiValidationStep">
-                            <span>02 · WITHIN GROUP</span>
-                            <strong>같은 조합 안이 실제로 비슷한가?</strong>
-                            <p>서사 흐름, 도움 요청 상황, AI의 위치, 반복되는 긴장을 다시 읽습니다.</p>
+                            <span>02 · REPEATED SURFACE PATTERN</span>
+                            <strong>같은 조합에서 비슷한 상황이 반복되는가?</strong>
+                            <p>표면적 내용과 help-seeking trajectory를 확인해 한두 개의 우연한 사례인지 구분합니다.</p>
                         </div>
                         <div class="aiValidationStep">
-                            <span>03 · ACROSS GROUPS</span>
-                            <strong>다른 조합·community와 실제로 다른가?</strong>
-                            <p>같은 code라도 내용이 다르면 합치지 않고, 다른 code라도 내용이 중복되면 별도 사례로 과대평가하지 않습니다.</p>
+                            <span>03 · CONTRAST COVERAGE</span>
+                            <strong>비교해야 할 다른 경우를 함께 확보했는가?</strong>
+                            <p>community나 combination에 따라 방향이 갈리는 곳은 한쪽만 보지 않고 contrast로 남깁니다.</p>
                         </div>
                         <div class="aiValidationStep">
                             <span>04 · BLIND-SPOT CHECK</span>
-                            <strong>남은 곳에 놓친 것이 없는가?</strong>
-                            <p>contrast, hard-to-say, uncommon but distinctive cases와 residual pool을 따로 확인합니다.</p>
+                            <strong>규칙 밖에 놓친 경우가 없는가?</strong>
+                            <p>hard-to-say, uncommon but distinctive cases와 residual pool을 따로 확인합니다.</p>
                         </div>
                     </div>
 
                     <div class="aiText">
                         <p>
-                            이 단계는 제가 나중에 찾은 Kluge의 논리로 더 명확하게 설명할 수 있었습니다.
-                            Kluge는 사례를 어떤 속성 조합으로 묶었다고 해서 그 grouping이 자동으로 의미 있는 것은 아니며,
-                            <strong>같은 집단 내부의 유사성(internal homogeneity)</strong>과
-                            <strong>다른 집단 사이의 차이(external heterogeneity)</strong>를 다시 확인해야 한다고 설명합니다.
+                            이 sampling 점검을 정리할 때 Kluge의 논리가 도움이 됐습니다. Kluge는 어떤 속성 조합으로 사례를 묶었다고 해서
+                            그 grouping이 자동으로 의미 있는 것은 아니며, <strong>집단 내부의 유사성(internal homogeneity)</strong>과
+                            <strong>집단 사이의 차이(external heterogeneity)</strong>를 확인해야 한다고 설명합니다.
                         </p>
                         <p>
-                            저는 최종 typology를 만들려는 것은 아니지만,
-                            이 원리는 <strong>“같은 좌표에 들어간 사례들이 실제로 같이 볼 만한가?”</strong>,
-                            <strong>“다른 좌표는 정말 다른가?”</strong>를 검증하는 데 정확히 필요한 논리였습니다.
+                            다만 여기서 중요한 구분이 있습니다. 저는 이 단계에서 coding combination만 보고 최종 담론적 차이를 확정하지 않습니다.
+                            이 원리는 <strong>어떤 grouping을 더 읽고, 어떤 contrast를 함께 가져가야 하는지 정하는 sampling 점검 원리</strong>로
+                            사용합니다.
+                            실제 discursive difference와 repertoire의 의미는 이후 close reading에서 판단합니다.
                         </p>
                     </div>
 
@@ -2692,8 +2918,10 @@
                             실제 sampling 여부와 수는 homogeneity, contrast, novelty, ambiguity가 어떤 분석적 역할을 하는지에 따라 달라집니다.
                         </p>
                         <p>
-                            Palinkas et al.이 지적하듯 purposeful sampling의 어려움은 sampling을 시작할 때 연구자가 자료의 variation 전체를 이미 알고 있지 않다는 데 있습니다.
-                            그래서 sampling과 re-sampling은 반복적일 수밖에 없고, homogeneous, maximum variation, confirming/disconfirming, purposeful random 같은 서로 다른 전략을 목적에 따라 조합할 수 있습니다.
+                            Palinkas et al.이 지적하듯 purposeful sampling의 어려움은 sampling을 시작할 때 연구자가 자료의 variation 전체를 이미 알고
+                            있지 않다는 데 있습니다.
+                            그래서 sampling과 re-sampling은 반복적일 수밖에 없고, homogeneous, maximum variation,
+                            confirming/disconfirming, purposeful random 같은 서로 다른 전략을 목적에 따라 조합할 수 있습니다.
                         </p>
                         <p>
                             또 Bouncken et al.의 harmony/discord 논의는 왜 안정적인 패턴만 남기지 않았는지를 설명하는 데 도움이 됐습니다.
@@ -2706,12 +2934,26 @@
                     <div class="aiLoopBox">
                         <div class="aiLoopLine" aria-label="sampling validation loop">
                             <span class="loopItem">help-seeking map</span><span class="loopArrow">→</span>
-                            <span class="loopItem">combination 검증</span><span class="loopArrow">→</span>
+                            <span class="loopItem">surface pattern 점검</span><span class="loopArrow">→</span>
                             <span class="loopItem">purposeful sampling</span><span class="loopArrow">→</span>
                             <span class="loopItem">CDP close reading</span><span class="loopArrow">→</span>
                             <span class="loopItem">새 variation / discord 발견</span><span class="loopArrow">→</span>
                             <span class="loopItem">다시 corpus 확인</span>
                         </div>
+                    </div>
+
+                    <div class="aiGithubProof">
+                        <strong>이 부분은 실제로 설계한 확인 절차가 많습니다.</strong>
+                        <p>
+                            페이지에서 모든 세부 단계를 펼치면 오히려 전체 논리가 잘 보이지 않기 때문에 여기서는 핵심만 요약했습니다.
+                            실제로 어떤 순서로 확인하고 판단했는지는 GitHub의
+                            <a href="https://github.com/li33893/ai-support-discourse/blob/main/manuals/logs/first_sampling_decision_log.docx"
+                                target="_blank" rel="noopener noreferrer">first_sampling_decision_log.docx</a>에서 확인할 수
+                            있습니다.
+                            전체 sampling logic과 최종 sampling claim은
+                            <a href="https://github.com/li33893/ai-support-discourse/blob/main/manuals/first_sampling_claim.docx"
+                                target="_blank" rel="noopener noreferrer">first_sampling_claim.docx</a>에 정리해 두었습니다.
+                        </p>
                     </div>
 
                     <div class="aiSourceNote">
@@ -2757,7 +2999,7 @@
                     <div class="aiText">
                         <p>
                             최종적으로 <strong>왜 이 문장이 여기에서 필요한가, 어떤 비판과 책임을 처리하고 있는가,
-                            어떤 repertoire와 subject position을 만들고 있는가</strong>를 판단하는 것은 계속 연구자의 역할입니다.
+                                어떤 repertoire와 subject position을 만들고 있는가</strong>를 판단하는 것은 계속 연구자의 역할입니다.
                         </p>
                         <p>
                             따라서 제가 이 과정으로 확보하려는 것은 자동화가 아닙니다.
@@ -2768,12 +3010,39 @@
                     </div>
 
                     <div class="aiClosing">
-                        한 문장으로 정리하면, <strong>LLM은 제 해석을 대신하는 분석자가 아니라 제 인식 범위를 확장하고 전체 corpus의 도움 요청 상황을 지도화하여, 충분한 전체 이해 위에서 의미 있는 사례를 선택하고 깊게 해석할 수 있도록 돕는 장치</strong>입니다.
+                        한 문장으로 정리하면, <strong>LLM은 제 해석을 대신하는 분석자가 아니라 제 인식 범위를 확장하고 전체 corpus의 도움 요청 상황을 지도화하여, 충분한 전체
+                            이해 위에서 의미 있는 사례를 선택하고 깊게 해석할 수 있도록 돕는 장치</strong>입니다.
                     </div>
                 </section>
             </div>
         </section>
 
+
+
+        <footer class="researchFooter" id="researchContact">
+            <div class="researchFooterInner">
+                <span class="footerEyebrow">MATERIALS &amp; CONTACT</span>
+                <h3>세부 자료를 더 보고 싶으시면</h3>
+                <p class="footerIntro">
+                    coding manual, sampling log, sampling claim 등 이 페이지에서 요약한 세부 파일은 GitHub에서 직접 확인하실 수 있습니다.
+                    <br>
+                    의견이나 질문이 있으시면 직접 연락하셔도 좋습니다.
+                    <br>
+                    다만 요새(~9.01까지)는 시험/발표가 밀려 있어서 회신하거나 수정 속도가 느릴 수 있습니다.
+                </p>
+                <a class="footerGithubButton" href="https://github.com/li33893/ai-support-discourse" target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub에서 연구 자료 바로 보기 →
+                </a>
+
+                <div class="footerContactGrid" aria-label="연락처 입력 자리">
+                    <div><span>전화</span><strong>010-2551-3228</strong></div>
+                    <div><span>KakaoTalk</span><strong>010-2551-3228</strong></div>
+                    <div><span>E-mail</span><strong>3228302551@qq.com</strong></div>
+                    <div><span>GitHub</span><strong>https://github.com/li33893/ai-support-discourse</strong></div>
+                </div>
+            </div>
+        </footer>
 
 
         <script>
