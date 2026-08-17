@@ -1,39 +1,11 @@
-
-## 먼저 읽을 자료
-
-| 순서 | 파일 | 무엇을 보기 위한 자료인가 |
-|---|---|---|
-| 1 | [`for_prof/for_ryoo.html`](for_prof/for_ryoo.html) | 연구를 처음 접하는 교수님을 위한 전체 설명 페이지입니다. 연구 문제, CDP, 전체 논문 흐름, 자료와 LLM의 역할, sampling, 현재 분석 상태를 한 번에 설명합니다. |
-| 2 | [`manuals/sampling_strategy.docx`](manuals/sampling_strategy.docx) | 어떤 원리와 순서로 close-reading 대상을 선정하기로 했는지 설명합니다. 실제 게시물을 뽑기 전에 정한 sampling 절차입니다. |
-| 3 | [`manuals/first_sampling_claim.docx`](manuals/first_sampling_claim.docx) | 위의 원칙을 적용해 구성한 63개 1차 sample과 각 배정 수의 이유를 정리합니다. |
-| 4 | [`manuals/logs/first_sampling_decision_log.docx`](manuals/logs/first_sampling_decision_log.docx) | 어떤 조합을 어떤 순서로 확인했고, 동질성·community 차이·잔여 사례를 실제로 어떻게 판단했는지 보여 주는 전체 기록입니다. |
-| 5 | [`manuals/analysis_strategy.docx`](manuals/analysis_strategy.docx) | sample을 close reading한 뒤 variation과 반례를 어떻게 확인하고 전체 corpus로 돌아갈지 설명합니다. |
-| 6 | [`analysis/result_first_round.docx`](analysis/result_first_round.docx) | 1차 분석에서 시도한 상황별 해석을 모은 작업 문서입니다. 현재 재분석 중이므로 완성된 결과가 아니라 분석이 어디까지 진행되었는지 확인하는 자료입니다. |
-
-`for_prof/for_kim.html`은 김 교수님께 연구의 문제의식과 방법을 설명하기 위해 먼저 만든 상세 페이지입니다. `for_prof/for_ryoo.html`은 연구를 처음 접하는 독자를 위해 전체 논문 흐름과 현재 상태를 더 앞에서부터 설명한 버전입니다.
-
-## 연구의 전체 흐름
-
-1. 5개 community의 Reddit 게시물을 월별로 수집하고 AI 관련 keyword로 1차 선별합니다.
-2. 개인의 실제 AI 사용 경험과 정신건강 도움 요청이 연결된 게시물인지 screening합니다.
-3. relevance 판단에 대해 human–LLM agreement를 확인합니다.
-4. 중복, 고위험 사례 및 방법론적 제외 대상을 정리해 corpus를 확정합니다.
-5. 도움 요청 상황을 `Timeframe × Source × Type`으로 coding하여 전체 corpus의 지형을 만듭니다.
-6. pilot validation과 별도의 50개 spot check로 coding의 일관성을 확인합니다.
-7. 반복되는 조합, community contrast, hard-to-say 사례, 독특한 사례와 residual을 함께 포함해 63개 1차 purposeful sample을 구성합니다.
-8. 게시물 전체를 CDP로 close reading합니다.
-9. 새 variation이나 반례가 나오면 전체 corpus로 돌아가 다시 검색하고, 필요하면 re-sampling합니다.
-10. 반복되는 repertoire, ideological dilemma, subject position과 각 claim의 적용 범위를 정리합니다.
-
 ## 폴더와 파일 안내
 
 ### `for_prof/` — 교수님께 연구를 설명하는 자료
 
 | 파일 | 용도 |
 |---|---|
-| `for_ryoo.html` | 연구를 처음부터 설명하는 현재의 전체 안내 페이지입니다. 논문 전체 흐름과 현재 분석이 재검토 단계라는 점까지 포함합니다. |
-| `for_kim.html` | 김 교수님께 공유하기 위해 만든 이전의 상세 설명 페이지입니다. 연구의 현실적 의미, CDP, 큰 자료를 다루는 방식과 AI의 역할을 설명합니다. |
-| `for_kim_cdp.png` | `for_kim.html`에서 CDP의 분석 구조를 설명할 때 사용하는 그림입니다. 별도로 읽어야 하는 연구 문서는 아닙니다. |
+| `for_ryoo.html` | 유수희 교수님께 연구를 처음부터 설명하는 현재의 전체 안내 페이지입니다. 논문 전체 흐름과 현재 분석이 재검토 단계라는 점까지 포함합니다.|
+| `for_kim.html` | 김현수 교수님께 공유하기 위해 만든 이전의 상세 설명 페이지입니다. 연구의 현실적 의미, CDP, 큰 자료를 다루는 방식과 AI의 역할을 설명합니다. |
 
 ### `manuals/` — 연구 판단 기준
 
@@ -45,21 +17,19 @@
 | `rickwood_coding_manual.docx` | corpus를 `Timeframe`, 도움 요청 생태계에서의 `Source`, 사용 목적 `Type`으로 coding하는 상세 manual입니다. 이 coding은 CDP 결론이 아니라 sampling을 위한 corpus 지도입니다. |
 | `sampling_strategy.docx` | 조합별 빈도, 표면 내용 요약, community 내·간 동질성 확인, residual 확인을 거쳐 purposeful sample을 만드는 절차입니다. |
 | `first_sampling_claim.docx` | sampling 규칙을 실제 corpus에 적용한 결과입니다. 63개 sample의 구성과 각 slot의 배정 근거를 담습니다. |
-| `analysis_strategy.docx` | close reading에서 발견한 variation이 sampling frame과 어떻게 연결되는지 확인하고, 분석 뒤 전체 corpus의 coverage를 다시 점검하는 계획입니다. |
-| `repertoire_recognition_prompt_script.docx` | 현재 비어 있는 작업용 placeholder입니다. 현 단계의 분석이나 sampling에 사용한 파일이 아닙니다. |
 
 ### `manuals/logs/` — sampling 결정의 실제 기록
 
 | 파일 | 용도 |
 |---|---|
 | `first_sampling_decision_log.docx` | dominant combination부터 community별 잔여 조합까지 실제로 검토한 순서, 비율, 동질성 판단과 결정 과정을 기록합니다. |
-| `first_sampling_decision_evaluation.docx` | 분석결과에 따른 sampling 틀에 대한 pass/fail 평가, 그 이유와 63개 sample 구성을 요약·평가합니다. |
+| `first_sampling_decision_evaluation.docx` | 분석결과에 따른 sampling 틀에 대한 pass/fail 평가, 그 이유와 63개 sample 구성을 요약·평가합니다(아직 작성 중). |
 
 ### `analysis/` — 현재 진행 중인 close reading 기록
 
 | 파일 | 용도 |
 |---|---|
-| `result_first_round.docx` | 여러 도움 요청 상황에서 시도한 1차 CDP 분석을 한 문서에 모은 것입니다. 현재 분석 구조를 다시 검토 중이므로 최종 결과로 사용하지 않습니다. |
+| `result_first_round.docx` | 여러 도움 요청 상황에서 시도한 1차 CDP 분석을 한 문서에 모은 것입니다. 아직 중국어로 작성중인데 다 작성하면 한국어 버전도 올릴 것입니다. |
 
 
 `analysis/`의 문서는 분석 과정의 흔적을 남기기 위한 working document입니다. 현재 목표는 이 문장을 바로 확정하는 것이 아니라, 같은 상황 안의 variation, 상황·community 사이의 차이, 반례와 새 변이를 다시 확인하여 분석을 재구성하는 것입니다.
@@ -105,11 +75,11 @@
 
 ### 그 밖의 항목
 
-- `reader/`는 게시물을 찾고 읽는 부담을 줄이기 위해 연구자가 자신의 작업 방식에 맞춰 만든 개인용 reader입니다. 연구 방법이나 결과를 설명하는 자료는 아니므로 이 README의 설명 대상에서 제외합니다.
+- `reader/`는 게시물을 찾고 읽는 부담을 줄이기 위해 연구자가 자신의 작업 방식에 맞춰 만든 개인용 reader입니다. 
 - `data/`와 원문 수준의 post 자료는 저장소에 공개하지 않습니다. 저장소에는 연구 절차를 확인할 수 있는 manual, 판단 log, validation output과 실행 코드만 남깁니다.
 - `docs/`는 개인용 메모입니다. 
 - `.vscode/`는 편집기 설정이며 연구 내용과 관계없습니다.
-- `.gitignore`는 원자료, 문헌, API 설정과 실행 중 생성되는 checkpoint가 GitHub에 올라가지 않도록 관리합니다.
+- `.gitignore`는 원자료, 문헌, API KEY, API 설정과 실행 중 생성되는 checkpoint가 GitHub에 올라가지 않도록 관리합니다.
 
 ## 현재 상태
 

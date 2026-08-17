@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI를 이용한 정신건강 도움 요청 담론 연구의 전체 설계, 구현, 검증, sampling과 현재 분석 상태">
+    <meta name="description" content="AI를 이용한 정신건강 도움 요청 담론 연구의 전체 설계, 구현, 검증, 표집과 현재 분석 상태">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <title>AI를 이용한 정신건강 도움 요청 담론 연구 — 연구 개요</title>
     <style>
@@ -117,9 +117,9 @@
         <nav class="nav-links">
             <a href="#overview">연구의 출발점</a>
             <a href="#design">분석 관점과 전체 흐름</a>
-            <a href="#data-coding">자료와 맥락 지도</a>
+            <a href="#data-coding">전체 자료와 맥락 지도</a>
             <a href="#validation">LLM 사용과 검증</a>
-            <a href="#sampling-analysis">Sampling과 close reading</a>
+            <a href="#sampling-analysis">표집과 정밀 읽기</a>
             <a href="#current-review">현재 상태</a>
         </nav>
     </aside>
@@ -128,36 +128,48 @@
         <section class="hero" id="overview"><div class="wrap">
             <p class="eyebrow">01 / 연구의 출발점</p>
             <h1>AI로 도움을 받았다는 말은 왜 늘 <strong>추가 설명</strong>을 동반하는가</h1>
-            <p class="hero-lead">정신건강 community의 이용자들은 AI가 도움이 되었다고 말하면서도 “그저 AI라는 건 알지만”, “사람을 대신할 수 없다는 건 알지만”과 같은 문장을 자주 덧붙입니다. 이 연구는 그 덧붙임이 게시물 안에서 수행하는 일을 분석합니다.</p>
+            <p class="hero-lead">정신건강 커뮤니티의 이용자들은 AI가 도움이 되었다고 말하면서도 “그저 AI라는 건 알지만”, “사람을 대신할 수 없다는 건 알지만”과 같은 문장을 자주 덧붙입니다. 이 연구는 그 덧붙임이 게시물 안에서 수행하는 일을 분석합니다.</p>
 
             <div class="subsection">
                 <h3>이 현상을 직접 분석한 연구는 아직 많지 않습니다</h3>
-                <p>정신건강 AI 연구의 중심은 진단 정확도, 공감적 응답의 품질, 개입 효과처럼 기술의 성능을 평가하는 데 있습니다. 이용자의 실제 경험을 다룬 연구도 최근에야 나오기 시작했고, 대부분 thematic analysis나 content coding으로 경험의 양상과 평가를 정리했습니다.</p>
+                <p>정신건강 AI 연구의 중심은 진단 정확도, 공감적 응답의 품질, 개입 효과처럼 기술의 성능을 평가하는 데 있습니다. 이용자의 실제 경험을 다룬 연구도 최근에야 나오기 시작했고, 대부분 주제 분석이나 내용 코딩으로 경험의 양상과 평가를 정리했습니다.</p>
                 <div class="table-wrap"><table><thead><tr><th>가장 가까운 연구</th><th>자료와 방법</th><th>밝혀낸 것</th><th>이 연구가 이어서 묻는 것</th></tr></thead><tbody>
-                    <tr><td>Jung et al. (2025)</td><td>177 posts + 9,924 comments, thematic analysis</td><td>안전한 disclosure, 접근성, validation, therapy 준비 등 이용 경험</td><td>“AI임을 알지만”이라는 양보 구조가 어떤 사회적 행동을 수행하는가</td></tr>
-                    <tr><td>Luo et al. (2025)</td><td>87 Reddit posts, digital ethnography + thematic analysis</td><td>therapy simulation, self-discovery, companionship, mental-health literacy</td><td>AI의 장점과 한계를 동시에 말하는 방식이 이용자의 선택을 어떻게 정당화하는가</td></tr>
-                    <tr><td>Aghakhani &amp; Rezapour (2025)</td><td>47 communities, 5,126 posts, 13개 theory-driven dimensions</td><td>TAM·therapeutic alliance를 이용한 대규모 사용 양상과 moral tension</td><td>서로 다른 category로 분리되는 tension이 한 문장 안에서 어떻게 함께 유지되는가</td></tr>
+                    <tr><td>Jung et al. (2025)</td><td>게시물 177개와 댓글 9,924개, 주제 분석</td><td>안전한 자기 경험 공개, 접근성, 인정받는 경험, 치료 준비 등</td><td>“AI임을 알지만”이라는 양보 구조가 어떤 사회적 행동을 수행하는가</td></tr>
+                    <tr><td>Luo et al. (2025)</td><td>Reddit 게시물 87개, 디지털 민족지와 주제 분석</td><td>치료 모의실험, 자기 이해, 동반자 역할, 정신건강 지식</td><td>AI의 장점과 한계를 동시에 말하는 방식이 이용자의 선택을 어떻게 정당화하는가</td></tr>
+                    <tr><td>Aghakhani &amp; Rezapour (2026)</td><td>47개 커뮤니티, 게시물 5,126개, 이론에 기반한 13개 분석 차원</td><td>기술수용모형과 치료적 관계를 이용한 대규모 사용 양상과 도덕적 긴장</td><td>서로 다른 범주로 나뉜 긴장이 한 문장 안에서 어떻게 함께 유지되는가</td></tr>
                 </tbody></table></div>
+
             </div>
 
-            <div class="rq"><span class="mini-label">남은 질문</span><p>기존 연구는 이용자가 <strong>무엇을 말했는지</strong>를 보여 줍니다. 이 연구는 그 말을 <strong>왜 그런 형태로 말해야 했고, 그 말이 게시물 안에서 무엇을 가능하게 했는지</strong>를 봅니다.</p></div>
+            <div class="subsection">
+                <h3>이 현상은 왜 실제로 연구할 필요가 있는가</h3>
+                <p>정신건강 도움을 구하는 사람들은 이미 자신의 합리성, 자기통제와 책임을 평가받기 쉬운 위치에 놓입니다. AI를 이용해 도움을 구하면 여기에 “왜 사람에게 도움을 구하지 않았는가”, “AI에 너무 의존하는 것은 아닌가”, “기계를 사람처럼 믿는 것은 아닌가”라는 논쟁이 하나 더 겹칩니다.</p>
+                <p>따라서 게시물은 힘든 경험이나 AI의 효과만 보고하는 글이 아닙니다. 작성자는 경험을 말하는 동시에, 자신의 선택이 왜 이해될 만한지 설명하고 예상되는 비판에 대응해야 할 수 있습니다. 실제로 본 연구가 살펴본 여러 정신건강 커뮤니티에서는 <strong>AI를 언급한 거의 모든 게시물에서</strong>, 정도와 방식은 달라도 자신의 AI 사용을 설명하거나 그 사용을 둘러싼 논쟁에 대응하는 모습이 나타났습니다.</p>
+
+                <div class="plain-grid">
+                    <article><span class="mini-label">문자 그대로만 읽으면</span><h3>AI 선호나 의존으로 너무 빨리 결론 내릴 수 있습니다</h3><p>“AI가 편하다”, “AI는 비판하지 않는다”는 말이 반드시 인간보다 AI를 더 좋아한다는 뜻은 아닙니다. 사람에게 도움을 구하기 어려운 조건이나 평가에 대한 두려움을 설명하는 말일 수도 있습니다.</p></article>
+                    <article><span class="mini-label">이 분석이 가능하게 하는 것</span><h3>이용자가 설명하는 도움 요청 조건과 평가 부담을 구분할 수 있습니다</h3><p>AI가 좋은지 나쁜지를 먼저 판단하기보다, 어떤 조건에서 AI가 선택되었고 그 선택을 설명할 때 어떤 책임과 낙인이 따라오는지 볼 수 있습니다. 이를 바탕으로 이용자를 도덕적으로 평가하지 않고 실제 지원 조건을 어떻게 바꿀지 더 구체적으로 논의할 수 있습니다.</p></article>
+                </div>
+            </div>
+
+            <div class="rq"><span class="mini-label">그래서 CDP가 필요합니다</span><p>이 문제는 이용자가 <strong>무엇을 말했는지</strong>를 범주로 정리하는 것만으로는 답할 수 없습니다. 그 말을 <strong>왜 이 상황에서 이런 순서와 형태로 말했고, 그 말로 어떤 비판과 책임을 처리했는지</strong>를 분석해야 합니다.</p></div>
         </div></section>
 
         <section id="design"><div class="wrap">
             <p class="chapter-no">02 / 분석 관점</p>
-            <h2>말을 경험의 보고이면서 사회적 행동으로 읽습니다</h2>
-            <p class="chapter-lead">Reddit 게시물은 audience를 향해 작성됩니다. 작성자는 경험을 전달하면서 동시에 자신의 합리성, AI를 선택한 이유, 사람에게 도움을 구하지 못한 사정을 다룹니다.</p>
+            <h2>이 질문 때문에 말의 내용뿐 아니라, 그 말이 하는 일을 분석합니다</h2>
+            <p class="chapter-lead">내용 코딩과 주제 분석은 이용자가 어떤 경험과 평가를 말했는지 보여 줍니다. 그러나 이 연구가 묻는 것은 말이 내면을 그대로 보여 주는가가 아니라, 다른 이용자들이 읽는 공간에서 왜 그런 설명이 필요했고 그 설명이 무엇을 가능하게 했는가입니다. 그래서 언어를 사회적 행동으로 읽는 비판적 담론심리학(CDP)을 사용합니다.</p>
 
             <div class="plain-grid">
-                <article><span class="mini-label">내용으로 읽으면</span><h3>“ChatGPT가 therapist보다 나를 잘 이해했다”</h3><p>AI를 긍정적으로 평가했고, human therapy와 비교했다는 내용으로 coding할 수 있습니다.</p></article>
-                <article><span class="mini-label">담론으로 읽으면</span><h3>이 비교가 게시물 안에서 하는 일</h3><p>자신이 AI를 무비판적으로 믿은 사람이 아님을 먼저 보이고, AI를 선택할 수밖에 없었던 사정과 그 선택을 말할 자격을 구성합니다.</p></article>
+                <article><span class="mini-label">내용으로 읽으면</span><h3>“ChatGPT가 심리치료사보다 나를 잘 이해했다”</h3><p>AI를 긍정적으로 평가했고, 사람에게 받는 심리치료와 비교했다는 내용으로 코딩할 수 있습니다.</p></article>
+                <article><span class="mini-label">담론으로 읽으면</span><h3>이 비교가 게시물 안에서 하는 일</h3><p>왜 심리치료와의 비교가 이 위치에 놓였는지, 어떤 비판이나 다른 해석을 미리 막는지, 그리고 그 비교가 자신의 AI 사용을 어떻게 설명 가능한 선택으로 만드는지 살펴봅니다.</p></article>
             </div>
 
-            <div class="subsection"><h3>CDP가 실제로 찾는 세 가지</h3><div class="metric-strip">
-                <div class="metric"><span>Interpretative repertoire</span><strong>반복되는 말의 방식</strong><small>AI, 인간, 치료와 도움을 설명할 때 되풀이되는 문화적 자원</small></div>
-                <div class="metric"><span>Ideological dilemma</span><strong>함께 존재하는 긴장</strong><small>“도움은 인간에게 받아야 한다”와 “인간에게는 말할 수 없다”처럼 충돌하는 상식</small></div>
-                <div class="metric"><span>Subject position</span><strong>말할 수 있는 사람의 자리</strong><small>합리적인 사용자, 어쩔 수 없는 도움 요청자, 비판적 기술 이용자처럼 담론이 제공하는 위치</small></div>
-            </div></div>
+            <div class="subsection"><h3>이 연구의 분석 방법인 비판적 담론심리학(CDP)이 실제로 찾는 세 가지</h3><div class="metric-strip">
+                <div class="metric"><span>해석적 레퍼토리</span><strong>반복되는 말의 방식</strong><small>AI, 인간, 치료와 도움을 설명할 때 되풀이되는 문화적 자원</small></div>
+                <div class="metric"><span>이데올로기적 딜레마</span><strong>함께 존재하는 긴장</strong><small>“도움은 인간에게 받아야 한다”와 “인간에게는 말할 수 없다”처럼 충돌하는 상식</small></div>
+                <div class="metric"><span>주체 위치</span><strong>말할 수 있는 사람의 자리</strong><small>합리적인 사용자, 어쩔 수 없는 도움 요청자, 비판적 기술 이용자처럼 담론이 제공하는 위치</small></div>
+            </div><p class="method-note">CDP는 작성자의 ‘진짜 마음’을 추측하는 방법이 아닙니다. 가까이에서는 문장의 순서와 표현이 지금 무엇을 하는지 보고, 넓게에서는 왜 그런 설명이 필요해지는 사회적 기대와 책임 기준을 연결해 봅니다.</p></div>
 
             <div class="subsection"><h3>연구 질문</h3><div class="table-wrap"><table><thead><tr><th>질문</th><th>확인하는 내용</th></tr></thead><tbody>
                 <tr><td>RQ1</td><td>이용자는 정신건강 상황과 AI 사용을 설명할 때 어떤 반복적인 말의 자원을 사용하는가?</td></tr>
@@ -165,120 +177,126 @@
                 <tr><td>RQ3</td><td>도움 요청 조건과 말하기 방식의 관계는 이용자에게 어떤 행동·관계·정체성의 가능성을 만드는가?</td></tr>
             </tbody></table></div></div>
 
-            <div class="subsection"><h3>논문 전체의 이동 경로</h3><div class="pipeline">
-                <div class="pipeline-row"><div class="pipeline-no">01</div><div class="pipeline-title">Corpus 구축</div><div class="pipeline-desc">5개 community에서 AI 관련 개인 경험을 선별하고 안전 기준과 중복을 정리합니다.</div></div>
-                <div class="pipeline-row"><div class="pipeline-no">02</div><div class="pipeline-title">도움 요청 상황 coding</div><div class="pipeline-desc">각 post를 Timeframe, Source, Type으로 coding해 corpus의 상황 지도를 만듭니다.</div></div>
-                <div class="pipeline-row"><div class="pipeline-no">03</div><div class="pipeline-title">Human–LLM validation</div><div class="pipeline-desc">relevance와 세 coding dimension을 사람의 판단과 비교하고 disagreement를 검토합니다.</div></div>
-                <div class="pipeline-row"><div class="pipeline-no">04</div><div class="pipeline-title">Purposeful sampling</div><div class="pipeline-desc">반복되는 상황, community contrast, hard-to-say case, distinctive case와 residual을 뽑습니다.</div></div>
-                <div class="pipeline-row"><div class="pipeline-no">05</div><div class="pipeline-title">Combination별 close reading</div><div class="pipeline-desc">한 combination을 분석한 뒤 그 자리에서 sampling pass/fail을 판단하고 필요하면 다시 뽑습니다.</div></div>
-                <div class="pipeline-row"><div class="pipeline-no">06</div><div class="pipeline-title">조합 간 비교</div><div class="pipeline-desc">통과한 combination들의 반복, variation과 반례를 비교해 claim의 범위를 정합니다.</div></div>
+            <div class="subsection"><h3>논문 전체의 이동 경로</h3><p>아래 과정은 많은 자료를 처리하기 위해 기술 단계를 늘어놓은 것이 아닙니다. 게시물 전체를 깊이 읽어야 하는 CDP의 요구와, 전체 자료를 충분히 이해한 뒤에야 의미 있는 게시물을 고를 수 있다는 요구를 함께 충족하기 위한 순서입니다.</p><div class="pipeline">
+                <div class="pipeline-row"><div class="pipeline-no">01</div><div class="pipeline-title">자료 구축</div><div class="pipeline-desc">5개 커뮤니티에서 AI 관련 개인 경험을 선별하고, 관련성·안전 기준·중복을 정리합니다.</div></div>
+                <div class="pipeline-row"><div class="pipeline-no">02</div><div class="pipeline-title">Rickwood 틀 수정과 예비 검토</div><div class="pipeline-desc">80개 게시물을 사람이 먼저 읽고 Sonnet 4.6의 판단과 대조하면서 사용 기간·도움원에서 AI의 위치·사용 목적에 관한 코딩 지침을 만들고 경계 사례를 정리합니다.</div></div>
+                <div class="pipeline-row"><div class="pipeline-no">03</div><div class="pipeline-title">예비표본의 사람–LLM 일치도 검증</div><div class="pipeline-desc">세 구분축의 코딩을 사람의 판단과 비교하고 불일치 사례를 검토해 전체 자료에 적용할 기준을 확정합니다.</div></div>
+                <div class="pipeline-row"><div class="pipeline-no">04</div><div class="pipeline-title">전체 자료 일괄 코딩</div><div class="pipeline-desc">확정한 코딩 지침과 프롬프트를 정제된 자료 전체에 동일하게 적용해 도움 요청 상황을 코딩합니다.</div></div>
+                <div class="pipeline-row"><div class="pipeline-no">05</div><div class="pipeline-title">별도 50개 표본 재검증</div><div class="pipeline-desc">예비표본과 겹치지 않는 새 게시물을 사람이 LLM의 답을 보지 않고 코딩해, 일괄 코딩이 새로운 사례에도 일관되게 적용되는지 다시 확인합니다.</div></div>
+                <div class="pipeline-row"><div class="pipeline-no">06</div><div class="pipeline-title">전체 자료 검토와 목적표집</div><div class="pipeline-desc">전체 코딩 결과로 도움 요청 상황 지도를 만들고, 우세한 조합과 각 커뮤니티의 남은 게시물을 차례로 검토한 뒤 정밀 읽기 대상을 정합니다.</div></div>
+                <div class="pipeline-row"><div class="pipeline-no">07</div><div class="pipeline-title">조합별 정밀 읽기</div><div class="pipeline-desc">한 조합을 분석한 뒤 처음의 표집 목적이 충족되었는지 판단하고, 필요하면 전체 자료로 돌아가 다시 표집합니다.</div></div>
+                <div class="pipeline-row"><div class="pipeline-no">08</div><div class="pipeline-title">조합 간 비교와 분석 주장 구성</div><div class="pipeline-desc">검토를 통과한 조합들의 반복, 변이와 반례를 비교해 최종 분석 주장과 적용 범위를 정합니다.</div></div>
             </div></div>
         </div></section>
 
         <section id="data-coding"><div class="wrap">
-            <p class="chapter-no">03 / 자료와 맥락 지도</p>
-            <h2>어떤 사람들이 어떤 상황에서 AI를 사용했는지 먼저 파악합니다</h2>
-            <p class="chapter-lead">다섯 community는 정신건강 문제의 범위, formal therapy와의 거리, AI가 community의 중심 주제인지 여부가 서로 다릅니다. 이 차이를 이용해 도움 요청 조건을 비교합니다.</p>
+            <p class="chapter-no">03 / 전체 자료와 맥락 지도</p>
+            <h2>무엇을 깊이 읽을지 결정하려면, 먼저 전체 자료를 넓게 이해해야 합니다</h2>
+            <p class="chapter-lead">CDP는 게시물 전체를 정밀하게 읽어야 하지만, 방법론적 제외를 거친 1,994개 게시물을 모두 같은 깊이로 읽는 것은 현실적으로 불가능합니다. 그렇다면 해결해야 할 문제는 분명합니다. <strong>개별 게시물의 맥락을 잃지 않으면서도, 전체 게시물에 대한 충분한 이해 위에서 무엇을 깊이 읽을지 어떻게 결정할 것인가?</strong></p>
 
-            <div class="subsection"><h3>Community 구성</h3><div class="table-wrap"><table><thead><tr><th>Community</th><th>n</th><th>%</th><th>선정 이유</th></tr></thead><tbody>
+            <div class="role-line">
+                <div><span class="mini-label">분석에 필요한 깊이</span><strong>게시물 전체를 정밀하게 읽기</strong><p>문장 하나만 떼어 보는 것이 아니라 글의 순서, 앞뒤 설명과 전체 소통 목적을 함께 봐야 합니다.</p></div>
+                <div><span class="mini-label">선택에 필요한 넓이</span><strong>전체 자료의 도움 요청 상황을 먼저 파악하기</strong><p>전체를 모른 채 일부를 먼저 고르면 눈에 잘 띄거나 연구자가 이미 중요하다고 생각한 사례만 선택될 수 있습니다.</p></div>
+            </div>
+
+            <p class="method-note">그래서 아래의 커뮤니티 구성, 자료 선별 수치와 코딩은 갑자기 별도의 양적 연구로 전환하는 부분이 아닙니다. 어떤 자료가 연구에 들어왔는지 범위를 확정하고, 전체 안에 어떤 도움 요청 상황들이 있는지 파악한 뒤 정밀 읽기 대상을 고르기 위한 준비입니다. 다섯 커뮤니티는 정신건강 문제의 범위, 공식 심리치료와의 거리와 AI가 중심 주제인지 여부가 달라, 도움 요청 조건의 차이를 함께 볼 수 있게 합니다.</p>
+
+            <div class="subsection"><h3>커뮤니티 구성</h3><div class="table-wrap"><table><thead><tr><th>커뮤니티</th><th>게시물 수</th><th>비율</th><th>선정 이유</th></tr></thead><tbody>
                 <tr><td>r/mentalhealth</td><td>517</td><td>24.3</td><td>특정 진단이나 치료 형식에 한정되지 않은 넓은 정신건강 담론</td></tr>
-                <tr><td>r/depression</td><td>476</td><td>22.4</td><td>AI-relevant post가 많고, loneliness·companionship과 도움 접근 장벽이 두드러지는 조건</td></tr>
-                <tr><td>r/therapyGPT</td><td>418</td><td>19.7</td><td>AI를 therapeutic interaction에 사용하는 일이 community의 중심 주제</td></tr>
-                <tr><td>r/Anxiety</td><td>408</td><td>19.2</td><td>symptom assessment와 reassurance가 집중되며 episodic use 비중이 상대적으로 높음</td></tr>
-                <tr><td>r/therapy</td><td>308</td><td>14.5</td><td>formal therapy를 중심으로 AI의 supplement·replacement 위치를 비교할 수 있음</td></tr>
-                <tr><td>Total</td><td>2,127</td><td>100.0</td><td>2023.01–2026.02</td></tr>
+                <tr><td>r/depression</td><td>476</td><td>22.4</td><td>Aghakhani와 Rezapour(2026)의 내용 코딩 연구에 제시된 열지도를 보면, 이 커뮤니티 안에서 AI 사용 유형이 비교적 고르게 분포하며 r/Anxiety의 유형 분포와 서로 보완됨</td></tr>
+                <tr><td>r/therapyGPT</td><td>418</td><td>19.7</td><td>AI를 치료 목적으로 사용하는 상호작용이 커뮤니티의 중심 주제</td></tr>
+                <tr><td>r/Anxiety</td><td>408</td><td>19.2</td><td>같은 열지도를 보면, 이 커뮤니티 안에서도 AI 사용 유형이 비교적 고르게 분포하며 r/depression의 유형 분포와 서로 보완됨</td></tr>
+                <tr><td>r/therapy</td><td>308</td><td>14.5</td><td>공식 심리치료를 중심으로 AI가 보완 수단인지 대체 수단인지 비교할 수 있음</td></tr>
+                <tr><td>합계</td><td>2,127</td><td>100.0</td><td>2023.01–2026.02</td></tr>
             </tbody></table></div></div>
 
             <div class="metric-strip">
-                <div class="metric"><span>게시물 길이</span><strong>M 343 words</strong><small>평균</small></div>
-                <div class="metric"><span>게시물 길이</span><strong>Mdn 252</strong><small>중앙값</small></div>
-                <div class="metric"><span>게시물 길이</span><strong>SD 346</strong><small>표준편차</small></div>
+                <div class="metric"><span>게시물 길이</span><strong>평균 343단어</strong><small>산술평균</small></div>
+                <div class="metric"><span>게시물 길이</span><strong>중앙값 252단어</strong><small>가운데 값</small></div>
+                <div class="metric"><span>게시물 길이</span><strong>표준편차 346</strong><small>길이의 차이 정도</small></div>
             </div>
 
             <div class="subsection"><h3>1,156,212개에서 2,127개까지</h3><div class="table-wrap"><table class="number-table"><thead><tr><th>단계</th><th>n</th><th>처리 내용</th></tr></thead><tbody>
-                <tr><td>Arctic Shift API 수집</td><td>1,156,212</td><td>5개 subreddit, 월별 pagination, 2023.01–2026.02</td></tr>
-                <tr><td>AI keyword + 50단어 기준</td><td>7,096</td><td>도구명과 AI·LLM 일반 용어를 title과 body에서 검색</td></tr>
-                <tr><td>개인 AI 사용 relevance</td><td>2,214</td><td>실제 사용 경험 + 정신건강·정서 내용 + 사용자의 주관적 반응</td></tr>
-                <tr><td>안전 기준 적용</td><td>2,159</td><td>acute crisis 31, psychosis flag 25 제외; 1건은 두 기준에 중복</td></tr>
-                <tr><td>Exact-body deduplication</td><td>2,127</td><td>cross-post 등 동일 body는 한 건으로 정리</td></tr>
-                <tr><td>방법론적 EX-1–EX-9</td><td>1,994</td><td>AI가 단순 요약·검색·인용 대상인 글 등을 contextual analysis에서 제외</td></tr>
+                <tr><td>Arctic Shift API 자료 수집</td><td>1,156,212</td><td>5개 하위 커뮤니티를 월별로 나누어 수집, 2023.01–2026.02</td></tr>
+                <tr><td>AI 관련 핵심어 + 50단어 기준</td><td>7,096</td><td>도구명과 AI·LLM 일반 용어를 제목과 본문에서 검색</td></tr>
+                <tr><td>개인 AI 사용 관련성</td><td>2,214</td><td>실제 사용 경험 + 정신건강·정서 내용 + 사용자의 주관적 반응</td></tr>
+                <tr><td>안전 기준 적용</td><td>2,159</td><td>급성 위기 사례 31개, 정신증 가능성이 표시된 사례 25개 제외; 1건은 두 기준에 중복</td></tr>
+                <tr><td>본문이 같은 게시물의 중복 제거</td><td>2,127</td><td>교차 게시물 등 본문이 동일한 경우 한 건으로 정리</td></tr>
+                <tr><td>방법론적 제외 기준 EX-1–EX-9</td><td>1,994</td><td>AI가 단순 요약·검색·인용 대상인 글 등을 맥락 분석 대상에서 제외</td></tr>
             </tbody></table></div>
-            <p class="caption">Comments는 turn-taking의 영향이 크고 하나의 자기완결적 narrative가 되기 어려워 수집 단위에서 제외했습니다.</p></div>
+            <p class="caption">댓글은 대화 차례의 영향을 크게 받고 하나의 자기완결적 서사가 되기 어려워 수집 단위에서 제외했습니다.</p></div>
 
             <div class="subsection">
-                <h3>Rickwood framework는 왜 필요하고, 여기서 무엇을 하는가</h3>
-                <p>CDP의 최종 분석 대상은 말의 내용 자체보다 <strong>그 말을 어떤 방식으로 구성했고 그 방식이 무엇을 하는지</strong>입니다. 그러나 1,994개 게시물을 맥락 없이 한 덩어리로 읽으면, 가끔 증상을 물어본 글과 수개월 동안 AI를 유일한 대화 상대로 써 온 글이 같은 성격의 사례처럼 섞입니다. 같은 “AI가 도움이 되었다”는 표현도 어떤 도움 요청 조건에서 나온 말인지에 따라 비교의 의미가 달라집니다.</p>
-                <p>그래서 Rickwood와 Thomas의 help-seeking measurement framework를 <strong>최종 해석의 이론</strong>이 아니라 <strong>상황을 정리하고 close-reading 대상을 뽑기 위한 기술적 좌표</strong>로 사용했습니다. 원래 framework는 사람이 누구에게, 언제, 어떤 도움을 요청했는지를 다섯 dimension으로 나눕니다. 이 연구에서는 human-to-human 구조를 그대로 적용하지 않고, Reddit 글에서 확인할 수 있는 정보와 AI 사용의 특성에 맞게 수정했습니다.</p>
-                <div class="technical-band"><strong>한 게시물의 좌표 예시</strong><br><code>Habitual × Primary × Companionship</code>는 AI를 지속적으로 사용했고, 다른 도움 자원이 작동하지 않는 상황에서 AI가 주요 도움원이었으며, 사용 목적은 companionship이었다는 뜻입니다. 이 좌표는 “이 글의 담론적 의미가 이것이다”라는 결론이 아니라, 어떤 글끼리 먼저 비교할지를 정하는 표지입니다.</div>
-                <div class="table-wrap"><table><thead><tr><th>Dimension</th><th>원래 framework</th><th>이 연구에서의 적용</th><th>Sampling에서 하는 일</th></tr></thead><tbody>
-                <tr><td>Process</td><td>orientation · intention · behaviour</td><td>모든 post가 이미 일어난 AI 사용을 서술하므로 Behaviour로 고정</td><td>별도 coding하지 않음</td></tr>
-                <tr><td>Timeframe</td><td>회상·예측 및 측정 기간</td><td>언어적 표지를 이용해 Habitual · Episodic · NM으로 구분</td><td>지속 사용과 단일 사건의 말하기 방식 비교</td></tr>
-                <tr><td>Source</td><td>formal · semi-formal · informal · self-help</td><td>AI의 위치를 Primary · Supplement · Parallel · Solo · Exploration · NM으로 구분</td><td>다른 도움 자원의 접근 가능성과 AI 사용의 관계 비교</td></tr>
-                <tr><td>Type</td><td>instrumental · informational · affiliative · emotional · treatment</td><td>AI 사용에 맞춘 14개 intent category 적용</td><td>companionship, therapy, reassurance 등 실제 사용 상황 비교</td></tr>
-                <tr><td>Concern</td><td>정신건강 문제 유형</td><td>별도 coding하지 않고 subreddit을 contextual proxy로 사용</td><td>사용자에게 진단 범주를 새로 부여하지 않음</td></tr>
+                <h3>왜 LLM으로 최종 분석까지 하지 않고 ‘도움 요청 상황’을 지도화했는가</h3>
+                <p>전체 자료를 충분히 알지 못한 상태에서 몇몇 게시물을 먼저 고르면, 눈에 잘 띄거나 연구자가 이미 중요하다고 생각한 사례만 선택할 수 있습니다. 따라서 <strong>전체를 충분히 이해한 뒤에 선택해야 깊이 읽을 게시물의 선택에도 의미가 생깁니다.</strong> 그러나 1,994개 게시물을 모두 같은 깊이로 읽고 분석하는 것은 현실적으로 불가능합니다.</p>
+                <p>이때 LLM은 어떤 게시물이 중요하다고 대신 판단하는 것이 아니라, 한 사람이 한 번에 보기 어려운 전체 게시물의 도움 요청 상황과 분포를 연구자의 인식 범위 안으로 가져오는 역할을 합니다. 이를 위해 Rickwood와 Thomas의 틀을 Reddit의 AI 사용 자료에 맞게 수정하고, 사용 기간(Timeframe)·도움원에서 AI의 위치(Source)·사용 목적(Type)을 전체 게시물에 같은 기준으로 코딩했습니다.</p>
+                <p>처음부터 LLM에게 레퍼토리나 정당화 방식 같은 최종 CDP 분석을 맡기지 않은 이유도 여기에 있습니다. 수천 개 게시물을 그렇게 깊이 해석하게 하는 데에는 현실적·해석적 한계가 있습니다. 더 중요한 것은, 그 결과를 다시 표집 기준으로 사용하면 <strong>표집 전에 이미 확인한 내용, 또는 처음부터 정해 둔 틀에 맞는 사례를 다시 고르는 구조</strong>가 된다는 점입니다. 그러면 예상하지 못한 내용이 무엇인지 확인하기 어렵습니다.</p>
+                <p>그래서 최종 분석과 가깝지만 동일하지 않은 도움 요청 상황을 먼저 지도화했습니다. 이 지도와 게시물 검토를 통해 전체 자료를 넓게 이해하고, 그 이해를 바탕으로 정밀 읽기 대상을 선택합니다. 이후 게시물 전체를 깊이 읽으면서 처음에는 보이지 않았던 경우가 나오면 다시 전체 자료로 돌아갑니다.</p>
+                <div class="technical-band"><strong>한 게시물의 좌표 예시</strong><br><code>Habitual × Primary × Companionship</code>는 AI를 지속적으로 사용했고, 게시물에서 AI가 주요 도움원으로 놓이며, 사용 목적은 동반자 관계였다는 뜻입니다. 이 좌표는 “이 글의 담론적 의미가 이것이다”라는 결론이 아니라, 전체 자료 안에서 이 게시물이 놓인 도움 요청 상황을 표시합니다.</div>
+                <div class="table-wrap"><table><thead><tr><th>구분축</th><th>원래 틀</th><th>이 연구에서의 적용</th><th>표집에서 하는 일</th></tr></thead><tbody>
+                <tr><td>도움 요청 과정(Process)</td><td>도움을 찾는 방향 설정 · 의도 · 실제 행동</td><td>모든 게시물이 이미 일어난 AI 사용을 서술하므로 실제 행동으로 고정</td><td>별도로 코딩하지 않음</td></tr>
+                <tr><td>사용 기간(Timeframe)</td><td>회상·예측 및 측정 기간</td><td>언어적 표지를 이용해 지속적 사용(Habitual) · 일회적 사용(Episodic) · 판단 불가(NM)로 구분</td><td>지속 사용과 단일 사건의 말하기 방식 비교</td></tr>
+                <tr><td>도움원에서 AI의 위치(Source)</td><td>공식 · 준공식 · 비공식 · 자기 도움</td><td>AI의 위치를 주요 도움원(Primary) · 보완적 도움원(Supplement) · 병행 사용(Parallel) · 단독 사용(Solo) · 탐색적 사용(Exploration) · 판단 불가(NM)로 구분</td><td>다른 도움 자원의 접근 가능성과 AI 사용의 관계 비교</td></tr>
+                <tr><td>AI 사용 목적(Type)</td><td>도구적 · 정보적 · 관계적 · 정서적 · 치료적 도움</td><td>AI 사용에 맞춘 14개 목적 범주 적용</td><td>동반자 관계, 치료, 안심 확인 등 실제 사용 상황 비교</td></tr>
+                <tr><td>문제 영역(Concern)</td><td>정신건강 문제 유형</td><td>별도로 코딩하지 않고, 하위 커뮤니티 정보를 맥락의 대리 지표로 사용</td><td>사용자에게 진단 범주를 새로 부여하지 않음</td></tr>
             </tbody></table></div>
-            <p>수정한 좌표는 세 가지 일을 합니다. 첫째, corpus 전체에서 어떤 도움 요청 조건이 많이 나타나는지 보여 줍니다. 둘째, 같은 좌표 안의 반복과 차이, community 사이의 contrast, 드문 사례와 남은 사례를 포함하도록 purposeful sample을 구성합니다. 셋째, close reading 뒤에 그 좌표와 배정 수가 실제 variation을 충분히 담았는지 다시 판단하게 합니다. 즉 close reading은 담론을 해석하는 단계이면서 동시에 <strong>해당 combination을 기준으로 만든 sampling frame을 검증하는 단계</strong>입니다. 한 combination의 sample이 처음의 목적을 수행하지 못하거나 새 variation이 나오면 fail로 기록하고, 전체 corpus로 돌아가 검색과 re-sampling을 반복합니다.</p>
-            <details><summary>Type 14개 category 보기</summary><div class="table-wrap"><table><thead><tr><th>Code</th><th>Label</th><th>무엇을 위해 AI를 사용했는가</th></tr></thead><tbody>
-                <tr><td>ES</td><td>Emotional Support</td><td>위로, 공감, 정서적 validation</td></tr><tr><td>VE</td><td>Venting</td><td>해결책보다 감정과 생각을 털어놓음</td></tr><tr><td>CO</td><td>Companionship</td><td>외로움을 줄이고 사회적 존재로 AI를 사용</td></tr><tr><td>RE</td><td>Reassurance</td><td>불안과 의심을 줄이기 위한 반복 확인</td></tr><tr><td>CR</td><td>Crisis Support</td><td>급성 위기 상황의 지지</td></tr><tr><td>PE</td><td>Psychoeducation</td><td>정신건강 지식과 coping strategy 학습</td></tr><tr><td>SA</td><td>Symptom Assessment</td><td>자신의 증상을 확인·해석</td></tr><tr><td>SE</td><td>Self-Exploration</td><td>정체성, 가치, 개인 패턴 탐색</td></tr><tr><td>FS</td><td>Functional Support</td><td>task planning, schedule 등 실제 기능 지원</td></tr><tr><td>RS</td><td>Recovery Support</td><td>회복과 행동 변화 유지</td></tr><tr><td>TA</td><td>Therapy Adjunct</td><td>formal therapy의 보완 또는 대체</td></tr><tr><td>SR</td><td>Sexual/Romantic Roleplay</td><td>romantic·intimate AI relationship</td></tr><tr><td>N</td><td>Not Codable</td><td>행동·목적 없이 평가만 있는 경우</td></tr><tr><td>OT</td><td>Other</td><td>위 category에 해당하지 않는 사용</td></tr>
+            <p>도움 요청 상황 지도와 두 차례의 게시물 검토를 통해 먼저 전체 자료를 넓게 파악하고, 그 이해를 바탕으로 정밀 읽기 대상을 정했습니다. 이후 연구자가 선택된 게시물 전체를 CDP로 읽으면서 실제 담론적 차이를 해석합니다. 이 정밀 읽기는 동시에 <strong>처음의 조합과 표집 단위가 게시물 사이의 차이를 제대로 설명했는지 확인하는 단계</strong>입니다. 설명되지 않는 변이나 반례가 나오면 전체 자료로 돌아가 검색과 재표집을 반복합니다.</p>
+            <details><summary>AI 사용 목적 14개 범주 보기</summary><div class="table-wrap"><table><thead><tr><th>코드</th><th>범주</th><th>무엇을 위해 AI를 사용했는가</th></tr></thead><tbody>
+                <tr><td>ES</td><td>정서적 지지</td><td>위로, 공감, 정서적 인정</td></tr><tr><td>VE</td><td>감정 털어놓기</td><td>해결책보다 감정과 생각을 털어놓음</td></tr><tr><td>CO</td><td>동반자 관계</td><td>외로움을 줄이고 사회적 존재로 AI를 사용</td></tr><tr><td>RE</td><td>안심 확인</td><td>불안과 의심을 줄이기 위한 반복 확인</td></tr><tr><td>CR</td><td>위기 상황 지원</td><td>급성 위기 상황의 지지</td></tr><tr><td>PE</td><td>정신건강 지식 학습</td><td>정신건강 지식과 대처 방법 학습</td></tr><tr><td>SA</td><td>증상 평가</td><td>자신의 증상을 확인·해석</td></tr><tr><td>SE</td><td>자기 탐색</td><td>정체성, 가치, 개인 패턴 탐색</td></tr><tr><td>FS</td><td>기능적 지원</td><td>과제 계획, 일정 관리 등 실제 기능 지원</td></tr><tr><td>RS</td><td>회복 지원</td><td>회복과 행동 변화 유지</td></tr><tr><td>TA</td><td>심리치료 보조</td><td>공식 심리치료의 보완 또는 대체</td></tr><tr><td>SR</td><td>성적·연애 역할극</td><td>AI와의 연애·친밀 관계 역할극</td></tr><tr><td>N</td><td>코딩 불가</td><td>행동·목적 없이 평가만 있는 경우</td></tr><tr><td>OT</td><td>기타</td><td>위 범주에 해당하지 않는 사용</td></tr>
             </tbody></table></div></details></div>
 
-            <div class="subsection"><h3>이 지도로 확인된 corpus의 형태</h3><div class="table-wrap"><table><thead><tr><th>Dimension</th><th>전체 분포</th><th>Community contrast</th></tr></thead><tbody>
-                <tr><td>Timeframe</td><td>Habitual 1,305 (65.4%, 95% CI 63.3–67.5)<br>Episodic 633 (31.7%, 95% CI 29.7–33.8)</td><td>Habitual: therapyGPT 83.3% / Anxiety 53.9%</td></tr>
-                <tr><td>Source</td><td>Primary 1,019 (51.1%, 95% CI 48.9–53.3)<br>NM 704 (35.3%) · Supplement 237 (11.9%)</td><td>Primary: depression 73.8% / Anxiety 37.0% / therapyGPT 35.9%<br>Supplement: therapy 22.9%</td></tr>
-                <tr><td>Type</td><td>CO 21.3% · TA 18.1%<br>ES·VE·SE·SA 각 9–11%</td><td>depression CO 47.8% · therapyGPT TA 45.1%<br>Anxiety SA 23.7% + RE 21.9%</td></tr>
-            </tbody></table></div></div>
+
         </div></section>
 
         <section id="validation"><div class="wrap">
             <p class="chapter-no">04 / LLM 사용과 검증</p>
-            <h2>LLM은 corpus를 반복해서 읽는 세 단계에 사용했습니다</h2>
-            <p class="chapter-lead">Relevance screening, coding manual 개발, full-corpus contextual coding에 같은 기준을 반복 적용했습니다. 각 단계에서 human coding과 비교하고 disagreement를 다시 읽었습니다.</p>
+            <h2>LLM은 연구자가 전체 자료를 인식할 수 있는 범위를 넓히는 데 사용했습니다</h2>
+            <p class="chapter-lead">연구자가 작은 표본을 먼저 읽어 기준을 만들고, 사람과 LLM의 판단을 비교해 그 기준을 수정한 뒤 전체 자료에 적용했습니다. LLM은 전체의 도움 요청 상황을 같은 기준으로 보여 주지만, 어떤 게시물이 중요하고 어떤 담론적 의미를 갖는지는 대신 결정하지 않습니다.</p>
 
-            <div class="subsection"><h3>세 번의 human–LLM 확인</h3><div class="table-wrap"><table><thead><tr><th>단계</th><th>표본과 절차</th><th>사용한 지표</th><th>결과</th></tr></thead><tbody>
-                <tr><td>Relevance screening</td><td>LLM relevant 100 + not-relevant 100을 seed 42로 추출. Human coder는 LLM label을 보지 않고 판단. 안전 기준 적용 후 n=195.</td><td>Cohen’s κ, Gwet’s AC1, confusion matrix</td><td>κ=.856 · AC1=.857</td></tr>
-                <tr><td>Pilot coding</td><td>subreddit 비율을 반영한 80개 stratified random sample. Post-level 제외 후 68개, 두 coder 모두 valid code를 남긴 65개로 agreement 계산.</td><td>Dimension별 Cohen’s κ, confusion pair</td><td>Timeframe .765<br>Source .684<br>Type .682</td></tr>
-                <tr><td>Held-out spot check</td><td>Pilot과 겹치지 않는 pool에서 seed 42로 50개 blind draw. Human-excluded 1개를 뺀 n=49.</td><td>Percent agreement, Cohen’s κ, Gwet’s AC1, category precision·recall</td><td>세 dimension 모두 사전 기준 κ≥.61 통과</td></tr>
+            <div class="subsection"><h3>세 번의 사람–LLM 확인</h3><div class="table-wrap"><table><thead><tr><th>단계</th><th>표본과 절차</th><th>사용한 지표</th><th>결과</th></tr></thead><tbody>
+                <tr><td>관련성 선별</td><td>LLM이 관련 있다고 판단한 게시물 100개와 관련 없다고 판단한 게시물 100개를 난수 기준 42로 추출했습니다. 사람 코더는 LLM의 답을 보지 않고 판단했으며, 안전 기준 적용 후 195개로 계산했습니다.</td><td>Cohen의 κ, Gwet의 AC1, 혼동행렬</td><td>κ=.856 · AC1=.857</td></tr>
+                <tr><td>예비 코딩</td><td>하위 커뮤니티 비율을 반영해 80개를 층화 무작위 추출했습니다. 게시물 단위 제외 후 68개가 남았고, 두 코더 모두 유효한 코드를 남긴 65개로 일치도를 계산했습니다.</td><td>구분축별 Cohen의 κ와 불일치가 집중된 범주 쌍</td><td>사용 기간 .765<br>도움원에서 AI의 위치 .684<br>AI 사용 목적 .682</td></tr>
+                <tr><td>별도 표본 재검증</td><td>예비표본과 겹치지 않는 자료에서 난수 기준 42로 50개를 뽑았습니다. 사람이 제외한 1개를 빼고 49개로 계산했습니다.</td><td>단순 일치율, Cohen의 κ, Gwet의 AC1, 범주별 정밀도·재현율</td><td>세 구분축 모두 사전 기준 κ≥.61 통과</td></tr>
             </tbody></table></div></div>
 
-            <div class="subsection"><h3>Held-out spot check의 실제 값</h3><div class="table-wrap"><table><thead><tr><th>Dimension</th><th>Agreement</th><th>Cohen’s κ</th><th>Gwet’s AC1</th></tr></thead><tbody>
-                <tr><td>Timeframe</td><td>45/49 · 91.84%</td><td>.833</td><td>.892</td></tr>
-                <tr><td>Source</td><td>43/49 · 87.76%</td><td>.806</td><td>.860</td></tr>
-                <tr><td>Type</td><td>40/49 · 81.63%</td><td>.782</td><td>.804</td></tr>
+            <div class="subsection"><h3>별도 표본 재검증의 실제 값</h3><div class="table-wrap"><table><thead><tr><th>구분축</th><th>단순 일치율</th><th>Cohen의 κ</th><th>Gwet의 AC1</th></tr></thead><tbody>
+                <tr><td>사용 기간</td><td>45/49 · 91.84%</td><td>.833</td><td>.892</td></tr>
+                <tr><td>도움원에서 AI의 위치</td><td>43/49 · 87.76%</td><td>.806</td><td>.860</td></tr>
+                <tr><td>AI 사용 목적</td><td>40/49 · 81.63%</td><td>.782</td><td>.804</td></tr>
             </tbody></table></div></div>
 
             <div class="subsection"><h3>지표별 확인 내용</h3><div class="table-wrap"><table><thead><tr><th>지표</th><th>이 연구에서 확인한 것</th></tr></thead><tbody>
-                <tr><td>Percent agreement</td><td>Human과 LLM이 실제로 같은 label을 준 비율</td></tr>
-                <tr><td>Cohen’s κ</td><td>우연 일치를 보정한 coder agreement; full batch 적용 기준은 κ≥.61</td></tr>
-                <tr><td>Gwet’s AC1</td><td>특정 category에 사례가 몰릴 때 κ와 함께 확인한 chance-corrected agreement</td></tr>
-                <tr><td>Confusion matrix</td><td>불일치가 집중된 category pair와 human → LLM 방향</td></tr>
-                <tr><td>Precision · recall</td><td>전체 평균에 가려질 수 있는 category별 성능</td></tr>
+                <tr><td>단순 일치율</td><td>사람과 LLM이 실제로 같은 코드를 준 비율</td></tr>
+                <tr><td>Cohen의 κ</td><td>우연히 같은 판단이 나온 가능성을 보정한 코더 간 일치도이며, 전체 자료 적용 기준은 κ≥.61로 정했습니다.</td></tr>
+                <tr><td>Gwet의 AC1</td><td>특정 범주에 사례가 몰릴 때 κ와 함께 확인한 우연 보정 일치도입니다.</td></tr>
+                <tr><td>혼동행렬</td><td>불일치가 집중된 범주 쌍과 사람이 준 코드에서 LLM 코드로 어긋난 방향을 확인합니다.</td></tr>
             </tbody></table></div></div>
 
             <details><summary>API 실행 설정 보기</summary><div class="table-wrap"><table><thead><tr><th>단계</th><th>설정</th><th>실행 기록</th></tr></thead><tbody>
-                <tr><td>Relevance screening</td><td>Claude Sonnet 4 · post당 1 request · max_tokens 400 · body 3,000 characters까지 입력 · JSON output</td><td>relevance, risk 1/2/3, psychosis flag, reason</td></tr>
-                <tr><td>Batch contextual coding</td><td>Claude Sonnet 4 · temperature 0 · max_tokens 1,000 · timeout 90s · 최대 5회 retry · request 간 0.6s</td><td>EX-1–EX-9, Timeframe, Source, Type, reasoning</td></tr>
-                <tr><td>중단·복구</td><td>JSONL checkpoint · resume mode · error CSV · output overwrite protection</td><td>post_id merge와 row-count assertion으로 행 보존 확인</td></tr>
+                <tr><td>관련성 선별</td><td>Claude Sonnet 4 · 게시물마다 1회 요청 · 최대 출력량 400 토큰 · 본문은 3,000자까지 입력 · JSON 형식으로 출력</td><td>관련성, 위험 수준 1/2/3, 정신증 가능성 표시, 판단 이유</td></tr>
+                <tr><td>전체 자료의 도움 요청 상황 코딩</td><td>Claude Sonnet 4 · 무작위성 0 · 최대 출력량 1,000 토큰 · 제한시간 90초 · 최대 5회 재시도 · 요청 사이 0.6초</td><td>EX-1–EX-9, 사용 기간, 도움원에서 AI의 위치, AI 사용 목적, 판단 이유</td></tr>
+                <tr><td>중단·복구</td><td>JSONL 중간 저장 · 중단 지점부터 재개 · 오류 목록 별도 저장 · 기존 결과 덮어쓰기 방지</td><td>게시물 번호를 기준으로 결과를 결합하고 행 수가 보존되었는지 확인</td></tr>
             </tbody></table></div></details>
 
-            <div class="role-line"><div><span class="mini-label">LLM이 만든 자료</span><h3>맥락 좌표</h3><p>정해진 category를 전체 corpus에 적용해 combination과 community 분포를 만들었습니다.</p></div><div><span class="mini-label">연구자가 하는 분석</span><h3>CDP close reading</h3><p>표현의 순서, rhetorical device, 말의 기능, variation과 반례는 연구자가 원문 전체에서 분석합니다.</p></div></div>
+            <div class="role-line"><div><span class="mini-label">LLM을 이용해 확보한 넓이</span><h3>도움 요청 상황 지도</h3><p>검증한 범주를 전체 자료에 적용해, 무엇이 어디에 놓이는지 비교할 수 있게 했습니다.</p></div><div><span class="mini-label">표집 뒤 연구자가 확보하는 깊이</span><h3>CDP 정밀 읽기</h3><p>표현의 순서, 수사적 장치, 말의 기능, 변이와 반례는 연구자가 원문 전체에서 분석합니다.</p></div></div>
         </div></section>
 
         <section id="sampling-analysis"><div class="wrap">
-            <p class="chapter-no">05 / Sampling과 close reading</p>
-            <h2>Variation을 빠뜨리지 않기 위한 sampling</h2>
-            <p class="chapter-lead">이와 같은 CDP 연구는 아직 직접 참고할 선행 절차가 많지 않습니다. 전체 1,994개를 모두 같은 깊이로 읽는 대신 corpus map에서 반복, 대비, 경계와 잔여 사례를 찾고, close reading 결과를 다시 sampling 판단에 연결했습니다.</p>
+            <p class="chapter-no">05 / 표집과 정밀 읽기</p>
+            <h2>전체를 충분히 이해한 뒤에 선택해야, 표집에도 의미가 생깁니다</h2>
+            <p class="chapter-lead">먼저 도움 요청 상황 지도와 게시물 검토를 통해 전체 자료를 넓게 이해하고, 그 이해를 바탕으로 정밀 읽기 대상을 선택했습니다. 선택한 게시물을 깊이 읽으면서 처음에는 보이지 않았던 경우가 나오면 다시 전체 자료로 돌아갑니다. 즉, 전체를 넓게 이해하고 → 그 이해를 바탕으로 선택하고 → 깊이 읽으면서 다시 전체에 대한 이해를 넓히는 과정입니다.</p>
 
-            <div class="subsection"><h3>어떤 경우에 몇 개를 뽑았는가</h3><div class="table-wrap"><table><thead><tr><th>Sampling 목적</th><th>배정 수</th><th>그 수가 필요한 이유</th></tr></thead><tbody>
-                <tr><td>Corpus에서 큰 비중을 차지하고 내부적으로 묶이는 combination</td><td>5–8</td><td>반복되는 repertoire와 같은 상황 안의 variation을 함께 읽기 위해</td></tr>
-                <tr><td>두 community 또는 두 Source를 비교하는 contrast pair</td><td>각 4–5</td><td>양쪽 모두에서 반복과 내부 차이를 확인한 뒤 비교하기 위해</td></tr>
-                <tr><td>Hard-to-say 또는 두 가지 reading이 가능한 경우</td><td>3–4</td><td>판단을 바로 확정하지 못한 이유가 경계 사례인지 내부 variation인지 확인하기 위해</td></tr>
-                <tr><td>드물지만 다른 조합과 구분되는 distinctive case</td><td>1–2</td><td>빈도는 낮아도 새로운 discursive possibility를 보여 주는지 확인하기 위해</td></tr>
-                <tr><td>어떤 slot에도 포함되지 않은 residual</td><td>5</td><td>미리 만든 frame이 놓친 combination을 확인하기 위해</td></tr>
+            <div class="subsection"><h3>어떤 경우에 몇 개를 뽑았는가</h3><div class="table-wrap"><table><thead><tr><th>표집 목적</th><th>배정 수</th><th>그 수가 필요한 이유</th></tr></thead><tbody>
+                <tr><td>전체 자료에서 큰 비중을 차지하고 내부적으로 묶이는 조합</td><td>5–8</td><td>반복되는 레퍼토리와 같은 상황 안의 변이를 함께 읽기 위해</td></tr>
+                <tr><td>두 커뮤니티 또는 AI가 놓인 위치를 비교하는 대비 쌍</td><td>각 4–5</td><td>양쪽 모두에서 반복과 내부 차이를 확인한 뒤 비교하기 위해</td></tr>
+                <tr><td>판단하기 어렵거나 두 가지 해석이 가능한 경우</td><td>3–4</td><td>판단을 바로 확정하지 못한 이유가 경계 사례인지 내부 변이인지 확인하기 위해</td></tr>
+                <tr><td>드물지만 다른 조합과 구분되는 독특한 사례</td><td>1–2</td><td>빈도는 낮아도 새로운 담론적 가능성을 보여 주는지 확인하기 위해</td></tr>
+                <tr><td>어떤 표집 단위에도 포함되지 않은 잔여 사례</td><td>5</td><td>미리 만든 틀이 놓친 조합을 확인하기 위해</td></tr>
             </tbody></table></div></div>
 
-            <div class="technical-band">현재 1차 sample은 16개 slot에서 58개, residual pool에서 5개를 뽑아 총 63개입니다. Pilot 80개와 spot-check 50개는 이미 manual 개발과 validation에서 읽었으므로 sampling pool에서 제외했습니다. 각 slot 안에서는 <code>random_state=42</code>를 사용하고, <code>used_ids</code>로 중복 배정을 막았습니다.</div>
+            <div class="technical-band">현재 1차 표본은 16개 표집 단위에서 58개, 잔여 자료에서 5개를 뽑아 총 63개입니다. 예비 검토 80개와 재검증 50개는 연구자가 이미 읽은 자료이므로, 익숙한 내용을 다시 선택하는 쪽으로 표집이 기울지 않게 정밀 읽기 표집 대상에서 제외했습니다. 각 표집 단위 안에서는 <code>random_state=42</code>를 사용하고, <code>used_ids</code>로 중복 배정을 막았습니다.</div>
 
-            <details><summary>63개 sample의 실제 slot과 배정 수 보기</summary><div class="table-wrap"><table><thead><tr><th>Slot</th><th>n</th><th>Slot</th><th>n</th></tr></thead><tbody>
+            <details><summary>63개 표본의 실제 표집 단위와 배정 수 보기</summary><div class="table-wrap"><table><thead><tr><th>표집 단위</th><th>수</th><th>표집 단위</th><th>수</th></tr></thead><tbody>
                 <tr><td>Anxiety Episodic × SA</td><td>4</td><td>Anxiety Habitual × SA/RE</td><td>5</td></tr>
                 <tr><td>Habitual × Primary × CO/VE</td><td>8</td><td>therapy Habitual × TA × Primary</td><td>5</td></tr>
                 <tr><td>therapy Habitual × TA × Supplement</td><td>4</td><td>therapyGPT Habitual × TA × Primary</td><td>5</td></tr>
@@ -287,39 +305,32 @@
                 <tr><td>mentalhealth NM × SE/PE</td><td>4</td><td>therapyGPT NM × SE</td><td>3</td></tr>
                 <tr><td>FS</td><td>2</td><td>Habitual × Supplement × CO</td><td>1</td></tr>
                 <tr><td>Primary × SE</td><td>2</td><td>Type=N</td><td>1</td></tr>
-                <tr><td>Residual pool</td><td>5</td><td>Total</td><td>63</td></tr>
+                <tr><td>잔여 자료</td><td>5</td><td>합계</td><td>63</td></tr>
             </tbody></table></div></details>
 
-            <div class="subsection"><h3>각 combination에서 반복하는 판단</h3><div class="loop">
-                <div class="loop-step"><span>STEP 1</span><h4>Sampling claim 확인</h4><p>이 combination을 뽑은 이유와 확인해야 할 반복·contrast·boundary를 먼저 적습니다.</p></div><div class="loop-arrow">→</div>
-                <div class="loop-step"><span>STEP 2</span><h4>Post 전체 close reading</h4><p>communicative purpose, 표현 순서, category work, accountability와 variation을 비교합니다.</p></div><div class="loop-arrow">→</div>
-                <div class="loop-step"><span>STEP 3</span><h4>Combination sampling 평가</h4><p>처음 배정한 목적을 현재 sample이 수행했는지 근거와 함께 pass/fail로 기록합니다.</p></div>
-            </div><div class="decision"><div><strong>PASS</strong><p>판단 근거를 남기고 다음 combination으로 이동합니다.</p></div><div><strong>FAIL</strong><p>해당 pool과 전체 corpus를 다시 검색하고 re-sampling → close reading → 재평가합니다.</p></div></div></div>
+            <div class="subsection"><h3>각 조합에서 반복하는 판단</h3><div class="loop">
+                <div class="loop-step"><span>1단계</span><h4>표집 목표 확인</h4><p>이 조합을 뽑은 이유와 확인해야 할 반복·대비·경계를 먼저 적습니다.</p></div><div class="loop-arrow">→</div>
+                <div class="loop-step"><span>2단계</span><h4>게시물 전체 정밀 읽기</h4><p>글의 소통 목적, 표현 순서, 범주를 사용하는 방식, 책임 처리와 변이를 비교합니다.</p></div><div class="loop-arrow">→</div>
+                <div class="loop-step"><span>3단계</span><h4>조합별 표집 평가</h4><p>현재 표본으로 처음의 표집 목적을 확인할 수 있는지 근거와 함께 통과 또는 보완 필요로 기록합니다.</p></div>
+            </div><div class="decision"><div><strong>통과</strong><p>판단 근거를 남기고 다음 조합으로 이동합니다.</p></div><div><strong>보완 필요</strong><p>해당 자료와 전체 자료를 다시 검색하고 재표집 → 정밀 읽기 → 재평가를 진행합니다.</p></div></div></div>
 
-            <div class="subsection"><h3>그 뒤에야 combination 사이를 비교합니다</h3><p>각 combination의 sampling을 통과시킨 뒤 반복되는 repertoire, 같은 repertoire 안의 variation, community contrast와 반례를 비교합니다. 이 비교에서 최종 claim과 적용 범위를 정합니다.</p></div>
+            <div class="subsection"><h3>그 뒤에야 조합 사이를 비교합니다</h3><p>각 조합의 표집을 검토한 뒤 반복되는 레퍼토리, 같은 레퍼토리 안의 변이, 커뮤니티 간 차이와 반례를 비교합니다. 이 비교에서 최종 분석 주장과 적용 범위를 정합니다.</p></div>
         </div></section>
 
         <section id="current-review"><div class="wrap">
             <p class="chapter-no">06 / 현재 상태</p>
-            <h2>기술적 pipeline은 완료했고, close reading은 다시 분석하고 있습니다</h2>
-            <div class="status-list"><div class="status-col"><span class="mini-label">완료한 부분</span><h3>완료</h3><ul><li>자료 수집과 keyword screening</li><li>relevance screening과 n=195 agreement</li><li>2,127개 cleaned corpus 구성</li><li>Rickwood adaptation과 80개 pilot</li><li>full-corpus coding과 held-out 50개 spot check</li><li>1,994개 contextual map과 63개 1차 sampling</li></ul></div><div class="status-col"><span class="mini-label">진행 중인 부분</span><h3>재분석 중</h3><ul><li>combination별 CDP close reading</li><li>각 combination의 sampling pass/fail 근거 정리</li><li>fail combination의 corpus 재검색과 re-sampling</li><li>combination·community variation과 반례 비교</li><li>최종 repertoire·dilemma·position 구성</li></ul></div></div>
+            <h2>자료 처리와 검증 절차는 완료했고, 정밀 읽기는 다시 분석하고 있습니다</h2>
+            <div class="status-list"><div class="status-col"><span class="mini-label">완료한 부분</span><h3>완료</h3><ul><li>자료 수집과 핵심어 선별</li><li>관련성 선별과 195개 표본의 일치도 검증</li><li>2,127개 정제 자료 구성</li><li>Rickwood 틀 수정과 80개 예비 검토</li><li>전체 자료 코딩과 별도 50개 표본 재검증</li><li>1,994개의 도움 요청 상황 지도와 63개 1차 표집</li></ul></div><div class="status-col"><span class="mini-label">진행 중인 부분</span><h3>재분석 중</h3><ul><li>조합별 CDP 정밀 읽기</li><li>각 조합의 표집 평가 근거 정리</li><li>보완이 필요한 조합의 전체 자료 재검색과 재표집</li><li>조합·커뮤니티 사이의 변이와 반례 비교</li><li>최종 레퍼토리·딜레마·주체 위치 구성</li></ul></div></div>
 
-            <div class="confession"><h3>현재 분석 상태</h3><p>1차 분석은 제가 다시 보아도 잘했다고 생각하지 않습니다. combination별 sampling을 pass/fail로 확인하는 절차는 따랐지만, close reading의 해석과 판단 근거가 아직 충분히 정리되지 않았습니다. 현재 <code>analysis/result_first_round.docx</code>를 다시 분석하고 있습니다.</p><p>이 페이지는 현재 확정된 연구 질문, 자료 구성, validation과 sampling 절차를 중심으로 정리했습니다. <code>analysis/result_first_round.docx</code>는 최종 결과가 아니라 재분석 전의 작업 기록입니다.</p></div>
+            <div class="confession"><h3>현재 분석 상태</h3><p>1차 분석은 제가 다시 보아도 잘했다고 생각하지 않습니다. 조합별 표집을 통과 또는 보완 필요로 확인하는 절차는 따랐지만, 정밀 읽기의 해석과 판단 근거가 아직 충분히 정리되지 않았습니다. 현재 <code>analysis/result_first_round.docx</code>를 다시 분석하고 있습니다.</p></div>
 
-            <div class="subsection"><h3>기술적 세부와 관련 파일</h3><div class="table-wrap"><table><thead><tr><th>영역</th><th>이 페이지에서 설명한 내용</th><th>세부 파일</th></tr></thead><tbody>
-                <tr><td>Corpus construction</td><td>월별 API pagination, keyword hit log, relevance·안전·중복 처리로 이어지는 수집 경로</td><td><code>src/01–04</code>, <code>outputs/posts_list_kw_hit_log.json</code></td></tr>
-                <tr><td>Framework adaptation</td><td>사람 대상 Rickwood framework를 Timeframe·Source·Type으로 바꾸어 help-seeking context를 좌표화한 기준</td><td><code>manuals/rickwood_coding_manual.docx</code>, <code>src/rickwood_prompt.py</code></td></tr>
-                <tr><td>Validation</td><td>relevance, pilot, held-out sample과 κ·AC1·category metric을 이용한 coding 확인</td><td><code>src/03, 06, 08, 09</code>, <code>outputs/</code></td></tr>
-                <tr><td>Sampling algorithm</td><td>slot, quota, seed, development sample 제외, residual draw를 포함한 selection path</td><td><code>src/12_sampling.py</code>, <code>manuals/sampling_strategy.docx</code></td></tr>
-                <tr><td>Analysis feedback loop</td><td>combination별 close reading → sampling pass/fail → corpus 재검색과 re-sampling으로 이어지는 판단 기록</td><td><code>manuals/logs/</code>, <code>manuals/analysis_strategy.docx</code></td></tr>
-            </tbody></table></div></div>
         </div></section>
     </main>
 
     <footer class="research-footer" id="research-contact"><div class="footer-wrap">
         <span class="footer-eyebrow">자료 및 연락처</span>
             <div class="footer-top"><h2>세부 자료를 더 보고 싶으시면</h2></div>
-            <p class="footer-intro">coding manual, sampling log, sampling claim, validation output과 실행 code는 아래 repository에서 확인하실 수 있습니다. 연구 관련 연락처도 함께 정리했습니다.<br>9월 1일까지는 시험과 발표 일정이 겹쳐 있어, 연락을 확인하더라도 답변이나 수정이 늦을 수 있습니다.</p>
+            <p class="footer-intro">코딩 지침, 표집 기록, 표집 근거, 검증 결과와 실행 코드는 아래 저장소에서 확인하실 수 있습니다. 연구 관련 연락처도 함께 정리했습니다.<br>9월 1일까지는 시험과 발표 일정이 겹쳐 있어, 연락을 확인하더라도 답변이나 수정이 늦을 수 있습니다.</p>
             <a class="github-link" href="https://github.com/li33893/ai-support-discourse" target="_blank" rel="noreferrer">GitHub에서 연구 자료 바로 보기 →</a>
         <nav class="contact-nav" aria-label="연락처"><a href="tel:+821025513228"><span>전화</span><strong>010-2551-3228</strong></a><div><span>KakaoTalk</span><strong>010-2551-3228</strong></div><a href="mailto:3228302551@qq.com"><span>E-mail</span><strong>3228302551@qq.com</strong></a><a href="https://github.com/li33893/ai-support-discourse" target="_blank" rel="noreferrer"><span>GitHub</span><strong>li33893/ai-support-discourse</strong></a></nav>
     </div></footer>
